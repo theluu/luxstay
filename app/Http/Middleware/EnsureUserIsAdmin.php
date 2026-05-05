@@ -11,6 +11,8 @@ class EnsureUserIsAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if (! $request->user()?->isAdmin()) {
+            // The 'auth' middleware redirects guests before we are reached in the
+            // standard ['auth', 'admin'] stack. This branch guards standalone usage.
             return $request->user()
                 ? redirect('/')->with('error', 'Unauthorized.')
                 : redirect('/login');
