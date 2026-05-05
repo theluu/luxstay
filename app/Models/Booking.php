@@ -16,6 +16,7 @@ class Booking extends Model
         'check_in'    => 'date',
         'check_out'   => 'date',
         'total_price' => 'decimal:2',
+        'guests'      => 'integer',
     ];
     public function user(): BelongsTo { return $this->belongsTo(User::class); }
     public function room(): BelongsTo { return $this->belongsTo(Room::class); }
