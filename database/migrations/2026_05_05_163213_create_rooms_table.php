@@ -24,6 +24,7 @@ return new class extends Migration
             $table->json('gallery')->nullable();
             $table->boolean('is_available')->default(true);
             $table->timestamps();
+            $table->index(['is_available', 'room_type_id']);
         });
     }
 

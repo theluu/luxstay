@@ -23,6 +23,7 @@ return new class extends Migration
             $table->json('gallery')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->index(['is_active', 'product_category_id']);
         });
     }
 

@@ -24,6 +24,9 @@ return new class extends Migration
             $table->string('vnpay_txn_ref')->nullable()->unique();
             $table->text('special_requests')->nullable();
             $table->timestamps();
+            $table->index('status');
+            $table->index(['user_id', 'status']);
+            $table->index(['room_id', 'check_in', 'check_out']);
         });
     }
 

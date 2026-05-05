@@ -17,7 +17,7 @@ return new class extends Migration
             $table->decimal('amount', 10, 2);
             $table->string('gateway')->default('vnpay');
             $table->enum('status', ['pending', 'success', 'failed'])->default('pending');
-            $table->string('gateway_ref')->nullable();
+            $table->string('gateway_ref')->nullable()->index();
             $table->json('gateway_response')->nullable();
             $table->timestamps();
         });
