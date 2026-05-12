@@ -1,2 +1,9 @@
-// Admin SPA entry point — implemented in Plan 4
-document.getElementById('admin-app').textContent = 'Admin coming soon.';
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import router from './router/index'
+import App from './App.vue'
+
+const app = createApp(App)
+app.use(createPinia())
+app.use(router)
+app.mount('#admin-app')
