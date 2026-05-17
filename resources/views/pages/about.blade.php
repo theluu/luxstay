@@ -344,17 +344,17 @@
                   <div class="check-in-out-form form-section wow bounceInRight">
                      <form>
                         <div class="booking-form-col position-relative">
-                           <label class="form-label" for="checkin">Check-in</label>
-                           <input type="text" id="checkin" class="form-control mb-0 ps-0" placeholder="Select date">
+                           <label class="form-label" for="checkin">Nhận phòng</label>
+                           <input type="text" id="checkin" class="form-control mb-0 ps-0" placeholder="Chọn ngày">
                            <i class="fa-regular fa-calendar"></i>
                         </div>
                         <div class="booking-form-col position-relative">
-                           <label class="form-label" for="checkout">Check-out</label>
-                           <input type="text" id="checkout" class="form-control mb-0 ps-0" placeholder="Select date">
+                           <label class="form-label" for="checkout">Trả phòng</label>
+                           <input type="text" id="checkout" class="form-control mb-0 ps-0" placeholder="Chọn ngày">
                            <i class="fa-regular fa-calendar"></i>
                         </div>
                         <div class="select-wrapper booking-form-col position-relative">
-                           <label class="form-label" for="rooms">Rooms</label>
+                           <label class="form-label" for="rooms">Số phòng</label>
                            <select class="form-select form-control mb-0 ps-0" id="rooms">
                               <option value="1" selected>1</option>
                               <option value="2">2</option>
@@ -380,15 +380,15 @@
                            <i class="fa-solid fa-chevron-down custom-select-icon"></i>
                         </div>
                         <div class="select-wrapper booking-form-col position-relative custom-guests-dropdown">
-                           <label class="form-label" for="guests">Guests</label>
+                           <label class="form-label" for="guests">Khách</label>
                            <div class="dropdown">
                               <button class="form-select form-control mb-0 ps-0 dropdown-toggle" type="button"
                                  id="guestsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                              1 Adult
+                              1 Người lớn
                               </button>
                               <ul class="dropdown-menu p-3" aria-labelledby="guestsDropdown">
                                  <li class="mb-2">
-                                    <label class="form-label d-block">Adults</label>
+                                    <label class="form-label d-block">Người lớn</label>
                                     <select id="guests" class="form-select">
                                        <option value="0">0</option>
                                        <option value="1" selected>1</option>
@@ -398,7 +398,7 @@
                                     </select>
                                  </li>
                                  <li class="mb-2">
-                                    <label class="form-label d-block">Children <small>(2–12 years old)</small></label>
+                                    <label class="form-label d-block">Trẻ em <small>(2–12 tuổi)</small></label>
                                     <select class="form-select">
                                        <option value="0" selected>0</option>
                                        <option value="1">1</option>
@@ -408,7 +408,7 @@
                                     </select>
                                  </li>
                                  <li>
-                                    <label class="form-label d-block">Infants <small>(0–2 years old)</small></label>
+                                    <label class="form-label d-block">Sơ sinh <small>(0–2 tuổi)</small></label>
                                     <select class="form-select">
                                        <option value="0" selected>0</option>
                                        <option value="1">1</option>
@@ -420,7 +420,7 @@
                            <i class="fa-solid fa-chevron-down custom-select-icon"></i>
                         </div>
                         <div class="sisf-m-button text-center">
-                           <button type="submit" class="check-btn">Check Availability</button>
+                           <button type="submit" class="check-btn">Kiểm tra phòng trống</button>
                         </div>
                      </form>
                   </div>

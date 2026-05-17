@@ -11,7 +11,7 @@
          <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
             <div class="sisf-m-inner">
                <div class="sisf-m-content sisf-content-grid ">
-                  <h1 class="sisf-m-title text-center entry-title">Blogs</h1>
+                  <h1 class="sisf-m-title text-center entry-title">Blog</h1>
                </div>
             </div>
          </div>
@@ -31,7 +31,7 @@
                                  <div class="sisf-e-media-image">
                                     <a href="{{ route('blog.show', $post->slug) }}">
                                        <figure class="image-anime reveal">
-                                          <img src="{{ $post->thumbnail ? asset('storage/' . $post->thumbnail) : asset('images/blog-list_1.png') }}" class="image-fluid" alt="LuxeStay">
+                                          <img src="{{ $post->thumbnail ? asset($post->thumbnail) : asset('images/blog-list_1.png') }}" class="image-fluid" alt="LuxeStay">
                                        </figure>
                                     </a>
                                  </div>
@@ -53,13 +53,13 @@
                                     <p class="sisf-e-excerpt">{{ $post->excerpt }}</p>
                                  </div>
                                  <div class="sisf-m-button mt-2">
-                                    <a href="{{ route('blog.show', $post->slug) }}" class="btn-default btn-secondary"><span>VIEW MORE <i class="fa-solid fa-arrow-right"></i></span></a>
+                                    <a href="{{ route('blog.show', $post->slug) }}" class="btn-default btn-secondary"><span>ĐỌC THÊM <i class="fa-solid fa-arrow-right"></i></span></a>
                                  </div>
                               </div>
                            </div>
                         </div>
                         @empty
-                        <p class="text-center">No posts found.</p>
+                        <p class="text-center">Không tìm thấy bài viết.</p>
                         @endforelse
                         {{ $posts->links() }}
                      </div>
@@ -81,7 +81,7 @@
                            <hr class="separator sidebar-line">
                         </div>
                         <div class="sidebar-widget widget_categories">
-                           <h3 class="sidebar-title">Categories</h3>
+                           <h3 class="sidebar-title">Danh mục</h3>
                            <div class="product-categories">
                               <ul class="product-categories-list">
                                  @foreach($categories as $category)
@@ -98,13 +98,13 @@
                            <hr class="separator sidebar-line">
                         </div>
                         <div class="sidebar-widget widget_popular_blog">
-                           <h3 class="sidebar-title">Latest Blog</h3>
+                           <h3 class="sidebar-title">Bài viết mới nhất</h3>
                            <div class="sidebar_content-list">
                               <ul class="content_list_widget">
                                  @foreach($posts->take(3) as $recentPost)
                                  <li>
                                     <div class="sisf-image">
-                                       <a href="{{ route('blog.show', $recentPost->slug) }}"><img src="{{ $recentPost->thumbnail ? asset('storage/' . $recentPost->thumbnail) : asset('images/blog-list_1.png') }}" class="image-fluid" alt="LuxeStay"></a>
+                                       <a href="{{ route('blog.show', $recentPost->slug) }}"><img src="{{ $recentPost->thumbnail ? asset($recentPost->thumbnail) : asset('images/blog-list_1.png') }}" class="image-fluid" alt="LuxeStay"></a>
                                     </div>
                                     <div class="sisf-blog-content">
                                        <h5 class="sisf-blog-title"><a href="{{ route('blog.show', $recentPost->slug) }}">{{ $recentPost->title }}</a></h5>
@@ -121,7 +121,7 @@
                            <hr class="separator sidebar-line">
                         </div>
                         <div class="sidebar-widget widget_popular_tag">
-                           <h3 class="sidebar-title">Popular Tags</h3>
+                           <h3 class="sidebar-title">Thẻ phổ biến</h3>
                            <div class="sidebar_tag-list">
                               <a href="{{ route('blog.index') }}" class="tag">Best Hotels</a>
                               <a href="{{ route('blog.index') }}" class="tag">Booking Tips</a>
@@ -134,7 +134,7 @@
                            <hr class="separator sidebar-line">
                         </div>
                         <div class="sidebar-widget widget_follow_us">
-                           <h3 class="sidebar-title">Follow Us On</h3>
+                           <h3 class="sidebar-title">Theo dõi chúng tôi</h3>
                            <div class="sisf-author-info text-center">
                               <a class="sisf-author-info-image mb-3 d-block" href="{{ route('blog.index') }}">
                               <img src="{{ asset('images/default_user.png') }}" class="image-fluid" alt="LuxeStay">

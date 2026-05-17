@@ -8,32 +8,57 @@
          <div class="hero-slider-layout">
             <div class="swiper position-relative">
                <div class="swiper-wrapper">
+                  @forelse($sliders ?? [] as $slide)
+                  @php
+                     $slideMediaUrl = preg_match('/^https?:\/\//', $slide->media_url) ? $slide->media_url : asset($slide->media_url);
+                  @endphp
                   <div class="swiper-slide position-relative">
-                     <div class="hero-slide hero-video">
+                     <div class="hero-slide{{ $slide->type === 'video' ? ' hero-video' : '' }}">
+                        @if($slide->type === 'video')
                         <div class="hero-bg-video">
-                           <!-- Selfhosted Video Start -->
                            <video class="p-0" autoplay="" muted="" loop="" id="myVideo">
-                              <source src="https://luxestay.wpthemeverse.com/wp-content/uploads/2024/08/video-hotel1-1.mp4" type="video/mp4">
+                              <source src="{{ $slideMediaUrl }}" type="video/mp4">
                            </video>
-                           <!-- Selfhosted Video End -->
                         </div>
-                        <!-- Slider Content Start -->
+                        @else
+                        <div class="hero-slider-image">
+                           <img src="{{ $slideMediaUrl }}" alt="{{ $slide->title ?: 'LuxeStay' }}">
+                        </div>
+                        @endif
                         <div class="container-fluid">
                            <div class="row align-items-center">
                               <div class="col-12">
-                                 <!-- Hero Content Start -->
                                  <div class="hero-content">
-                                    <!-- Hero Title Start -->
+                                    @if($slide->title)
                                     <div class="section-title mb-3 wow fadeInUp">
-                                       <h1 class="text-white text-center text-anime-style-2" data-cursor="-opaque">PREMIER MOUNTAIN RETREAT FOR<br> RELAXATION AND RECREATION</h1>
+                                       <h1 class="text-white text-center text-anime-style-2" data-cursor="-opaque">{!! nl2br(e($slide->title)) !!}</h1>
                                     </div>
-                                    <!-- Hero Title End -->
+                                    @endif
                                  </div>
-                                 <!-- Hero Content End -->
                               </div>
                            </div>
                         </div>
-                        <!-- Slider Content End -->
+                     </div>
+                  </div>
+                  @empty
+                  <div class="swiper-slide position-relative">
+                     <div class="hero-slide hero-video">
+                        <div class="hero-bg-video">
+                           <video class="p-0" autoplay="" muted="" loop="" id="myVideo">
+                              <source src="https://luxestay.wpthemeverse.com/wp-content/uploads/2024/08/video-hotel1-1.mp4" type="video/mp4">
+                           </video>
+                        </div>
+                        <div class="container-fluid">
+                           <div class="row align-items-center">
+                              <div class="col-12">
+                                 <div class="hero-content">
+                                    <div class="section-title mb-3 wow fadeInUp">
+                                       <h1 class="text-white text-center text-anime-style-2" data-cursor="-opaque">PREMIER MOUNTAIN RETREAT FOR<br> RELAXATION AND RECREATION</h1>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
                      </div>
                   </div>
                   <div class="swiper-slide">
@@ -84,6 +109,7 @@
                         <!-- Slider Content End -->
                      </div>
                   </div>
+                  @endforelse
                </div>
             </div>
          </div>
@@ -148,7 +174,7 @@
                         </div>
                         <div class="sisf-m-button sisf-sis-clear pt-4">
                            <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('about') }}">
-                           <span class="sisf-m-text">SEE MORE</span>
+                           <span class="sisf-m-text">XEM THÊM</span>
                            </a>
                         </div>
                      </div>
@@ -209,7 +235,10 @@
                   <div class="services-video">
                      <!-- Selfhosted Video Start -->
                      <video autoplay="" muted="" loop="">
-                        <source src="https://luxestay.wpthemeverse.com/wp-content/uploads/2024/07/video2.mp4" type="video/mp4">
+                        @php
+                           $servicesMediaUrl = preg_match('/^https?:\/\//', $servicesVideoUrl ?? '') ? $servicesVideoUrl : asset($servicesVideoUrl ?? '');
+                        @endphp
+                        <source src="{{ $servicesMediaUrl }}" type="video/mp4">
                      </video>
                      <!-- Selfhosted Video End -->
                   </div>
@@ -289,7 +318,7 @@
                                        </a>
                                     </div>
                                     <span class="sisf-e-price">
-                                    <span class="sisf-e-price-label text-uppercase">From</span>
+                                    <span class="sisf-e-price-label text-uppercase">Từ</span>
                                     <span class="sisf-e-price-value">${{ $room->price_per_night }}</span>
                                     </span>
                                  </div>
@@ -321,17 +350,17 @@
                   <div class="check-in-out-form form-section wow bounceInRight">
                      <form>
                         <div class="booking-form-col position-relative">
-                           <label class="form-label" for="checkin">Check-in</label>
-                           <input type="text" id="checkin" class="form-control mb-0 ps-0" placeholder="Select date">
+                           <label class="form-label" for="checkin">Nhận phòng</label>
+                           <input type="text" id="checkin" class="form-control mb-0 ps-0" placeholder="Chọn ngày">
                            <i class="fa-regular fa-calendar"></i>
                         </div>
                         <div class="booking-form-col position-relative">
-                           <label class="form-label" for="checkout">Check-out</label>
-                           <input type="text" id="checkout" class="form-control mb-0 ps-0" placeholder="Select date">
+                           <label class="form-label" for="checkout">Trả phòng</label>
+                           <input type="text" id="checkout" class="form-control mb-0 ps-0" placeholder="Chọn ngày">
                            <i class="fa-regular fa-calendar"></i>
                         </div>
                         <div class="select-wrapper booking-form-col position-relative">
-                           <label class="form-label" for="rooms">Rooms</label>
+                           <label class="form-label" for="rooms">Số phòng</label>
                            <select class="form-select form-control mb-0 ps-0" id="rooms">
                               <option value="1" selected>1</option>
                               <option value="2">2</option>
@@ -357,15 +386,15 @@
                            <i class="fa-solid fa-chevron-down custom-select-icon"></i>
                         </div>
                          <div class="select-wrapper booking-form-col position-relative custom-guests-dropdown">
-                              <label class="form-label" for="guests">Guests</label>
+                              <label class="form-label" for="guests">Khách</label>
                               <div class="dropdown">
                                  <button class="form-select form-control mb-0 ps-0 dropdown-toggle" type="button"
                                        id="guestsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                 1 Adult
+                                 1 Người lớn
                                  </button>
                                  <ul class="dropdown-menu p-3" aria-labelledby="guestsDropdown">
                                  <li class="mb-2">
-                                    <label class="form-label d-block">Adults</label>
+                                    <label class="form-label d-block">Người lớn</label>
                                     <select id="guests" class="form-select">
                                        <option value="0">0</option>
                                        <option value="1" selected>1</option>
@@ -375,7 +404,7 @@
                                     </select>
                                  </li>
                                  <li class="mb-2">
-                                    <label class="form-label d-block">Children <small>(2–12 years old)</small></label>
+                                    <label class="form-label d-block">Trẻ em <small>(2–12 tuổi)</small></label>
                                     <select class="form-select">
                                        <option value="0" selected>0</option>
                                        <option value="1">1</option>
@@ -385,7 +414,7 @@
                                     </select>
                                  </li>
                                  <li>
-                                    <label class="form-label d-block">Infants <small>(0–2 years old)</small></label>
+                                    <label class="form-label d-block">Sơ sinh <small>(0–2 tuổi)</small></label>
                                     <select class="form-select">
                                        <option value="0" selected>0</option>
                                        <option value="1">1</option>
@@ -397,7 +426,7 @@
                               <i class="fa-solid fa-chevron-down custom-select-icon"></i>
                          </div>
                         <div class="sisf-m-button text-center">
-                           <button type="submit" class="check-btn">Check Availability</button>
+                           <button type="submit" class="check-btn">Kiểm tra phòng trống</button>
                         </div>
                      </form>
                   </div>
@@ -425,29 +454,39 @@
                   <!-- Section Title End -->
                   <!-- Form Start -->
                   <div class="contact-here-form">
-                     <form id="contactForm" action="#" method="POST" data-toggle="validator" data-wow-delay="0.5s">
+                     @if(session('success') && old('source') === 'home_extra_service')
+                        <div style="background:#111;color:#fff;padding:14px 20px;margin-bottom:24px;font-size:14px">
+                           {{ session('success') }}
+                        </div>
+                     @endif
+                     @if($errors->any() && old('source') === 'home_extra_service')
+                        <div style="background:#b91c1c;color:#fff;padding:14px 20px;margin-bottom:24px;font-size:14px">
+                           {{ $errors->first() }}
+                        </div>
+                     @endif
+                     <form id="homeExtraServiceForm" action="{{ route('contact.store') }}" method="POST" data-wow-delay="0.5s">
                         @csrf
+                        <input type="hidden" name="source" value="home_extra_service">
                         <div class="row">
                            <div class="form form-group wow bounceInRight">
                               <div class="help-block with-errors"></div>
-                              <label class="sisf-m-field-label" for="name">NAME</label>
-                              <input type="text" class="form-control" name="name" id="name" placeholder="Name" required="">
+                              <label class="sisf-m-field-label" for="home_service_name">HỌ VÀ TÊN</label>
+                              <input type="text" class="form-control" name="name" id="home_service_name" placeholder="Họ và tên" value="{{ old('source') === 'home_extra_service' ? old('name') : '' }}" required>
                            </div>
                            <div class="form form-group wow bounceInRight">
                               <div class="help-block with-errors"></div>
-                              <label class="sisf-m-field-label" for="email">EMAIL</label>
-                              <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="">
+                              <label class="sisf-m-field-label" for="home_service_email">EMAIL</label>
+                              <input type="email" class="form-control" name="email" id="home_service_email" placeholder="Email của bạn" value="{{ old('source') === 'home_extra_service' ? old('email') : '' }}" required>
                            </div>
                            <div class="form form-group wow bounceInRight">
                               <div class="help-block with-errors"></div>
-                              <label class="sisf-m-field-label" for="msg">YOUR MESSAGE</label>
-                              <textarea class="form-control" rows="3" name="msg" id="msg" placeholder="Your message" required=""></textarea>
+                              <label class="sisf-m-field-label" for="home_service_msg">TIN NHẮN</label>
+                              <textarea class="form-control" rows="3" name="msg" id="home_service_msg" placeholder="Tin nhắn của bạn" required>{{ old('source') === 'home_extra_service' ? old('msg') : '' }}</textarea>
                            </div>
                            <div class="sisf-m-button wow bounceInRight">
                               <button type="submit" class="btn-default w-100 text-center">
-                              <span class="sisf-m-text">CHECK AVAILABILITY</span>
+                              <span class="sisf-m-text">KIỂM TRA PHÒNG TRỐNG</span>
                               </button>
-                              <div id="msgSubmit" class="hidden"></div>
                            </div>
                         </div>
                      </form>
@@ -492,12 +531,12 @@
                            JULY 27, 2024
                         </h5>
                         <h3 class="sisf-m-title my-2">
-                           <a href="{{ route('activities.show', 'restaurant') }}">Restaurants</a>
+                           <a href="{{ route('activity.show', 'restaurant') }}">Restaurants</a>
                         </h3>
                         <p class="sisf-m-text mb-0">In the dynamic landscape of hospitality, StayEase emerge</p>
                         <div class="sisf-m-button sisf-sis-clear pt-3">
-                           <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('activities.show', 'restaurant') }}">
-                           <span class="sisf-m-text">Explore More</span>
+                           <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('activity.show', 'restaurant') }}">
+                           <span class="sisf-m-text">Khám phá thêm</span>
                            </a>
                         </div>
                      </div>
@@ -512,7 +551,7 @@
                         </h3>
                         <div class="sisf-m-button sisf-sis-clear pt-2">
                            <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('offers') }}">
-                           <span class="sisf-m-text">Explore More</span>
+                           <span class="sisf-m-text">Khám phá thêm</span>
                            </a>
                         </div>
                      </div>
@@ -530,13 +569,13 @@
                            JULY 27, 2024
                         </h5>
                         <h3 class="sisf-m-title my-2">
-                           <a href="{{ route('activities.show', 'spa-wellness') }}" class="text-white">
+                           <a href="{{ route('activity.show', 'spa-wellness') }}" class="text-white">
                            Spa & Wellness
                            </a>
                         </h3>
                         <div class="sisf-m-button sisf-sis-clear">
-                           <a class="sisf-shortcode text-white sisf-text-underline sisf-underline--left" href="{{ route('activities.show', 'spa-wellness') }}">
-                           <span class="sisf-m-text">Explore More</span>
+                           <a class="sisf-shortcode text-white sisf-text-underline sisf-underline--left" href="{{ route('activity.show', 'spa-wellness') }}">
+                           <span class="sisf-m-text">Khám phá thêm</span>
                            </a>
                         </div>
                      </div>
@@ -558,7 +597,7 @@
                         </h3>
                         <div class="sisf-m-button sisf-sis-clear">
                            <a class="sisf-shortcode text-white sisf-text-underline sisf-underline--left" href="#">
-                           <span class="sisf-m-text">Explore More</span>
+                           <span class="sisf-m-text">Khám phá thêm</span>
                            </a>
                         </div>
                      </div>
@@ -576,7 +615,7 @@
                         <p class="sisf-m-text mb-0">In the dynamic landscape of hospitality, StayEase emerge</p>
                         <div class="sisf-m-button sisf-sis-clear pt-2">
                            <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('about') }}">
-                           <span class="sisf-m-text">Explore More</span>
+                           <span class="sisf-m-text">Khám phá thêm</span>
                            </a>
                         </div>
                      </div>
@@ -592,12 +631,12 @@
                            JULY 27, 2024
                         </h5>
                         <h3 class="sisf-m-title my-2">
-                           <a href="{{ route('activities.show', 'spa-wellness') }}">Let's Relax with StayEase</a>
+                           <a href="{{ route('activity.show', 'spa-wellness') }}">Let's Relax with StayEase</a>
                         </h3>
                         <p class="sisf-m-text mb-0">In the dynamic landscape of hospitality, StayEase emerge</p>
                         <div class="sisf-m-button sisf-sis-clear pt-3">
-                           <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('activities.show', 'spa-wellness') }}">
-                           <span class="sisf-m-text">Explore More</span>
+                           <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('activity.show', 'spa-wellness') }}">
+                           <span class="sisf-m-text">Khám phá thêm</span>
                            </a>
                         </div>
                      </div>
@@ -717,7 +756,7 @@
                      </div>
                      <div class="sisf-m-button sisf-sis-clear pt-4">
                         <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                        <span class="sisf-m-text">VIEW MORE</span>
+                        <span class="sisf-m-text">XEM THÊM</span>
                         </a>
                      </div>
                   </div>
@@ -763,7 +802,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>
@@ -801,7 +840,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>
@@ -839,7 +878,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>
@@ -877,7 +916,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>
@@ -915,7 +954,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>
@@ -953,7 +992,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>

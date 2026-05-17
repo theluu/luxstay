@@ -11,7 +11,7 @@
          <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
             <div class="sisf-m-inner">
                <div class="sisf-m-content sisf-content-grid ">
-                  <h1 class="sisf-m-title text-center entry-title">My Account</h1>
+                  <h1 class="sisf-m-title text-center entry-title">Tài khoản của tôi</h1>
                </div>
             </div>
          </div>
@@ -27,24 +27,24 @@
                         <div class="myaccount-navigation">
                            <ul class="list-unstyled">
                               <li class="myaccount-navigation-link myaccount-navigation-link-dashboard">
-                                 <a href="{{ route('account.index') }}">Dashboard</a>
+                                 <a href="{{ route('account.index') }}">Bảng điều khiển</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-orders is-active">
-                                 <a href="{{ route('orders.index') }}">Orders</a>
+                                 <a href="{{ route('orders.index') }}">Đơn hàng</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-downloads">
-                                 <a href="{{ route('account.downloads') }}">Downloads</a>
+                                 <a href="{{ route('account.downloads') }}">Tải xuống</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-edit-address">
-                                 <a href="{{ route('account.address') }}">Addresses</a>
+                                 <a href="{{ route('account.address') }}">Địa chỉ</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-edit-account">
-                                 <a href="{{ route('account.edit') }}">Account details</a>
+                                 <a href="{{ route('account.edit') }}">Thông tin tài khoản</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-customer-logout">
                                  <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" style="background:none;border:none;padding:0;cursor:pointer;">Log out</button>
+                                    <button type="submit" style="background:none;border:none;padding:0;cursor:pointer;">Đăng xuất</button>
                                  </form>
                               </li>
                            </ul>
@@ -56,18 +56,18 @@
                               <table class="sisforders-table shop_table">
                                  <thead>
                                     <tr>
-                                       <th scope="col"><span class="nobr">Order</span></th>
-                                       <th scope="col"><span class="nobr">Date</span></th>
-                                       <th scope="col"><span class="nobr">Status</span></th>
-                                       <th scope="col"><span class="nobr">Total</span></th>
-                                       <th scope="col"><span class="nobr">Actions</span></th>
+                                       <th scope="col"><span class="nobr">Đơn hàng</span></th>
+                                       <th scope="col"><span class="nobr">Ngày</span></th>
+                                       <th scope="col"><span class="nobr">Trạng thái</span></th>
+                                       <th scope="col"><span class="nobr">Tổng cộng</span></th>
+                                       <th scope="col"><span class="nobr">Thao tác</span></th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     @forelse($orders as $order)
                                     <tr>
                                        <th>
-                                          <a href="#">#{{ $order->id }}</a>
+                                          <a href="{{ route('orders.show', $order) }}">#{{ $order->id }}</a>
                                        </th>
                                        <td>
                                           <span>{{ $order->created_at->format('M d, Y') }}</span>
@@ -79,11 +79,11 @@
                                           <span class="price-amount"><span class="price-currencysymbol">$</span>{{ number_format($order->total, 2) }}</span> for {{ count($order->items) }} item{{ count($order->items) !== 1 ? 's' : '' }}
                                        </td>
                                        <td>
-                                          <a href="#" class="button view sisf-button sisf-layout--outlined btn-big text-uppercase text-center">View</a>
+                                          <a href="{{ route('orders.show', $order) }}" class="button view sisf-button sisf-layout--outlined btn-big text-uppercase text-center">Xem</a>
                                        </td>
                                     </tr>
                                     @empty
-                                    <tr><td colspan="5" class="text-center">No orders yet.</td></tr>
+                                    <tr><td colspan="5" class="text-center">Chưa có đơn hàng nào.</td></tr>
                                     @endforelse
                                  </tbody>
                               </table>

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #admin-app {
+    font-family: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif;
+  }
+}

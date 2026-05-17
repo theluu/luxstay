@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', '{{ $room->name }} – LuxeStay')
+@section('title', $room->name . ' – LuxeStay')
 @section('content')
       <!-- Banner Section Start -->
       <div class="sisf-banner position-relative">
@@ -27,11 +27,11 @@
                         <div class="sisf-e-media position-relative">
                            <div class="sisf-image-holder reveal">
                               <figure>
-                                 <img src="{{ $room->thumbnail ? asset('storage/' . $room->thumbnail) : asset('images/room-single_img.png') }}" class="w-100" alt="Luxestay">
+                                 <img src="{{ $room->thumbnail ? asset($room->thumbnail) : asset('images/room-single_img.png') }}" class="w-100" alt="Luxestay">
                               </figure>
                            </div>
                            <span class="sisf-e-price">
-                           <span class="sisf-e-price-label">From</span>
+                           <span class="sisf-e-price-label">Từ</span>
                            <span class="sisf-e-price-value">${{ number_format($room->price_per_night, 0) }}</span>
                            </span>
                         </div>
@@ -44,11 +44,11 @@
                                  </li>
                                  <li class="sisf-e-item sisf-e-capacity text-black">
                                     <span><img src="{{ asset('images/small-img2.png') }}" alt="LuxeStay"></span>
-                                    <span>{{ $room->max_guests }} Guests</span>
+                                    <span>{{ $room->max_guests }} khách</span>
                                  </li>
                                  <li class="sisf-e-item sisf-e-beds text-black">
                                     <span><img src="{{ asset('images/small-img3.png') }}" alt="LuxeStay"></span>
-                                    <span>1 Bed</span>
+                                    <span>1 Giường</span>
                                  </li>
                               </ul>
                            </div>
@@ -65,7 +65,7 @@
                      <div class="sisf-e-middle-holder">
                         <div class="sisf-e-amenities sisf-room-detail wow fadeInUp">
                            <h4 class="sisf-e-title">
-                              Amenities
+                              Tiện nghi
                            </h4>
                            <div class="row">
                               <div class="col-md-12">
@@ -73,15 +73,9 @@
                                     @foreach($room->amenities as $amenity)
                                     <li class="sisf-e sisf-e-info-item">
                                        <span class="sisf-e-icon">
-                                       @if($amenity->icon)
-                                       <img src="{{ asset('images/' . $amenity->icon) }}" alt="LuxeStay">
-                                       @else
-                                       <img src="{{ asset('images/amenities-img1.png') }}" alt="LuxeStay">
-                                       @endif
+                                          <i class="fas {{ $amenity->icon }}" style="font-size:18px;width:20px;text-align:center"></i>
                                        </span>
-                                       <span class="sisf-e--content">
-                                       {{ $amenity->name }}
-                                       </span>
+                                       <span class="sisf-e--content">{{ $amenity->name }}</span>
                                     </li>
                                     @endforeach
                                  </ul>
@@ -90,7 +84,7 @@
                         </div>
                         <div class="sisf-e-rules sisf-room-detail wow fadeInUp">
                            <h4 class="sisf-e-title">
-                              House Rules
+                              Nội quy
                            </h4>
                            <div class="row">
                               <div class="col-12">
@@ -100,7 +94,7 @@
                                        <img src="{{ asset('images/rules-img1.png') }}" alt="LuxeStay">
                                        </span>
                                        <span class="sisf-e--content">
-                                       Check-in: 3:00 PM - 9:00 PM
+                                       Nhận phòng: 3:00 CH - 9:00 CH
                                        </span>
                                     </li>
                                     <li class="sisf-e sisf-e-info-item">
@@ -108,7 +102,7 @@
                                        <img src="{{ asset('images/rules-img2.png') }}" alt="LuxeStay">
                                        </span>
                                        <span class="sisf-e--content">
-                                       Checkout: 11:00 AM
+                                       Trả phòng: 11:00 SA
                                        </span>
                                     </li>
                                     <li class="sisf-e sisf-e-info-item">
@@ -116,7 +110,7 @@
                                        <img src="{{ asset('images/rules-img3.png') }}" alt="LuxeStay">
                                        </span>
                                        <span class="sisf-e--content">
-                                       No smoking
+                                       Không hút thuốc
                                        </span>
                                     </li>
                                     <li class="sisf-e sisf-e-info-item mb-0">
@@ -124,7 +118,7 @@
                                        <img src="{{ asset('images/rules-img4.png') }}" alt="LuxeStay">
                                        </span>
                                        <span class="sisf-e--content">
-                                       Keep belongings safe
+                                       Giữ gìn tài sản cẩn thận
                                        </span>
                                     </li>
                                  </ul>
@@ -133,7 +127,7 @@
                         </div>
                         <div class="sisf-e-availability sisf-room-detail wow fadeInUp">
                            <h4 class="sisf-e-title">
-                              Availability
+                              Lịch trống
                            </h4>
                            <div class="row">
                               <div class="col-12">
@@ -145,20 +139,20 @@
                         </div>
                         <div class="sisf-e--location sisf-room-detail wow fadeInUp">
                            <h4 class="sisf-e-title">
-                              Location
+                              Vị trí
                            </h4>
                            <p class="sisf-e-location-address mb-3">348 Hauser Blvd, Los Angeles, CA 90036, USA</p>
                            <div class="sisf-e-address-additional-info">
                               <h5 class="sisf-e-address-additional-info-title mb-3">
-                                 What's Nearby
+                                 Lân cận
                               </h5>
                               <div class="sisf-e-address-additional-info-content mb-4">
                                  <div class="sisf-e-info-item mb-3">
-                                    <span class="sisf-e-label">Metro Station: </span>
+                                    <span class="sisf-e-label">Trạm Metro: </span>
                                     <span class="sisf-e-value">1.0 Km</span>
                                  </div>
                                  <div class="sisf-e-info-item">
-                                    <span class="sisf-e-label">Super Market: </span>
+                                    <span class="sisf-e-label">Siêu thị: </span>
                                     <span class="sisf-e-value">1.5km</span>
                                  </div>
                               </div>
@@ -262,22 +256,38 @@
                   <div class="col-md-4">
                      <div class="sisf-room-reservation">
                         <div class="sisf-title mb-4">
-                           <h3 class="sisf-room-reservation-title text-center">Your Reservation</h3>
+                           <h3 class="sisf-room-reservation-title text-center">Đặt phòng của bạn</h3>
                         </div>
                         <div class="check-in-out-form room-reservation-form form-section">
-                           <form>
+                           <form action="{{ route('bookings.store') }}" method="POST">
+                              @csrf
+                              <input type="hidden" name="room_id" value="{{ $room->id }}">
+                              @guest
                               <div class="booking-form-col position-relative">
-                                 <label class="form-label" for="checkin">Check-in</label>
-                                 <input type="text" id="checkin" class="form-control ps-0 flatpickr-input" placeholder="Select date" readonly="readonly">
+                                 <label class="form-label" for="guest_name">Họ và tên</label>
+                                 <input type="text" id="guest_name" name="guest_name" class="form-control ps-0" placeholder="Họ và tên" value="{{ old('guest_name') }}" required>
+                              </div>
+                              <div class="booking-form-col position-relative">
+                                 <label class="form-label" for="guest_email">Email</label>
+                                 <input type="email" id="guest_email" name="guest_email" class="form-control ps-0" placeholder="Email của bạn" value="{{ old('guest_email') }}" required>
+                              </div>
+                              <div class="booking-form-col position-relative">
+                                 <label class="form-label" for="guest_phone">Điện thoại</label>
+                                 <input type="tel" id="guest_phone" name="guest_phone" class="form-control ps-0" placeholder="Số điện thoại" value="{{ old('guest_phone') }}">
+                              </div>
+                              @endguest
+                              <div class="booking-form-col position-relative">
+                                 <label class="form-label" for="checkin">Nhận phòng</label>
+                                 <input type="text" id="checkin" name="check_in" class="form-control ps-0 flatpickr-input" placeholder="Chọn ngày" value="{{ old('check_in') }}" required>
                                  <i class="fa-regular fa-calendar"></i>
                               </div>
                               <div class="booking-form-col position-relative">
-                                 <label class="form-label" for="checkout">Check-out</label>
-                                 <input type="text" id="checkout" class="form-control ps-0 flatpickr-input" placeholder="Select date" readonly="readonly">
+                                 <label class="form-label" for="checkout">Trả phòng</label>
+                                 <input type="text" id="checkout" name="check_out" class="form-control ps-0 flatpickr-input" placeholder="Chọn ngày" value="{{ old('check_out') }}" required>
                                  <i class="fa-regular fa-calendar"></i>
                               </div>
                               <div class="select-wrapper booking-form-col position-relative">
-                                 <label class="form-label" for="rooms">Rooms</label>
+                                 <label class="form-label" for="rooms">Số phòng</label>
                                  <select class="form-select form-control ps-0" id="rooms">
                                     <option value="1" selected="">1</option>
                                     <option value="2">2</option>
@@ -303,15 +313,21 @@
                                  <i class="fa-solid fa-chevron-down custom-select-icon"></i>
                               </div>
                               <div class="select-wrapper booking-form-col position-relative custom-guests-dropdown">
-                                 <label class="form-label" for="guests">Guests</label>
-                                 <div class="dropdown">
+                                 <label class="form-label" for="guests">Khách</label>
+                                 <select id="guests" name="guests" class="form-select form-control ps-0">
+                                    @for($i = 1; $i <= $room->max_guests; $i++)
+                                       <option value="{{ $i }}" @selected((int) old('guests', 1) === $i)>{{ $i }} Guest{{ $i > 1 ? 's' : '' }}</option>
+                                    @endfor
+                                 </select>
+                                 {{-- hidden dropdown kept for UI compat --}}
+                                 <div class="dropdown d-none">
                                     <button class="form-select form-control ps-0 dropdown-toggle" type="button" id="guestsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                    1 Adult
+                                    1 Người lớn
                                     </button>
                                     <ul class="dropdown-menu p-3" aria-labelledby="guestsDropdown">
                                        <li class="mb-2">
-                                          <label class="form-label d-block">Adults</label>
-                                          <select id="guests" class="form-select">
+                                          <label class="form-label d-block">Người lớn</label>
+                                          <select class="form-select">
                                              <option value="0">0</option>
                                              <option value="1" selected="">1</option>
                                              <option value="2">2</option>
@@ -320,7 +336,7 @@
                                           </select>
                                        </li>
                                        <li class="mb-2">
-                                          <label class="form-label d-block">Children <small>(2–12 years old)</small></label>
+                                          <label class="form-label d-block">Trẻ em <small>(2–12 tuổi)</small></label>
                                           <select class="form-select">
                                              <option value="0" selected="">0</option>
                                              <option value="1">1</option>
@@ -330,7 +346,7 @@
                                           </select>
                                        </li>
                                        <li>
-                                          <label class="form-label d-block">Infants <small>(0–2 years old)</small></label>
+                                          <label class="form-label d-block">Sơ sinh <small>(0–2 tuổi)</small></label>
                                           <select class="form-select">
                                              <option value="0" selected="">0</option>
                                              <option value="1">1</option>
@@ -344,35 +360,50 @@
                               <!-- Extra Services part -->
                               <div class="sisf--service-box">
                                  <div class="sisf-title mb-4">
-                                    <h3 class="sisf-room-reservation-title text-start">Extra Services</h3>
+                                    <h3 class="sisf-room-reservation-title text-start">Dịch vụ thêm</h3>
                                  </div>
                                  <div class="service-item">
-                                    <label><input type="checkbox" class="service" data-price="15" checked> Room Cleaning</label>
+                                    <label><input type="checkbox" class="service" data-price="15" checked> Dọn phòng</label>
                                     <span>$15</span>
                                  </div>
                                  <div class="service-item">
-                                    <label><input type="checkbox" class="service" data-price="10"> Bike Rental</label>
-                                    <span>$10 / per person</span>
+                                    <label><input type="checkbox" class="service" data-price="10"> Thuê xe đạp</label>
+                                    <span>$10 / người</span>
                                  </div>
                                  <div class="service-item">
-                                    <label><input type="checkbox" class="service" data-price="15"> Airport Transport</label>
-                                    <span>$15 / per person</span>
+                                    <label><input type="checkbox" class="service" data-price="15"> Đưa đón sân bay</label>
+                                    <span>$15 / người</span>
                                  </div>
                                  <div class="service-item">
                                     <label><input type="checkbox" class="service" data-price="100"> Massage</label>
-                                    <span>$100 / per person</span>
+                                    <span>$100 / người</span>
                                  </div>
                                  <div class="service-item">
-                                    <label><input type="checkbox" class="service" data-price="0"> Parking</label>
-                                    <span>free</span>
+                                    <label><input type="checkbox" class="service" data-price="0"> Bãi đỗ xe</label>
+                                    <span>Miễn phí</span>
                                  </div>
                                  <div class="price-box">
-                                    <p class="mb-2 text-black">Your Price</p>
+                                    <p class="mb-2 text-black">Giá của bạn</p>
                                     <span>$ <span id="total-price">414</span></span>
                                  </div>
                               </div>
+                              <div class="mb-3">
+                                 <label class="form-label">Yêu cầu đặc biệt</label>
+                                 <textarea name="special_requests" class="form-control" rows="2" placeholder="Yêu cầu đặc biệt?">{{ old('special_requests') }}</textarea>
+                              </div>
+                              <div class="mb-3">
+                                 <label class="form-label d-block">Phương thức thanh toán</label>
+                                 <label class="d-flex align-items-start gap-2 mb-2">
+                                    <input type="radio" name="payment_method" value="pay_later" @checked(old('payment_method', 'pay_later') === 'pay_later')>
+                                    <span>Thanh toán sau khi khách sạn xác nhận</span>
+                                 </label>
+                                 <label class="d-flex align-items-start gap-2">
+                                    <input type="radio" name="payment_method" value="vnpay" @checked(old('payment_method') === 'vnpay')>
+                                    <span>Thanh toán online qua VNPAY</span>
+                                 </label>
+                              </div>
                               <div class="sisf-m-button text-center w-100">
-                                 <button type="submit" class="btn-default w-100">Book Now</button>
+                                 <button type="submit" class="btn-default w-100">Đặt ngay</button>
                               </div>
                            </form>
                         </div>
@@ -381,7 +412,7 @@
                </div>
                <div class="sisf-room-related-items">
                   <div class="sis-e-items-title">
-                     <h3 class="sisf-m-title">Similar Rooms</h3>
+                     <h3 class="sisf-m-title">Phòng tương tự</h3>
                   </div>
                   <div class="row">
                      <div class="col-lg-4 col-md-6">
@@ -435,7 +466,7 @@
                                     </div>
                                  </div>
                                  <span class="sisf-e-price">
-                                 <span class="sisf-e-price-label">From</span>
+                                 <span class="sisf-e-price-label">Từ</span>
                                  <span class="sisf-e-price-value">$399</span>
                                  </span>
                               </div>
@@ -448,11 +479,11 @@
                                        </li>
                                        <li class="sisf-e-item sisf-e-capacity text-black">
                                           <span><img src="{{ asset('images/small-img2.png') }}" alt="LuxeStay"></span>
-                                          <span>4 Guests</span>
+                                          <span>4 khách</span>
                                        </li>
                                        <li class="sisf-e-item sisf-e-beds text-black">
                                           <span><img src="{{ asset('images/small-img3.png') }}" alt="LuxeStay"></span>
-                                          <span>1 Bed</span>
+                                          <span>1 Giường</span>
                                        </li>
                                     </ul>
                                  </div>
@@ -465,7 +496,7 @@
                                     <p class="sisf-e-excerpt mb-2">A Garden View Room typically refers to a hotel or resort room that offers a view of the property's gardens or landscaped areas. These rooms often p</p>
                                     <div class="sisf-m-button sisf-sis-clear">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('rooms.index') }}">
-                                       <span class="sisf-m-text">Explore More</span>
+                                       <span class="sisf-m-text">Khám phá thêm</span>
                                        </a>
                                     </div>
                                  </div>
@@ -510,7 +541,7 @@
                                     </div>
                                  </div>
                                  <span class="sisf-e-price">
-                                 <span class="sisf-e-price-label">From</span>
+                                 <span class="sisf-e-price-label">Từ</span>
                                  <span class="sisf-e-price-value">$799</span>
                                  </span>
                               </div>
@@ -523,7 +554,7 @@
                                        </li>
                                        <li class="sisf-e-item sisf-e-capacity text-black">
                                           <span><img src="{{ asset('images/small-img2.png') }}" alt="LuxeStay"></span>
-                                          <span>4 Guests</span>
+                                          <span>4 khách</span>
                                        </li>
                                        <li class="sisf-e-item sisf-e-beds text-black">
                                           <span><img src="{{ asset('images/small-img3.png') }}" alt="LuxeStay"></span>
@@ -540,7 +571,7 @@
                                     <p class="sisf-e-excerpt mb-2">Experience the ultimate in coastal luxury with our Ocean View Room. Situated on the upper floors, this room offers stunning panoramic views of the shimme</p>
                                     <div class="sisf-m-button sisf-sis-clear">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('rooms.index') }}">
-                                       <span class="sisf-m-text">Explore More</span>
+                                       <span class="sisf-m-text">Khám phá thêm</span>
                                        </a>
                                     </div>
                                  </div>
@@ -592,7 +623,7 @@
                                     </div>
                                  </div>
                                  <span class="sisf-e-price">
-                                 <span class="sisf-e-price-label">From</span>
+                                 <span class="sisf-e-price-label">Từ</span>
                                  <span class="sisf-e-price-value">$899</span>
                                  </span>
                               </div>
@@ -605,7 +636,7 @@
                                        </li>
                                        <li class="sisf-e-item sisf-e-capacity text-black">
                                           <span><img src="{{ asset('images/small-img2.png') }}" alt="LuxeStay"></span>
-                                          <span>4 Guests</span>
+                                          <span>4 khách</span>
                                        </li>
                                        <li class="sisf-e-item sisf-e-beds text-black">
                                           <span><img src="{{ asset('images/small-img3.png') }}" alt="LuxeStay"></span>
@@ -622,7 +653,7 @@
                                     <p class="sisf-e-excerpt mb-2">A luxury suite room is typically a premium, upscale accommodation in a hotel or resort, offering a higher level of comfort, amenities, and services compa</p>
                                     <div class="sisf-m-button sisf-sis-clear">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('rooms.index') }}">
-                                       <span class="sisf-m-text">Explore More</span>
+                                       <span class="sisf-m-text">Khám phá thêm</span>
                                        </a>
                                     </div>
                                  </div>
@@ -637,3 +668,31 @@
       </div>
       <!-- Room Detail Section End -->
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var today = new Date().toISOString().split('T')[0];
+    var tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+
+    var checkinPicker = flatpickr('#checkin', {
+        minDate: 'today',
+        defaultDate: today,
+        dateFormat: 'Y-m-d',
+        onChange: function(selectedDates) {
+            var nextDay = new Date(selectedDates[0].getTime() + 86400000);
+            checkoutPicker.set('minDate', nextDay);
+            if (checkoutPicker.selectedDates[0] <= selectedDates[0]) {
+                checkoutPicker.setDate(nextDay);
+            }
+        }
+    });
+
+    var checkoutPicker = flatpickr('#checkout', {
+        minDate: tomorrow,
+        defaultDate: tomorrow,
+        dateFormat: 'Y-m-d',
+    });
+});
+</script>
+@endpush

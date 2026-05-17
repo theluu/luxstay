@@ -1,0 +1,32 @@
+{
+  "session_id": "session-2026-05-17-2321",
+  "started": "2026-05-17T16:21:16.465Z",
+  "files_read": {
+    "/Users/mac/Desktop/Project/luxestay/resources/views/components/header.blade.php": {
+      "count": 1,
+      "tokens": 1942,
+      "first_read": "2026-05-17T16:21:50.479Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Web/BookingController.php": {
+      "count": 1,
+      "tokens": 545,
+      "first_read": "2026-05-17T16:22:22.321Z"
+    }
+  },
+  "files_written": [
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/views/components/header.blade.php",
+      "action": "edit",
+      "tokens": 47,
+      "at": "2026-05-17T16:22:19.092Z"
+    }
+  ],
+  "edit_counts": {
+    "resources/views/components/header.blade.php": 1
+  },
+  "anatomy_hits": 2,
+  "anatomy_misses": 0,
+  "repeated_reads_warned": 0,
+  "cerebrum_warnings": 0,
+  "stop_count": 1
+}

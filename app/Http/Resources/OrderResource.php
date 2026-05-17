@@ -19,6 +19,8 @@ class OrderResource extends JsonResource
             'user'             => ['id' => $this->user?->id, 'name' => $this->user?->name],
             'status'           => $this->status,
             'payment_status'   => $this->payment_status,
+            'vnpay_txn_ref'     => $this->vnpay_txn_ref,
+            'latest_transaction' => new PaymentTransactionResource($this->whenLoaded('transactions', fn () => $this->transactions->first())),
             'subtotal'         => $this->subtotal,
             'shipping_fee'     => $this->shipping_fee,
             'total'            => $this->total,

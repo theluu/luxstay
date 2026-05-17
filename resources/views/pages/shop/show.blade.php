@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', '{{ $product->name }} – LuxeStay')
+@section('title', $product->name . ' – LuxeStay')
 @section('content')
       <!-- Banner Section Start -->
       <div class="sisf-banner position-relative">
@@ -11,7 +11,7 @@
          <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
             <div class="sisf-m-inner">
                <div class="sisf-m-content sisf-content-grid ">
-                  <h1 class="sisf-m-title text-center entry-title">Shop</h1>
+                  <h1 class="sisf-m-title text-center entry-title">Cửa hàng</h1>
                </div>
             </div>
          </div>
@@ -30,24 +30,25 @@
                                  <div class="gallery-items page-gallery-box">
                                     <div class="product-gallery">
                                        <div class="wow fadeInUp">
-                                          <a href="{{ $product->thumbnail ? asset('storage/' . $product->thumbnail) : asset('images/product_1.png') }}">
+                                          <a href="{{ $product->thumbnail ? asset($product->thumbnail) : asset('images/product_1.png') }}">
                                              <figure>
-                                                <img src="{{ $product->thumbnail ? asset('storage/' . $product->thumbnail) : asset('images/product_1.png') }}" class="image-fluid" alt="{{ $product->name }}">
+                                                <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('images/product_1.png') }}" class="image-fluid" alt="{{ $product->name }}">
                                              </figure>
                                           </a>
                                        </div>
                                     </div>
                                  </div>
                               </div>
-                              @if($product->gallery)
+                              @php $gallery = is_array($product->gallery) ? $product->gallery : json_decode($product->gallery, true) ?? []; @endphp
+                              @if(count($gallery))
                               <div class="gallery--section position-relative">
                                  <div class="row gallery-items page-gallery-box d-flex justify-content-center">
-                                    @foreach(array_slice((array)$product->gallery, 0, 3) as $galleryImage)
+                                    @foreach(array_slice($gallery, 0, 3) as $galleryImage)
                                     <div class="col-lg-4 col-md-6">
                                        <div class="premium-gallery small-gallry">
-                                          <a href="{{ asset('storage/' . $galleryImage) }}">
+                                          <a href="{{ asset($galleryImage) }}">
                                              <figure class="mb-0">
-                                                <img src="{{ asset('storage/' . $galleryImage) }}" class="image-fluid" alt="{{ $product->name }}">
+                                                <img src="{{ asset($galleryImage) }}" class="image-fluid" alt="{{ $product->name }}">
                                              </figure>
                                           </a>
                                        </div>
@@ -128,7 +129,7 @@
                                  <span class="star sisf-e-colored">★</span>
                               </div>
                               <a href="#reviews" class="review-link ps-2">
-                              Reviews
+                              Đánh giá
                               </a>
                            </div>
                            <div class="price mt-2">
@@ -153,17 +154,17 @@
                                     </span>
                                  </div>
                                  <div class="sisf-m-button">
-                                    <button type="submit" class="sisf-m sisf-button"><span>Add to cart</span></button>
+                                    <button type="submit" class="btn-default"><span>Thêm vào giỏ</span></button>
                                  </div>
                               </form>
                            </div>
                            <div class="product_meta">
                               <span class="sku_wrapper">
-                              <span class="sisf-meta-label">Stock:</span>
-                              <span class="sisf-meta-value">{{ $product->stock > 0 ? 'In Stock' : 'Out of Stock' }}</span>
+                              <span class="sisf-meta-label">Tồn kho:</span>
+                              <span class="sisf-meta-value">{{ $product->stock > 0 ? 'Còn hàng' : 'Hết hàng' }}</span>
                               </span>
                               @if($product->category)
-                              <span class="posted_in"><span class="sisf-meta-label">Category:</span>
+                              <span class="posted_in"><span class="sisf-meta-label">Danh mục:</span>
                               <span class="sisf-meta-value"><a href="{{ route('shop.index') }}">{{ $product->category->name }}</a></span>
                               </span>
                               @endif
@@ -177,13 +178,13 @@
                   <div class="product-tab-nav" data-wow-delay="0.25s">
                      <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                           <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-selected="true">Description</button>
+                           <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-selected="true">Mô tả</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                           <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#additionalinformation" type="button" role="tab" aria-selected="false">Additional information</button>
+                           <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#additionalinformation" type="button" role="tab" aria-selected="false">Thông tin thêm</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                           <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-selected="false">Reviews</button>
+                           <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-selected="false">Đánh giá</button>
                         </li>
                      </ul>
                   </div>
@@ -201,8 +202,8 @@
                               <table class="product-information">
                                  <tbody>
                                     <tr>
-                                       <th>Stock:</th>
-                                       <td>{{ $product->stock > 0 ? 'In Stock (' . $product->stock . ' available)' : 'Out of Stock' }}</td>
+                                       <th>Tồn kho:</th>
+                                       <td>{{ $product->stock > 0 ? 'Còn hàng (' . $product->stock . ' sản phẩm)' : 'Hết hàng' }}</td>
                                     </tr>
                                     @if($product->category)
                                     <tr>
@@ -221,13 +222,13 @@
                               <div class="product-reviews-col">
                                  <div class="review_form_wrapper review-form-wrapper mt-2">
                                     <div class="review_form">
-                                       <h2 class="comment-reply-title">Add a review</h2>
+                                       <h2 class="comment-reply-title">Viết đánh giá</h2>
                                        <form id="commentform">
-                                          <p class="comment-notes">Your email address will not be published. Required fields are marked
+                                          <p class="comment-notes">Địa chỉ email của bạn sẽ không được hiển thị. Các trường bắt buộc được đánh dấu
                                              <span class="required">*</span>
                                           </p>
                                           <div class="comment-form-rating">
-                                             <label>Your Rating <span class="required">*</span></label>
+                                             <label>Đánh giá của bạn <span class="required">*</span></label>
                                              <div class="star-rating my-4">
                                                 <input type="radio" id="star5" name="rating" value="5">
                                                 <label for="star5">★</label>
@@ -244,18 +245,18 @@
                                           <div class="review_form_box">
                                              <div class="form_box-grid d-flex justify-content-between gap-4">
                                                 <div class="form_box-item">
-                                                   <input id="author" name="author" placeholder="Your Name *" type="text" value="" size="30" maxlength="245" required="required">
+                                                   <input id="author" name="author" placeholder="Họ và tên *" type="text" value="" size="30" maxlength="245" required="required">
                                                 </div>
                                                 <div class="form_box-item">
                                                    <input id="email" name="email" placeholder="Email *" type="text" value="" size="30" maxlength="100" required="required">
                                                 </div>
                                              </div>
                                              <div class="comment-form-comment">
-                                                <textarea id="comment" name="comment" placeholder="Your Review *" cols="45" rows="8" maxlength="65525" required="required"></textarea>
+                                                <textarea id="comment" name="comment" placeholder="Nhận xét của bạn *" cols="45" rows="8" maxlength="65525" required="required"></textarea>
                                              </div>
                                              <div class="form-check d-flex align-items-center">
                                                 <input class="form-check-input" name="wp-comment-cookies-consent" type="checkbox" value="yes">
-                                                <label class="form-check-label comment-box ms-2 mt-1">Save my name, and email in this browser for the next time I comment.</label>
+                                                <label class="form-check-label comment-box ms-2 mt-1">Lưu tên và email của tôi trên trình duyệt cho lần bình luận tiếp theo.</label>
                                              </div>
                                              <div class="sisf-m-button mt-4">
                                                 <a href="#" class="btn-default rounded-0 btn-secondary"><span>Submit<i class="fa-solid fa-arrow-right"></i></span></a>
@@ -272,7 +273,7 @@
                   <!-- Product Tab Box End -->
                </div>
                <div class="related_products">
-                  <h2>Related products</h2>
+                  <h2>Sản phẩm liên quan</h2>
                   <div class="sisf-product-list">
                      <div class="row">
                         @foreach($related as $relatedProduct)
@@ -284,7 +285,7 @@
                                  <div class="sisf-product-image">
                                     <a href="{{ route('shop.show', $relatedProduct->slug) }}">
                                        <figure>
-                                          <img src="{{ $relatedProduct->thumbnail ? asset('storage/' . $relatedProduct->thumbnail) : asset('images/product1.png') }}" class="image-fluid" alt="{{ $relatedProduct->name }}">
+                                          <img src="{{ $relatedProduct->thumbnail ? asset($relatedProduct->thumbnail) : asset('images/product1.png') }}" class="image-fluid" alt="{{ $relatedProduct->name }}">
                                        </figure>
                                     </a>
                                     <div class="sisf-m-button sisf--m-button text-center">
@@ -292,7 +293,7 @@
                                           @csrf
                                           <input type="hidden" name="product_id" value="{{ $relatedProduct->id }}">
                                           <input type="hidden" name="quantity" value="1">
-                                          <button type="submit" class="btn-default w-100"><span> Add to cart</span></button>
+                                          <button type="submit" class="btn-default w-100"><span> Thêm vào giỏ</span></button>
                                        </form>
                                     </div>
                                  </div>

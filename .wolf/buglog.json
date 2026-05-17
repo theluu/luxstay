@@ -1,0 +1,1781 @@
+{
+  "version": 1,
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-05-12T15:49:23.170Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/main.js",
+      "root_cause": "Had 'vue'",
+      "fix": "Changed to '../../css/admin.css'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-12T15:49:23.170Z"
+    },
+    {
+      "id": "bug-002",
+      "timestamp": "2026-05-12T16:00:41.434Z",
+      "error_message": "Null/undefined access in ",
+      "file": "resources/js/admin/views/Rooms/RoomFormView.vue",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-12T16:00:41.434Z"
+    },
+    {
+      "id": "bug-003",
+      "timestamp": "2026-05-12T16:03:45.550Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Rooms/RoomFormView.vue",
+      "root_cause": "Had '../../stores/api'",
+      "fix": "Changed to '../../components/ImageUpload.vue'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-12T16:03:45.550Z"
+    },
+    {
+      "id": "bug-004",
+      "timestamp": "2026-05-12T16:17:20.770Z",
+      "error_message": "Null/undefined access in ",
+      "file": "resources/views/layouts/app.blade.php",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-12T16:17:20.770Z"
+    },
+    {
+      "id": "bug-005",
+      "timestamp": "2026-05-12T16:18:16.650Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/pages/rooms/show.blade.php",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 16→22 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-12T16:18:16.650Z"
+    },
+    {
+      "id": "bug-006",
+      "timestamp": "2026-05-12T23:25:21.940Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/components/header.blade.php",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 9→3 lines (6 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-12T23:25:21.940Z"
+    },
+    {
+      "id": "bug-007",
+      "timestamp": "2026-05-12T23:31:00.813Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/components/header.blade.php",
+      "root_cause": "Had \"nav-link\"",
+      "fix": "Changed to \"nav-link px-3\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-12T23:33:33.341Z"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-05-13T15:40:22.169Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/components/header.blade.php",
+      "root_cause": "11 lines replaced/restructured",
+      "fix": "Rewrote 16→8 lines (11 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-13T15:40:22.169Z"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-05-13T15:58:57.088Z",
+      "error_message": "Incorrect value in code",
+      "file": "routes/web.php",
+      "root_cause": "Had 'activities.show'",
+      "fix": "Changed to 'activity.show'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-13T15:58:57.088Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-05-13T16:04:38.263Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/pages/shop/cart.blade.php",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 13→9 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-13T16:04:38.263Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-05-13T16:04:47.233Z",
+      "error_message": "Significant refactor of ",
+      "file": "app/Http/Controllers/Web/CheckoutController.php",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 20→24 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-13T16:04:47.233Z"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-05-13T16:05:00.750Z",
+      "error_message": "Null/undefined access in ",
+      "file": "resources/views/pages/shop/checkout.blade.php",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-13T16:05:00.750Z"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-05-13T16:05:02.473Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/shop/checkout.blade.php",
+      "root_cause": "Had \"input-text \"",
+      "fix": "Changed to \"input-text\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 4,
+      "last_seen": "2026-05-13T16:05:15.871Z"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-05-13T16:05:26.417Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/pages/shop/checkout.blade.php",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 12→19 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-13T16:05:26.417Z"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-05-13T16:05:38.059Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/account/orders.blade.php",
+      "root_cause": "Had \" class=\"",
+      "fix": "Changed to \"{{ route('",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-13T16:05:38.059Z"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-05-13T16:29:41.282Z",
+      "error_message": "CSS fix: to",
+      "file": "resources/js/admin/components/AppLayout.vue",
+      "root_cause": "to: '/admin/activities', label: 'Activities' → '/admin/messages',  label: 'Messages'",
+      "fix": "Changed to: '/admin/activities', label: 'Activities' → '/admin/messages',  label: 'Messages'",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-13T16:29:41.282Z"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-05-13T16:36:44.773Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/contact.blade.php",
+      "root_cause": "Had \"contactForm\"",
+      "fix": "Changed to \"luxeContactForm\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-13T16:36:44.773Z"
+    },
+    {
+      "id": "bug-018",
+      "timestamp": "2026-05-14T16:42:41.123Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/components/header.blade.php",
+      "root_cause": "5 lines replaced/restructured",
+      "fix": "Rewrote 6→3 lines (5 removed) | Also: <li class=\"nav-item submenu\">; <a class=\"nav-link\" href=\"{{ route('blog.index') } | Also: <li class=\"nav-item me-3\">; <a class=\"nav-link\" href=\"{{ route('rooms.index') ",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-05-14T16:46:08.989Z"
+    },
+    {
+      "id": "bug-019",
+      "timestamp": "2026-05-15T15:47:32.679Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/pages/blog/show.blade.php",
+      "root_cause": "48 lines replaced/restructured",
+      "fix": "Rewrote 120→71 lines (48 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-15T15:47:32.679Z"
+    },
+    {
+      "id": "bug-020",
+      "timestamp": "2026-05-16T00:55:07.637Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/Http/Controllers/Web/BlogController.php",
+      "root_cause": "Had 'Your comment has been posted!'",
+      "fix": "Changed to 'Thank you! Your comment is awaiting moderation.'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T00:55:07.637Z"
+    },
+    {
+      "id": "bug-021",
+      "timestamp": "2026-05-16T00:55:34.243Z",
+      "error_message": "Wrong reference: ContactMessageController should be CommentController",
+      "file": "routes/api.php",
+      "root_cause": "Used \"ContactMessageController\" instead of \"CommentController\"",
+      "fix": "Changed ContactMessageController → CommentController",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T00:55:34.243Z"
+    },
+    {
+      "id": "bug-022",
+      "timestamp": "2026-05-16T00:56:22.045Z",
+      "error_message": "Wrong return value",
+      "file": "app/Models/PostComment.php",
+      "root_cause": "Was returning: $query->where('is_approved', true); }",
+      "fix": "Now returns: md5(strtolower(trim($this->author_email)));",
+      "tags": [
+        "auto-detected",
+        "return-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T00:56:22.045Z"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-05-16T00:56:28.776Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/js/admin/views/Comments/CommentsView.vue",
+      "root_cause": "5 lines replaced/restructured",
+      "fix": "Rewrote 10→3 lines (5 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T00:56:28.776Z"
+    },
+    {
+      "id": "bug-024",
+      "timestamp": "2026-05-16T00:56:34.790Z",
+      "error_message": "CSS fix: replies",
+      "file": "resources/js/admin/views/Comments/CommentsView.vue",
+      "root_cause": "replies: c.replies ?? [], → c.replies ?? []",
+      "fix": "Changed replies: c.replies ?? [], → c.replies ?? []",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T00:56:34.790Z"
+    },
+    {
+      "id": "bug-025",
+      "timestamp": "2026-05-16T00:56:51.197Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/components/AppLayout.vue",
+      "root_cause": "Had '/admin/messages'",
+      "fix": "Changed to '/admin/comments'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T00:56:51.197Z"
+    },
+    {
+      "id": "bug-026",
+      "timestamp": "2026-05-16T01:05:24.663Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/rooms/show.blade.php",
+      "root_cause": "Had '{{ $room->name }} – LuxeStay'",
+      "fix": "Changed to ' – LuxeStay'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T01:05:24.663Z"
+    },
+    {
+      "id": "bug-027",
+      "timestamp": "2026-05-16T01:05:33.164Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/pages/rooms/show.blade.php",
+      "root_cause": "7 lines replaced/restructured",
+      "fix": "Rewrote 14→8 lines (7 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T01:05:33.164Z"
+    },
+    {
+      "id": "bug-028",
+      "timestamp": "2026-05-16T01:16:50.622Z",
+      "error_message": "Wrong reference: RoomTypeSeeder should be SiteSettingSeeder",
+      "file": "database/seeders/DatabaseSeeder.php",
+      "root_cause": "Used \"RoomTypeSeeder\" instead of \"SiteSettingSeeder\"",
+      "fix": "Changed RoomTypeSeeder → SiteSettingSeeder",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T01:16:50.622Z"
+    },
+    {
+      "id": "bug-029",
+      "timestamp": "2026-05-16T01:19:34.111Z",
+      "error_message": "CSS fix: to",
+      "file": "resources/js/admin/components/AppLayout.vue",
+      "root_cause": "to: '/admin/messages',  label: 'Messages' → '/admin/settings',  label: 'Settings'",
+      "fix": "Changed to: '/admin/messages',  label: 'Messages' → '/admin/settings',  label: 'Settings'",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T01:19:34.111Z"
+    },
+    {
+      "id": "bug-030",
+      "timestamp": "2026-05-16T01:34:51.851Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/shop/show.blade.php",
+      "root_cause": "Had '{{ $product->name }} – LuxeStay'",
+      "fix": "Changed to ' – LuxeStay'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T01:34:56.525Z"
+    },
+    {
+      "id": "bug-031",
+      "timestamp": "2026-05-16T01:34:55.319Z",
+      "error_message": "Null/undefined access in ",
+      "file": "resources/views/pages/shop/show.blade.php",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T01:34:55.319Z"
+    },
+    {
+      "id": "bug-032",
+      "timestamp": "2026-05-16T01:38:57.864Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/components/header.blade.php",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 9→6 lines (6 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T01:38:57.864Z"
+    },
+    {
+      "id": "bug-033",
+      "timestamp": "2026-05-16T01:46:53.682Z",
+      "error_message": "Incorrect value in code",
+      "file": "routes/web.php",
+      "root_cause": "Had 'auth'",
+      "fix": "Changed to '/checkout'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T01:46:53.682Z"
+    },
+    {
+      "id": "bug-034",
+      "timestamp": "2026-05-16T01:47:45.881Z",
+      "error_message": "Null/undefined access in ",
+      "file": "app/Http/Controllers/Web/CheckoutController.php",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T01:47:45.881Z"
+    },
+    {
+      "id": "bug-035",
+      "timestamp": "2026-05-16T01:47:57.037Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/shop/checkout.blade.php",
+      "root_cause": "Had ', $user->name, 2); @endphp\n                      ",
+      "fix": "Changed to ', $user->name, 2) : ['",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T01:47:57.037Z"
+    },
+    {
+      "id": "bug-036",
+      "timestamp": "2026-05-16T01:47:58.573Z",
+      "error_message": "Null/undefined access in ",
+      "file": "resources/views/pages/shop/checkout.blade.php",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T01:47:58.573Z"
+    },
+    {
+      "id": "bug-037",
+      "timestamp": "2026-05-16T16:14:20.153Z",
+      "error_message": "CSS fix: border-radius, padding",
+      "file": "../vienthammythienha/wp-content/themes/thienha/style.css",
+      "root_cause": "border-radius: 6px → 50px; padding: 0 16px → 0 20px",
+      "fix": "Changed border-radius: 6px → 50px; padding: 0 16px → 0 20px",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "css"
+      ],
+      "related_bugs": [],
+      "occurrences": 4,
+      "last_seen": "2026-05-16T16:14:45.086Z"
+    },
+    {
+      "id": "bug-038",
+      "timestamp": "2026-05-16T16:44:27.928Z",
+      "error_message": "CSS fix: hover, to",
+      "file": "resources/js/admin/components/AppLayout.vue",
+      "root_cause": "hover: underline\">Logout</button> → text-rose-300 transition\">; to: '/admin/settings',  label: 'Settings' → '/admin/settings', label: 'Settings',",
+      "fix": "Changed hover: underline\">Logout</button> → text-rose-300 transition\">; to: '/admin/settings',  label: 'Settings' → '/admin/settings', label: 'Settings',",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:44:27.928Z"
+    },
+    {
+      "id": "bug-039",
+      "timestamp": "2026-05-16T16:44:45.355Z",
+      "error_message": "Significant refactor of ",
+      "file": "../vienthammythienha/wp-content/themes/thienha/style.css",
+      "root_cause": "14 lines replaced/restructured",
+      "fix": "Rewrote 26→43 lines (14 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "css"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:44:45.355Z"
+    },
+    {
+      "id": "bug-040",
+      "timestamp": "2026-05-16T16:44:53.015Z",
+      "error_message": "CSS fix: label",
+      "file": "resources/js/admin/views/DashboardView.vue",
+      "root_cause": "label: 'Revenue (USD)',      value: '$' + Number(d.total_revenue).toLocaleString() → 'Revenue (USD)',    value: '$' + Number(d.total_revenue).toLocaleString()",
+      "fix": "Changed label: 'Revenue (USD)',      value: '$' + Number(d.total_revenue).toLocaleString() → 'Revenue (USD)',    value: '$' + Number(d.total_revenue).toLocaleString()",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:44:53.015Z"
+    },
+    {
+      "id": "bug-041",
+      "timestamp": "2026-05-16T16:45:11.997Z",
+      "error_message": "CSS fix: focus",
+      "file": "resources/js/admin/views/LoginView.vue",
+      "root_cause": "focus: outline-none focus:ring-2 focus:ring-gray-900\" /> → outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition\"",
+      "fix": "Changed focus: outline-none focus:ring-2 focus:ring-gray-900\" /> → outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition\"",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:45:11.997Z"
+    },
+    {
+      "id": "bug-042",
+      "timestamp": "2026-05-16T16:45:32.274Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Rooms/RoomsView.vue",
+      "root_cause": "hover: underline text-xs\">Delete</button> → text-rose-700 hover:underline transition\">Delete</button>",
+      "fix": "Changed hover: underline text-xs\">Delete</button> → text-rose-700 hover:underline transition\">Delete</button>",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:45:32.274Z"
+    },
+    {
+      "id": "bug-043",
+      "timestamp": "2026-05-16T16:45:53.497Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Posts/PostsView.vue",
+      "root_cause": "hover: underline text-xs\">Delete</button> → text-rose-700 hover:underline transition\">Delete</button>",
+      "fix": "Changed hover: underline text-xs\">Delete</button> → text-rose-700 hover:underline transition\">Delete</button>",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:45:53.497Z"
+    },
+    {
+      "id": "bug-044",
+      "timestamp": "2026-05-16T16:46:06.322Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Products/ProductsView.vue",
+      "root_cause": "hover: underline text-xs\">Delete</button> → text-rose-700 hover:underline transition\">Delete</button>",
+      "fix": "Changed hover: underline text-xs\">Delete</button> → text-rose-700 hover:underline transition\">Delete</button>",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:46:06.322Z"
+    },
+    {
+      "id": "bug-045",
+      "timestamp": "2026-05-16T16:46:20.765Z",
+      "error_message": "Null/undefined access in ",
+      "file": "resources/js/admin/views/Orders/OrdersView.vue",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:46:20.765Z"
+    },
+    {
+      "id": "bug-046",
+      "timestamp": "2026-05-16T16:46:30.099Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Activities/ActivitiesView.vue",
+      "root_cause": "hover: underline\">Edit</RouterLink> → text-indigo-800 border border-indigo-200 hover:border-indigo-400 px-3 py-1.5 rounded-lg transition\">",
+      "fix": "Changed hover: underline\">Edit</RouterLink> → text-indigo-800 border border-indigo-200 hover:border-indigo-400 px-3 py-1.5 rounded-lg transition\">",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:46:30.099Z"
+    },
+    {
+      "id": "bug-047",
+      "timestamp": "2026-05-16T16:46:56.776Z",
+      "error_message": "Null/undefined access in ",
+      "file": "resources/js/admin/views/Bookings/BookingsView.vue",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:46:56.776Z"
+    },
+    {
+      "id": "bug-048",
+      "timestamp": "2026-05-16T16:53:57.767Z",
+      "error_message": "Wrong reference: Online should be Tr",
+      "file": "resources/js/admin/components/AppLayout.vue",
+      "root_cause": "Used \"Online\" instead of \"Tr\"",
+      "fix": "Changed Online → Tr",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:53:57.767Z"
+    },
+    {
+      "id": "bug-049",
+      "timestamp": "2026-05-16T16:54:06.747Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/components/AppLayout.vue",
+      "root_cause": "Had 'Dashboard'",
+      "fix": "Changed to 'Bảng điều khiển'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 11,
+      "last_seen": "2026-05-16T16:54:36.426Z"
+    },
+    {
+      "id": "bug-050",
+      "timestamp": "2026-05-16T16:54:41.035Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/components/header.blade.php",
+      "root_cause": "Had \">Activities<i class=\"",
+      "fix": "Changed to \">Hoạt động<i class=\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:54:41.035Z"
+    },
+    {
+      "id": "bug-051",
+      "timestamp": "2026-05-16T16:54:45.198Z",
+      "error_message": "Wrong reference: Blogs should be Blog",
+      "file": "resources/views/components/header.blade.php",
+      "root_cause": "Used \"Blogs\" instead of \"Blog\"",
+      "fix": "Changed Blogs → Blog",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:54:45.198Z"
+    },
+    {
+      "id": "bug-052",
+      "timestamp": "2026-05-16T16:55:05.298Z",
+      "error_message": "CSS fix: label",
+      "file": "resources/js/admin/views/DashboardView.vue",
+      "root_cause": "label: 'Revenue (USD)',    value: '$' + Number(d.total_revenue).toLocaleString() → 'Doanh thu (USD)',          value: '$' + Number(d.total_revenue).toLocaleString()",
+      "fix": "Changed label: 'Revenue (USD)',    value: '$' + Number(d.total_revenue).toLocaleString() → 'Doanh thu (USD)',          value: '$' + Number(d.total_revenue).toLocaleString()",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:55:05.298Z"
+    },
+    {
+      "id": "bug-053",
+      "timestamp": "2026-05-16T16:55:11.044Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/components/footer.blade.php",
+      "root_cause": "Had \"Your email\"",
+      "fix": "Changed to \"Email của bạn\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:55:11.044Z"
+    },
+    {
+      "id": "bug-054",
+      "timestamp": "2026-05-16T16:55:20.649Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Rooms/RoomsView.vue",
+      "root_cause": "Had 'Available'",
+      "fix": "Changed to 'Còn phòng'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T16:55:29.707Z"
+    },
+    {
+      "id": "bug-055",
+      "timestamp": "2026-05-16T16:55:25.061Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Rooms/RoomsView.vue",
+      "root_cause": "hover: text-rose-700 hover:underline transition\">Delete</button> → text-rose-700 hover:underline transition\">Xóa</button>",
+      "fix": "Changed hover: text-rose-700 hover:underline transition\">Delete</button> → text-rose-700 hover:underline transition\">Xóa</button>",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:55:25.061Z"
+    },
+    {
+      "id": "bug-056",
+      "timestamp": "2026-05-16T16:55:26.503Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/layouts/app.blade.php",
+      "root_cause": "Had \"Search rooms, blog, shop…\"",
+      "fix": "Changed to \"Tìm kiếm phòng, blog, cửa hàng…\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T16:56:51.495Z"
+    },
+    {
+      "id": "bug-057",
+      "timestamp": "2026-05-16T16:55:33.271Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Rooms/RoomFormView.vue",
+      "root_cause": "Had 'Edit Room'",
+      "fix": "Changed to 'Chỉnh sửa phòng'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T16:56:04.631Z"
+    },
+    {
+      "id": "bug-058",
+      "timestamp": "2026-05-16T16:55:57.383Z",
+      "error_message": "Wrong reference: Available should be C",
+      "file": "resources/js/admin/views/Rooms/RoomFormView.vue",
+      "root_cause": "Used \"Available\" instead of \"C\"",
+      "fix": "Changed Available → C",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:55:57.383Z"
+    },
+    {
+      "id": "bug-059",
+      "timestamp": "2026-05-16T16:56:01.919Z",
+      "error_message": "Wrong reference: From should be T",
+      "file": "resources/views/pages/rooms/index.blade.php",
+      "root_cause": "Used \"From\" instead of \"T\"",
+      "fix": "Changed From → T",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T17:00:42.282Z"
+    },
+    {
+      "id": "bug-060",
+      "timestamp": "2026-05-16T16:56:20.246Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Posts/PostsView.vue",
+      "root_cause": "hover: text-rose-700 hover:underline transition\">Delete</button> → text-rose-700 hover:underline transition\">Xóa</button>",
+      "fix": "Changed hover: text-rose-700 hover:underline transition\">Delete</button> → text-rose-700 hover:underline transition\">Xóa</button>",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:56:20.246Z"
+    },
+    {
+      "id": "bug-061",
+      "timestamp": "2026-05-16T16:56:23.568Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Posts/PostsView.vue",
+      "root_cause": "Had 'Delete post?'",
+      "fix": "Changed to 'Xóa bài viết này?'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:56:23.568Z"
+    },
+    {
+      "id": "bug-062",
+      "timestamp": "2026-05-16T16:56:27.549Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Posts/PostFormView.vue",
+      "root_cause": "Had 'Edit Post'",
+      "fix": "Changed to 'Chỉnh sửa bài viết'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-05-16T17:01:40.073Z"
+    },
+    {
+      "id": "bug-063",
+      "timestamp": "2026-05-16T16:56:48.808Z",
+      "error_message": "Wrong reference: From should be T",
+      "file": "resources/views/pages/rooms/suites.blade.php",
+      "root_cause": "Used \"From\" instead of \"T\"",
+      "fix": "Changed From → T",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:56:48.808Z"
+    },
+    {
+      "id": "bug-064",
+      "timestamp": "2026-05-16T16:57:09.555Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Products/ProductsView.vue",
+      "root_cause": "Had 'Active'",
+      "fix": "Changed to 'Hoạt động'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T16:57:18.063Z"
+    },
+    {
+      "id": "bug-065",
+      "timestamp": "2026-05-16T16:57:11.957Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/shop/cart.blade.php",
+      "root_cause": "Had \"Product\"",
+      "fix": "Changed to \"Sản phẩm\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-05-16T16:57:19.355Z"
+    },
+    {
+      "id": "bug-066",
+      "timestamp": "2026-05-16T16:57:14.464Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Products/ProductsView.vue",
+      "root_cause": "hover: text-rose-700 hover:underline transition\">Delete</button> → text-rose-700 hover:underline transition\">Xóa</button>",
+      "fix": "Changed hover: text-rose-700 hover:underline transition\">Delete</button> → text-rose-700 hover:underline transition\">Xóa</button>",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:57:14.464Z"
+    },
+    {
+      "id": "bug-067",
+      "timestamp": "2026-05-16T16:57:17.857Z",
+      "error_message": "Incorrect value in code",
+      "file": "public/css/custom.css",
+      "root_cause": "Had \"Nunito Sans\"",
+      "fix": "Changed to \"Be Vietnam Pro\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "css"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:57:17.857Z"
+    },
+    {
+      "id": "bug-068",
+      "timestamp": "2026-05-16T16:57:24.082Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Products/ProductFormView.vue",
+      "root_cause": "Had 'Edit Product'",
+      "fix": "Changed to 'Chỉnh sửa sản phẩm'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-05-16T17:01:42.962Z"
+    },
+    {
+      "id": "bug-069",
+      "timestamp": "2026-05-16T16:57:36.830Z",
+      "error_message": "Wrong reference: Price should be Gi",
+      "file": "resources/js/admin/views/Products/ProductFormView.vue",
+      "root_cause": "Used \"Price\" instead of \"Gi\"",
+      "fix": "Changed Price → Gi",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:57:36.830Z"
+    },
+    {
+      "id": "bug-070",
+      "timestamp": "2026-05-16T16:57:53.364Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/shop/checkout.blade.php",
+      "root_cause": "Had \"First name\"",
+      "fix": "Changed to \"Họ\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 9,
+      "last_seen": "2026-05-16T16:58:23.894Z"
+    },
+    {
+      "id": "bug-071",
+      "timestamp": "2026-05-16T16:58:09.707Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Orders/OrdersView.vue",
+      "root_cause": "Had 'Guest'",
+      "fix": "Changed to 'Khách'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T16:58:16.866Z"
+    },
+    {
+      "id": "bug-072",
+      "timestamp": "2026-05-16T16:58:13.195Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Orders/OrdersView.vue",
+      "root_cause": "hover: text-rose-700 hover:underline transition\">Delete</button> → text-rose-700 hover:underline transition\">Xóa</button>",
+      "fix": "Changed hover: text-rose-700 hover:underline transition\">Delete</button> → text-rose-700 hover:underline transition\">Xóa</button>",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:58:13.195Z"
+    },
+    {
+      "id": "bug-073",
+      "timestamp": "2026-05-16T16:58:30.565Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Bookings/BookingsView.vue",
+      "root_cause": "Had 'Guest'",
+      "fix": "Changed to 'Khách'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T16:58:36.788Z"
+    },
+    {
+      "id": "bug-074",
+      "timestamp": "2026-05-16T16:58:33.897Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Bookings/BookingsView.vue",
+      "root_cause": "hover: text-rose-700 hover:underline transition\">Delete</button> → text-rose-700 hover:underline transition\">Xóa</button>",
+      "fix": "Changed hover: text-rose-700 hover:underline transition\">Delete</button> → text-rose-700 hover:underline transition\">Xóa</button>",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:58:33.897Z"
+    },
+    {
+      "id": "bug-075",
+      "timestamp": "2026-05-16T16:58:43.441Z",
+      "error_message": "Wrong reference: Edit should be Ch",
+      "file": "resources/js/admin/views/Activities/ActivitiesView.vue",
+      "root_cause": "Used \"Edit\" instead of \"Ch\"",
+      "fix": "Changed Edit → Ch",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:58:43.441Z"
+    },
+    {
+      "id": "bug-076",
+      "timestamp": "2026-05-16T16:59:11.027Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Activities/ActivityFormView.vue",
+      "root_cause": "Had 'Saving…'",
+      "fix": "Changed to 'Đang lưu…'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T17:01:45.945Z"
+    },
+    {
+      "id": "bug-077",
+      "timestamp": "2026-05-16T16:59:33.890Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/shop/show.blade.php",
+      "root_cause": "Had 'In Stock'",
+      "fix": "Changed to 'Còn hàng'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 7,
+      "last_seen": "2026-05-16T17:01:41.061Z"
+    },
+    {
+      "id": "bug-078",
+      "timestamp": "2026-05-16T16:59:38.112Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Comments/CommentsView.vue",
+      "root_cause": "hover: bg-gray-50\">Cancel</button> → bg-gray-50\">Hủy</button>",
+      "fix": "Changed hover: bg-gray-50\">Cancel</button> → bg-gray-50\">Hủy</button>",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T16:59:45.116Z"
+    },
+    {
+      "id": "bug-079",
+      "timestamp": "2026-05-16T16:59:48.562Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Comments/CommentsView.vue",
+      "root_cause": "Had 'Delete this comment?'",
+      "fix": "Changed to 'Xóa bình luận này?'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T16:59:48.562Z"
+    },
+    {
+      "id": "bug-080",
+      "timestamp": "2026-05-16T17:00:03.545Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Messages/MessagesView.vue",
+      "root_cause": "Had \">Loading…</td></tr>\n          <tr v-else-if=\"",
+      "fix": "Changed to \">Đang tải…</td></tr>\n          <tr v-else-if=\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T17:00:06.943Z"
+    },
+    {
+      "id": "bug-081",
+      "timestamp": "2026-05-16T17:00:15.676Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Messages/MessagesView.vue",
+      "root_cause": "hover: bg-gray-50\">Close</button> → bg-gray-50\">Đóng</button>",
+      "fix": "Changed hover: bg-gray-50\">Close</button> → bg-gray-50\">Đóng</button>",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:00:15.676Z"
+    },
+    {
+      "id": "bug-082",
+      "timestamp": "2026-05-16T17:00:27.363Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Menu/MenuView.vue",
+      "root_cause": "Had \"Label\"",
+      "fix": "Changed to \"Nhãn\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 4,
+      "last_seen": "2026-05-16T17:01:30.565Z"
+    },
+    {
+      "id": "bug-083",
+      "timestamp": "2026-05-16T17:00:43.527Z",
+      "error_message": "CSS fix: hover",
+      "file": "resources/js/admin/views/Menu/MenuView.vue",
+      "root_cause": "hover: text-black underline mt-1\">+ Add sub-item</button> → text-black underline mt-1\">+ Thêm mục con</button>",
+      "fix": "Changed hover: text-black underline mt-1\">+ Add sub-item</button> → text-black underline mt-1\">+ Thêm mục con</button>",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:00:43.527Z"
+    },
+    {
+      "id": "bug-084",
+      "timestamp": "2026-05-16T17:01:13.721Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Settings/SettingsView.vue",
+      "root_cause": "Had \"Logo image\"",
+      "fix": "Changed to \"Ảnh logo\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-05-16T17:01:33.420Z"
+    },
+    {
+      "id": "bug-085",
+      "timestamp": "2026-05-16T17:01:37.127Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Rooms/RoomFormView.vue",
+      "root_cause": "Had 'Save failed.'",
+      "fix": "Changed to 'Lưu thất bại.'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:01:37.127Z"
+    },
+    {
+      "id": "bug-086",
+      "timestamp": "2026-05-16T17:02:37.377Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/contact.blade.php",
+      "root_cause": "Had \"Your Name\"",
+      "fix": "Changed to \"Họ và tên\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T17:02:42.584Z"
+    },
+    {
+      "id": "bug-087",
+      "timestamp": "2026-05-16T17:03:23.827Z",
+      "error_message": "Wrong reference: View should be Xem",
+      "file": "resources/views/pages/account/orders.blade.php",
+      "root_cause": "Used \"View\" instead of \"Xem\"",
+      "fix": "Changed View → Xem",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:03:23.827Z"
+    },
+    {
+      "id": "bug-088",
+      "timestamp": "2026-05-16T17:05:33.118Z",
+      "error_message": "Wrong reference: From should be T",
+      "file": "resources/views/pages/home.blade.php",
+      "root_cause": "Used \"From\" instead of \"T\"",
+      "fix": "Changed From → T",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:05:33.118Z"
+    },
+    {
+      "id": "bug-089",
+      "timestamp": "2026-05-16T17:05:52.314Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/home.blade.php",
+      "root_cause": "Had \"Name\"",
+      "fix": "Changed to \"Họ và tên\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T17:05:58.835Z"
+    },
+    {
+      "id": "bug-090",
+      "timestamp": "2026-05-16T17:08:03.716Z",
+      "error_message": "Wrong reference: Password should be M",
+      "file": "resources/views/auth/login.blade.php",
+      "root_cause": "Used \"Password\" instead of \"M\"",
+      "fix": "Changed Password → M",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:08:03.716Z"
+    },
+    {
+      "id": "bug-091",
+      "timestamp": "2026-05-16T17:08:07.938Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/auth/login.blade.php",
+      "root_cause": "Had 'Remember me'",
+      "fix": "Changed to 'Ghi nhớ đăng nhập'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-05-16T17:08:15.173Z"
+    },
+    {
+      "id": "bug-092",
+      "timestamp": "2026-05-16T17:08:18.563Z",
+      "error_message": "Wrong reference: Name should be H",
+      "file": "resources/views/auth/register.blade.php",
+      "root_cause": "Used \"Name\" instead of \"H\"",
+      "fix": "Changed Name → H",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T17:08:28.793Z"
+    },
+    {
+      "id": "bug-093",
+      "timestamp": "2026-05-16T17:08:35.493Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/auth/register.blade.php",
+      "root_cause": "Had 'Already registered?'",
+      "fix": "Changed to 'Đã có tài khoản?'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T17:08:38.805Z"
+    },
+    {
+      "id": "bug-094",
+      "timestamp": "2026-05-16T17:08:43.769Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/auth/forgot-password.blade.php",
+      "root_cause": "Had 'Forgot your password? No problem. Just let us kno",
+      "fix": "Changed to 'Quên mật khẩu? Không sao. Hãy cho chúng tôi biết ",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T17:08:46.984Z"
+    },
+    {
+      "id": "bug-095",
+      "timestamp": "2026-05-16T17:08:55.548Z",
+      "error_message": "Wrong reference: From should be T",
+      "file": "resources/views/pages/rooms/show.blade.php",
+      "root_cause": "Used \"From\" instead of \"T\"",
+      "fix": "Changed From → T",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T17:10:21.091Z"
+    },
+    {
+      "id": "bug-096",
+      "timestamp": "2026-05-16T17:12:36.310Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/account/order-detail.blade.php",
+      "root_cause": "Had 'F d, Y'",
+      "fix": "Changed to 'd/m/Y'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-16T17:12:43.760Z"
+    },
+    {
+      "id": "bug-097",
+      "timestamp": "2026-05-16T17:20:26.861Z",
+      "error_message": "Significant refactor of ",
+      "file": "app/Http/Controllers/Web/ShopController.php",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 6→28 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:20:26.861Z"
+    },
+    {
+      "id": "bug-098",
+      "timestamp": "2026-05-16T17:20:35.739Z",
+      "error_message": "Null/undefined access in ",
+      "file": "resources/views/pages/shop/index.blade.php",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:20:35.739Z"
+    },
+    {
+      "id": "bug-099",
+      "timestamp": "2026-05-16T17:20:45.268Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/pages/shop/index.blade.php",
+      "root_cause": "9 lines replaced/restructured",
+      "fix": "Rewrote 12→16 lines (9 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:20:45.268Z"
+    },
+    {
+      "id": "bug-100",
+      "timestamp": "2026-05-16T17:24:55.901Z",
+      "error_message": "Wrong reference: UploadController should be SubscriberController",
+      "file": "routes/api.php",
+      "root_cause": "Used \"UploadController\" instead of \"SubscriberController\"",
+      "fix": "Changed UploadController → SubscriberController",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:24:55.901Z"
+    },
+    {
+      "id": "bug-101",
+      "timestamp": "2026-05-16T17:25:22.037Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/components/footer.blade.php",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 6→8 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:25:22.037Z"
+    },
+    {
+      "id": "bug-102",
+      "timestamp": "2026-05-16T17:25:26.691Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/components/footer.blade.php",
+      "root_cause": "Had \" class=\"",
+      "fix": "Changed to \"{{ route('",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:25:26.691Z"
+    },
+    {
+      "id": "bug-103",
+      "timestamp": "2026-05-16T17:25:34.791Z",
+      "error_message": "Null/undefined access in ",
+      "file": "resources/views/components/footer.blade.php",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:25:34.791Z"
+    },
+    {
+      "id": "bug-104",
+      "timestamp": "2026-05-16T17:26:02.164Z",
+      "error_message": "CSS fix: to, icon",
+      "file": "resources/js/admin/components/AppLayout.vue",
+      "root_cause": "to: '/admin/messages', label: 'Tin nhắn', → '/admin/subscribers', label: 'Đăng ký tin',; icon: `<svg fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z\"/></svg>` → `<svg fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9\"/></svg>`",
+      "fix": "Changed to: '/admin/messages', label: 'Tin nhắn', → '/admin/subscribers', label: 'Đăng ký tin',; icon: `<svg fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z\"/></svg>` → `<svg fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9\"/></svg>`",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:26:02.164Z"
+    },
+    {
+      "id": "bug-105",
+      "timestamp": "2026-05-16T17:30:46.257Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/shop/index.blade.php",
+      "root_cause": "Had \"this.form.submit()\"",
+      "fix": "Changed to \"shop-orderby\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:30:46.257Z"
+    },
+    {
+      "id": "bug-106",
+      "timestamp": "2026-05-16T17:30:50.954Z",
+      "error_message": "Missing guard clause",
+      "file": "resources/views/pages/shop/index.blade.php",
+      "root_cause": "No early return/throw for edge case: !sel",
+      "fix": "Added guard clause: if (!sel)",
+      "tags": [
+        "auto-detected",
+        "guard-clause",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:30:50.954Z"
+    },
+    {
+      "id": "bug-107",
+      "timestamp": "2026-05-16T17:35:09.813Z",
+      "error_message": "Null/undefined access in ",
+      "file": "app/Http/Controllers/Web/ShopController.php",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:35:09.813Z"
+    },
+    {
+      "id": "bug-108",
+      "timestamp": "2026-05-16T17:35:39.439Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/pages/shop/index.blade.php",
+      "root_cause": "10 lines replaced/restructured",
+      "fix": "Rewrote 20→83 lines (10 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:35:39.439Z"
+    },
+    {
+      "id": "bug-109",
+      "timestamp": "2026-05-16T17:36:15.571Z",
+      "error_message": "CSS fix: site_name",
+      "file": "resources/js/admin/views/Settings/SettingsView.vue",
+      "root_cause": "site_name: '', phone: '', email: '', logo: '', → '', phone: '', email: '', logo: '', favicon: '',",
+      "fix": "Changed site_name: '', phone: '', email: '', logo: '', → '', phone: '', email: '', logo: '', favicon: '',",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-16T17:36:15.571Z"
+    },
+    {
+      "id": "bug-110",
+      "timestamp": "2026-05-17T14:52:00.706Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/views/Comments/CommentsView.vue",
+      "root_cause": "Had 'pending'",
+      "fix": "Changed to 'all'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T14:52:00.706Z"
+    },
+    {
+      "id": "bug-111",
+      "timestamp": "2026-05-17T14:53:18.107Z",
+      "error_message": "CSS fix: label",
+      "file": "resources/js/admin/views/Comments/CommentsView.vue",
+      "root_cause": "label: 'Tất cả', value: 'all' → 'Đã duyệt', value: 'approved'",
+      "fix": "Changed label: 'Tất cả', value: 'all' → 'Đã duyệt', value: 'approved'",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T14:53:18.108Z"
+    }
+  ]
+}

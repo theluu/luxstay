@@ -8,7 +8,7 @@
             <div class="col-12">
                <!-- Section Title Start -->
                <div class="sisf-sis-section-title text-center section-title wow zoomIn">
-                  <h2 class="sisf-m-title text-white sisf-m-title--scroll">Hotel Booking Premium<br> HTML Template</h2>
+                  <h2 class="sisf-m-title text-white sisf-m-title--scroll">Đặt phòng khách sạn cao cấp<br> HTML Template</h2>
                </div>
                <!-- Section Title End -->
             </div>
@@ -88,7 +88,7 @@
                   <!-- Section Title Start -->
                   <div class="sisf-sis-section-title text-center section-title wow wow-bounce">
                      <h1 class="home-page-count sisf-e-colored">3</h1>
-                     <h2 class="sisf-m-title text-white sisf-m-title--scroll">Stunning Homepages</h2>
+                     <h2 class="sisf-m-title text-white sisf-m-title--scroll">Trang chủ ấn tượng</h2>
                   </div>
                   <!-- Section Title End -->
                </div>
@@ -103,7 +103,7 @@
                            </figure>
                         </a>
                         <a href="{{ route('home') }}">
-                           <h5 class="mt-4">Mountain Home Page</h5>
+                           <h5 class="mt-4">Trang chủ Núi</h5>
                         </a>
                      </div>
                   </div>
@@ -115,7 +115,7 @@
                            </figure>
                         </a>
                         <a href="{{ route('home') }}">
-                           <h5 class="mt-4">Beach Home Page</h5>
+                           <h5 class="mt-4">Trang chủ Biển</h5>
                         </a>
                      </div>
                   </div>
@@ -127,7 +127,7 @@
                            </figure>
                         </a>
                         <a href="{{ route('home') }}">
-                           <h5 class="mt-4">Luxury Home Page</h5>
+                           <h5 class="mt-4">Trang chủ Sang trọng</h5>
                         </a>
                      </div>
                   </div>
@@ -143,7 +143,7 @@
                <div class="col-12">
                   <!-- Section Title Start -->
                   <div class="sisf-sis-section-title section-title text-center wow wow-bounce">
-                     <h2 class="sisf-m-title text-white sisf-m-title--scroll">Pre-designed Inner Pages</h2>
+                     <h2 class="sisf-m-title text-white sisf-m-title--scroll">Trang nội bộ thiết kế sẵn</h2>
                   </div>
                   <!-- Section Title End -->
                </div>
@@ -216,31 +216,31 @@
                <div class="col-md-4">
                   <div class="sisf-landing-icon-with-text mb-3 wow bounceInLeft">
                      <span class="me-3 check"><i class="fa-solid fa-check"></i></span>
-                     <span class="text-white">Beautiful Layouts</span>
+                     <span class="text-white">Bố cục đẹp</span>
                   </div>
                   <div class="sisf-landing-icon-with-text wow bounceInLeft">
                      <span class="me-3 check"><i class="fa-solid fa-check"></i></span>
-                     <span class="text-white">Availability Calendar</span>
+                     <span class="text-white">Lịch kiểm tra phòng trống</span>
                   </div>
                </div>
                <div class="col-md-4">
                   <div class="sisf-landing-icon-with-text mb-3 wow zoomInUp">
                      <span class="me-3 check"><i class="fa-solid fa-check"></i></span>
-                     <span class="text-white">Flexible Customization Options</span>
+                     <span class="text-white">Tùy chỉnh linh hoạt</span>
                   </div>
                   <div class="sisf-landing-icon-with-text wow zoomInUp">
                      <span class="me-3 check"><i class="fa-solid fa-check"></i></span>
-                     <span class="text-white">Fully Responsive</span>
+                     <span class="text-white">Hoàn toàn tương thích</span>
                   </div>
                </div>
                <div class="col-md-4">
                   <div class="sisf-landing-icon-with-text mb-3 wow bounceInRight">
                      <span class="me-3 check"><i class="fa-solid fa-check"></i></span>
-                     <span class="text-white">Professional Support</span>
+                     <span class="text-white">Hỗ trợ chuyên nghiệp</span>
                   </div>
                   <div class="sisf-landing-icon-with-text wow bounceInRight">
                      <span class="me-3 check"><i class="fa-solid fa-check"></i></span>
-                     <span class="text-white">HTML Template Shop</span>
+                     <span class="text-white">Cửa hàng HTML Template</span>
                   </div>
                </div>
             </div>
@@ -254,7 +254,7 @@
                <div class="col-md-5">
                   <!-- Section Title Start -->
                   <div class="sisf-sis-section-title section-title wow slideInLeft">
-                     <h2 class="sisf-m-title sisf-m-title--scroll">Beautiful Room &<br> Suite Detail Layouts</h2>
+                     <h2 class="sisf-m-title sisf-m-title--scroll">Thiết kế chi tiết<br> Phòng & Suite</h2>
                      <div class="sisf-m-text">
                         <p>The Beautiful Room & Suite Detail Layouts design is a sophisticated and elegant approach to interior design, aiming to create spaces that are both aesthetically pleasing and functionally efficient. This design style is characterized by meticulous attention to detail, seamless integration of various elements, and a focus on enhancing the user experience.</p>
                      </div>
@@ -279,7 +279,7 @@
                <div class="col-md-6">
                   <!-- Section Title Start -->
                   <div class="sisf-sis-section-title section-title wow slideInLeft">
-                     <h2 class="sisf-m-title text-white sisf-m-title--scroll">Discover & Explore<br> Thrilling Activity Pages</h2>
+                     <h2 class="sisf-m-title text-white sisf-m-title--scroll">Khám phá<br> trang hoạt động thú vị</h2>
                   </div>
                   <!-- Section Title End -->
                </div>
@@ -299,7 +299,7 @@
                <div class="col-lg-3 col-md-6">
                   <div class="sisf-e sisf-activity-page-image-wrapper sisf-grid-item wow fadeInUp">
                      <div class="sisf-e-inner position-relative">
-                        <a href="{{ route('activities.show', 'event-wedding') }}">
+                        <a href="{{ route('activity.show', 'event-wedding') }}">
                         <img src="{{ asset('images/activity_page1.png') }}" class="w-100" alt="LuxeStay">
                         </a>
                      </div>
@@ -308,7 +308,7 @@
                <div class="col-lg-3 col-md-6">
                   <div class="sisf-e sisf-activity-page-image-wrapper sisf-grid-item wow fadeInUp">
                      <div class="sisf-e-inner position-relative">
-                        <a href="{{ route('activities.show', 'fitness-and-wellness') }}">
+                        <a href="{{ route('activity.show', 'fitness-and-wellness') }}">
                         <img src="{{ asset('images/activity_page2.png') }}" class="w-100" alt="LuxeStay">
                         </a>
                      </div>
@@ -317,7 +317,7 @@
                <div class="col-lg-3 col-md-6">
                   <div class="sisf-e sisf-activity-page-image-wrapper sisf-grid-item wow fadeInUp">
                      <div class="sisf-e-inner position-relative">
-                        <a href="{{ route('activities.show', 'golf-courses') }}">
+                        <a href="{{ route('activity.show', 'golf-courses') }}">
                         <img src="{{ asset('images/activity_page3.png') }}" class="w-100" alt="LuxeStay">
                         </a>
                      </div>
@@ -326,7 +326,7 @@
                <div class="col-lg-3 col-md-6">
                   <div class="sisf-e sisf-activity-page-image-wrapper sisf-grid-item wow fadeInUp">
                      <div class="sisf-e-inner position-relative">
-                        <a href="{{ route('activities.show', 'hiking-and-trekking') }}">
+                        <a href="{{ route('activity.show', 'hiking-and-trekking') }}">
                         <img src="{{ asset('images/activity_page4.png') }}" class="w-100" alt="LuxeStay">
                         </a>
                      </div>
@@ -335,7 +335,7 @@
                <div class="col-lg-3 col-md-6">
                   <div class="sisf-e sisf-activity-page-image-wrapper sisf-grid-item wow fadeInUp">
                      <div class="sisf-e-inner position-relative">
-                        <a href="{{ route('activities.show', 'leisure-and-entertainment') }}">
+                        <a href="{{ route('activity.show', 'leisure-and-entertainment') }}">
                         <img src="{{ asset('images/activity_page5.png') }}" class="w-100" alt="LuxeStay">
                         </a>
                      </div>
@@ -344,7 +344,7 @@
                <div class="col-lg-3 col-md-6">
                   <div class="sisf-e sisf-activity-page-image-wrapper sisf-grid-item wow fadeInUp">
                      <div class="sisf-e-inner position-relative">
-                        <a href="{{ route('activities.show', 'nature-and-exploration') }}">
+                        <a href="{{ route('activity.show', 'nature-and-exploration') }}">
                         <img src="{{ asset('images/activity_page6.png') }}" class="w-100" alt="LuxeStay">
                         </a>
                      </div>
@@ -353,7 +353,7 @@
                <div class="col-lg-3 col-md-6">
                   <div class="sisf-e sisf-activity-page-image-wrapper sisf-grid-item wow fadeInUp">
                      <div class="sisf-e-inner position-relative">
-                        <a href="{{ route('activities.show', 'ski-snowboarding') }}">
+                        <a href="{{ route('activity.show', 'ski-snowboarding') }}">
                         <img src="{{ asset('images/activity_page7.png') }}" class="w-100" alt="LuxeStay">
                         </a>
                      </div>
@@ -362,7 +362,7 @@
                <div class="col-lg-3 col-md-6">
                   <div class="sisf-e sisf-activity-page-image-wrapper sisf-grid-item wow fadeInUp">
                      <div class="sisf-e-inner position-relative">
-                        <a href="{{ route('activities.show', 'spa-wellness') }}">
+                        <a href="{{ route('activity.show', 'spa-wellness') }}">
                         <img src="{{ asset('images/activity_page8.png') }}" class="w-100" alt="LuxeStay">
                         </a>
                      </div>
@@ -371,7 +371,7 @@
                <div class="col-lg-3 col-md-6">
                   <div class="sisf-e sisf-activity-page-image-wrapper sisf-grid-item wow fadeInUp">
                      <div class="sisf-e-inner position-relative">
-                        <a href="{{ route('activities.show', 'unique-experiences') }}">
+                        <a href="{{ route('activity.show', 'unique-experiences') }}">
                         <img src="{{ asset('images/activity_page9.png') }}" class="w-100" alt="LuxeStay">
                         </a>
                      </div>
@@ -380,7 +380,7 @@
                <div class="col-lg-3 col-md-6">
                   <div class="sisf-e sisf-activity-page-image-wrapper sisf-grid-item wow fadeInUp">
                      <div class="sisf-e-inner position-relative">
-                        <a href="{{ route('activities.show', 'water-sports') }}">
+                        <a href="{{ route('activity.show', 'water-sports') }}">
                         <img src="{{ asset('images/activity_page10.png') }}" class="w-100" alt="LuxeStay">
                         </a>
                      </div>
@@ -389,7 +389,7 @@
                <div class="col-lg-3 col-md-6">
                   <div class="sisf-e sisf-activity-page-image-wrapper sisf-grid-item wow fadeInUp">
                      <div class="sisf-e-inner position-relative">
-                        <a href="{{ route('activities.show', 'winter-hiking') }}">
+                        <a href="{{ route('activity.show', 'winter-hiking') }}">
                         <img src="{{ asset('images/activity_page11.png') }}" class="w-100" alt="LuxeStay">
                         </a>
                      </div>
@@ -406,12 +406,12 @@
                <div class="col-lg-5 col-md-6">
                   <!-- Section Title Start -->
                   <div class="sisf-sis-section-title section-title mb-0 wow bounceInLeft">
-                     <h2 class="sisf-m-title text-white sisf-m-title--scroll">Forge Your<br> Outstanding<br> Car Rental Platform Today</h2>
+                     <h2 class="sisf-m-title text-white sisf-m-title--scroll">Xây dựng<br> nền tảng<br> của bạn ngay hôm nay</h2>
                      <div class="sisf-m-text pb-4">
                         <p class="text-white">we are passionate about helping individuals discover their next thrilling on-water adventure. Whether you're a seasoned water enthusiast or a novice looking to explore the wonders of the water, our service/product is designed to provide you with unforgettable experiences and create lasting memories.</p>
                      </div>
                      <div class="sisf-m-button mt-2">
-                        <a href="{{ route('contact') }}" class="btn-default rounded-0"><span>CONTACT US</span>
+                        <a href="{{ route('contact') }}" class="btn-default rounded-0"><span>LIÊN HỆ</span>
                         </a>
                      </div>
                   </div>

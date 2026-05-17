@@ -56,7 +56,7 @@
     handleMobileMenus();
 	
 	if($(".orderby").length > 0 ) {
-		$(".orderby").select2();  
+		$(".orderby").select2({ minimumResultsForSearch: Infinity });
 	}
 	let resizeTimeout;
 

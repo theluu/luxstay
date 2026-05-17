@@ -1,0 +1,90 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git stash *)",
+      "Bash(curl -s -X POST https://luxestay.ddev.site/api/v1/auth/login -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{\"email\":\"admin@luxestay.com\",\"password\":\"password\"}')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://luxestay.ddev.site/admin/login)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(curl -s https://luxestay.ddev.site/api/v1/rooms/1 -H 'Authorization: Bearer __CMDSUB_OUTPUT__')",
+      "Bash(curl -s https://luxestay.ddev.site/rooms/suites)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://luxestay.ddev.site/shop/luminous-hydration-serum)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://luxestay.ddev.site/cart)",
+      "Bash(grep -E \"\\\\.\\(css|js\\)$\")",
+      "Bash(ddev start *)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.wolf/hooks/session-start.js\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.wolf/hooks/pre-read.js\"",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.wolf/hooks/pre-write.js\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.wolf/hooks/post-read.js\"",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.wolf/hooks/post-write.js\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.wolf/hooks/stop.js\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

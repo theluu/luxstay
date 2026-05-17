@@ -11,7 +11,7 @@
          <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
             <div class="sisf-m-inner">
                <div class="sisf-m-content sisf-content-grid ">
-                  <h1 class="sisf-m-title text-center entry-title">My Account</h1>
+                  <h1 class="sisf-m-title text-center entry-title">Tài khoản của tôi</h1>
                </div>
             </div>
          </div>
@@ -27,24 +27,24 @@
                         <div class="myaccount-navigation">
                            <ul class="list-unstyled">
                               <li class="myaccount-navigation-link myaccount-navigation-link-dashboard">
-                                 <a href="{{ route('account.index') }}">Dashboard</a>
+                                 <a href="{{ route('account.index') }}">Bảng điều khiển</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-orders">
-                                 <a href="{{ route('orders.index') }}">Orders</a>
+                                 <a href="{{ route('orders.index') }}">Đơn hàng</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-downloads is-active">
-                                 <a href="{{ route('account.downloads') }}">Downloads</a>
+                                 <a href="{{ route('account.downloads') }}">Tải xuống</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-edit-address">
-                                 <a href="{{ route('account.address') }}">Addresses</a>
+                                 <a href="{{ route('account.address') }}">Địa chỉ</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-edit-account">
-                                 <a href="{{ route('account.edit') }}">Account details</a>
+                                 <a href="{{ route('account.edit') }}">Thông tin tài khoản</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-customer-logout">
                                  <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" style="background:none;border:none;padding:0;cursor:pointer;">Log out</button>
+                                    <button type="submit" style="background:none;border:none;padding:0;cursor:pointer;">Đăng xuất</button>
                                  </form>
                               </li>
                            </ul>
@@ -53,7 +53,7 @@
                      <div class="col-md-9">
                         <div class="myaccount-content cart-form-table">
                            <div class="myaccount-info">
-                              <a class="button sisf-button sisf-layout--outlined text-uppercase" href="{{ route('shop.index') }}">Browse products</a> No downloads available yet.
+                              <a class="button sisf-button sisf-layout--outlined text-uppercase" href="{{ route('shop.index') }}">Xem sản phẩm</a> Chưa có tệp tải xuống nào.
                            </div>
                         </div>
                      </div>

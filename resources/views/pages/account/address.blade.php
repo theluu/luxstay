@@ -11,7 +11,7 @@
          <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
             <div class="sisf-m-inner">
                <div class="sisf-m-content sisf-content-grid ">
-                  <h1 class="sisf-m-title text-center entry-title">My Account</h1>
+                  <h1 class="sisf-m-title text-center entry-title">Tài khoản của tôi</h1>
                </div>
             </div>
          </div>
@@ -27,24 +27,24 @@
                         <div class="myaccount-navigation">
                            <ul class="list-unstyled">
                               <li class="myaccount-navigation-link myaccount-navigation-link-dashboard">
-                                 <a href="{{ route('account.index') }}">Dashboard</a>
+                                 <a href="{{ route('account.index') }}">Bảng điều khiển</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-orders">
-                                 <a href="{{ route('orders.index') }}">Orders</a>
+                                 <a href="{{ route('orders.index') }}">Đơn hàng</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-downloads">
-                                 <a href="{{ route('account.downloads') }}">Downloads</a>
+                                 <a href="{{ route('account.downloads') }}">Tải xuống</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-edit-address is-active">
-                                 <a href="{{ route('account.address') }}">Addresses</a>
+                                 <a href="{{ route('account.address') }}">Địa chỉ</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-edit-account">
-                                 <a href="{{ route('account.edit') }}">Account details</a>
+                                 <a href="{{ route('account.edit') }}">Thông tin tài khoản</a>
                               </li>
                               <li class="myaccount-navigation-link myaccount-navigation-link-customer-logout">
                                  <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" style="background:none;border:none;padding:0;cursor:pointer;">Log out</button>
+                                    <button type="submit" style="background:none;border:none;padding:0;cursor:pointer;">Đăng xuất</button>
                                  </form>
                               </li>
                            </ul>
@@ -55,14 +55,14 @@
                            <form method="POST" action="{{ route('account.address.update') }}">
                               @csrf
                               @method('PUT')
-                              <p>The following addresses will be used on the checkout page by default.</p>
+                              <p>Các địa chỉ sau sẽ được dùng mặc định trên trang thanh toán.</p>
                               <div class="sisf-myaccount-addresses">
                                  <div class="row">
                                     <div class="col-md-6">
                                        <div class="sisf-address-box">
                                           <div class="sisf-address-title">
-                                             <h3>Billing address</h3>
-                                             <a href="#" class="edit">Edit</a>
+                                             <h3>Địa chỉ thanh toán</h3>
+                                             <a href="#" class="edit">Sửa</a>
                                           </div>
                                           <address>
                                              1532 Park Serrena Street,<br>Selgoes Park,<br> Los Angeles<br>90001, US
@@ -72,8 +72,8 @@
                                     <div class="col-md-6">
                                        <div class="sisf-address-box">
                                           <div class="sisf-address-title">
-                                             <h3>Shipping address</h3>
-                                             <a href="#" class="edit">Add</a>
+                                             <h3>Địa chỉ giao hàng</h3>
+                                             <a href="#" class="edit">Thêm</a>
                                           </div>
                                           <address>
                                              1532 Park Serrena Street,<br>Selgoes Park,<br> Los Angeles<br>90001, US

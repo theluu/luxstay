@@ -13,7 +13,7 @@ class OrderController extends Controller
 {
     public function index(): AnonymousResourceCollection
     {
-        return OrderResource::collection(Order::with('user')->latest()->paginate(20));
+        return OrderResource::collection(Order::with(['user', 'transactions' => fn ($q) => $q->latest()])->latest()->paginate(20));
     }
 
     public function store(Request $request): JsonResponse
@@ -23,7 +23,7 @@ class OrderController extends Controller
 
     public function show(Order $order): OrderResource
     {
-        return new OrderResource($order->load('user', 'items.product'));
+        return new OrderResource($order->load(['user', 'items.product', 'transactions' => fn ($q) => $q->latest()]));
     }
 
     public function update(Request $request, Order $order): OrderResource
@@ -33,7 +33,7 @@ class OrderController extends Controller
             'payment_status' => 'sometimes|in:unpaid,paid,refunded',
         ]);
         $order->update($data);
-        return new OrderResource($order->load('user', 'items.product'));
+        return new OrderResource($order->load(['user', 'items.product', 'transactions' => fn ($q) => $q->latest()]));
     }
 
     public function destroy(Order $order): JsonResponse

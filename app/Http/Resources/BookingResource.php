@@ -23,6 +23,8 @@ class BookingResource extends JsonResource
             'guests'         => $this->guests,
             'status'         => $this->status,
             'payment_status' => $this->payment_status,
+            'vnpay_txn_ref'   => $this->vnpay_txn_ref,
+            'latest_transaction' => new PaymentTransactionResource($this->whenLoaded('transactions', fn () => $this->transactions->first())),
             'total_price'    => $this->total_price,
             'created_at'     => $this->created_at,
         ];

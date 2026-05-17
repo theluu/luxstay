@@ -13,6 +13,13 @@ import ProductFormView from '../views/Products/ProductFormView.vue'
 import OrdersView     from '../views/Orders/OrdersView.vue'
 import ActivitiesView from '../views/Activities/ActivitiesView.vue'
 import ActivityFormView from '../views/Activities/ActivityFormView.vue'
+import MessagesView     from '../views/Messages/MessagesView.vue'
+import CommentsView     from '../views/Comments/CommentsView.vue'
+import SettingsView     from '../views/Settings/SettingsView.vue'
+import MenuView         from '../views/Menu/MenuView.vue'
+import SubscribersView  from '../views/Subscribers/SubscribersView.vue'
+import SlidersView      from '../views/Sliders/SlidersView.vue'
+import SliderFormView   from '../views/Sliders/SliderFormView.vue'
 
 const routes = [
     { path: '/admin/login',                  component: LoginView,       meta: { public: true } },
@@ -30,6 +37,14 @@ const routes = [
     { path: '/admin/orders',                 component: OrdersView      },
     { path: '/admin/activities',             component: ActivitiesView  },
     { path: '/admin/activities/:id/edit',    component: ActivityFormView },
+    { path: '/admin/messages',               component: MessagesView     },
+    { path: '/admin/comments',               component: CommentsView     },
+    { path: '/admin/settings',               component: SettingsView     },
+    { path: '/admin/menu',                   component: MenuView         },
+    { path: '/admin/subscribers',            component: SubscribersView  },
+    { path: '/admin/sliders',                component: SlidersView      },
+    { path: '/admin/sliders/create',         component: SliderFormView   },
+    { path: '/admin/sliders/:id/edit',       component: SliderFormView   },
 ]
 
 const router = createRouter({

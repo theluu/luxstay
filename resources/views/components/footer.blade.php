@@ -5,7 +5,7 @@
             <div class="row align-items-center">
                <div class="col-md-7">
                   <div class="footer-top-heading">
-                     <h3>LET'S START YOUR JOURNEY WITH<br> LUXESTAY</h3>
+                     <h3>HÃY BẮT ĐẦU HÀNH TRÌNH CỦA BẠN VỚI<br> LUXESTAY</h3>
                   </div>
                </div>
                <div class="col-md-3">
@@ -23,7 +23,7 @@
                <div class="col-md-2 d-flex justify-content-end">
                   <div class="contact-button">
                      <a href="{{ route('contact') }}" class="sisf-m footer-btn">
-                     <span class="text-uppercase">Contact Us</span>
+                     <span class="text-uppercase">Liên hệ</span>
                      </a>
                   </div>
                </div>
@@ -34,12 +34,14 @@
          <div class="container">
             <div class="row">
                <div class="col-md-7 ms-auto me-auto">
-                  <h5 class="subscription text-center">Subscribe now for updates and exclusive offers!</h5>
+                  <h5 class="subscription text-center">Đăng ký nhận tin tức và ưu đãi độc quyền!</h5>
                   <div class="subscription-container text-center wow fadeInUp">
-                     <form class="d-flex justify-content-center align-items-center">
-                        <input type="email" class="form-control" placeholder="Your email">
-                        <button type="submit" class="btn btn-link ms-2">SUBSCRIBE</button>
+                     <form id="newsletterForm" class="d-flex justify-content-center align-items-center">
+                        @csrf
+                        <input type="email" id="newsletterEmail" class="form-control" placeholder="Email của bạn" required>
+                        <button type="submit" id="newsletterBtn" class="btn btn-link ms-2">ĐĂNG KÝ</button>
                      </form>
+                     <div id="newsletterMsg" style="display:none;margin-top:12px;font-size:14px"></div>
                   </div>
                </div>
                <div class="footer-social-links d-flex align-items-center justify-content-center wow fadeInUp">
@@ -52,12 +54,12 @@
                </div>
                <div class="menu-footer-menu-container d-flex align-items-center justify-content-center wow fadeInUp">
                   <ul class="menu list-unstyled p-0 mb-0 d-flex align-items-center">
-                     <li class="menu-item text-uppercase"><a href="{{ route('home') }}">Home</a></li>
-                     <li class="menu-item text-uppercase"><a href="{{ route('about') }}">About Us</a></li>
-                     <li class="menu-item text-uppercase"><a href="{{ route('rooms.index') }}">Rooms</a></li>
-                     <li class="menu-item text-uppercase"><a href="{{ route('shop.index') }}">Shop</a></li>
-                     <li class="menu-item text-uppercase"><a href="{{ route('blog.index') }}">Blogs</a></li>
-                     <li class="menu-item text-uppercase"><a href="{{ route('contact') }}">Contacts</a></li>
+                     <li class="menu-item text-uppercase"><a href="{{ route('home') }}">Trang chủ</a></li>
+                     <li class="menu-item text-uppercase"><a href="{{ route('about') }}">Về chúng tôi</a></li>
+                     <li class="menu-item text-uppercase"><a href="{{ route('rooms.index') }}">Phòng</a></li>
+                     <li class="menu-item text-uppercase"><a href="{{ route('shop.index') }}">Cửa hàng</a></li>
+                     <li class="menu-item text-uppercase"><a href="{{ route('blog.index') }}">Blog</a></li>
+                     <li class="menu-item text-uppercase"><a href="{{ route('contact') }}">Liên hệ</a></li>
                   </ul>
                </div>
                <div class="gallery-container gallery-items">
@@ -80,12 +82,12 @@
                <div class="row align-items-center">
                   <div class="col-lg-6 col-md-6">
                      <div class="footer-copyright-text wow fadeInUp">
-                        <p class="text-black">&copy; {{ date('Y') }} Luxestay. All Rights Reserved.</p>
+                        <p class="text-black">&copy; {{ date('Y') }} Luxestay. Bản quyền đã được bảo lưu.</p>
                      </div>
                   </div>
                   <div class="col-lg-6 col-md-6">
                      <div class="footer-privacy-policy wow fadeInUp">
-                        <ul><li><a href="#" class="text-black">Privacy Policy</a></li></ul>
+                        <ul><li><a href="{{ route('privacy') }}" class="text-black">Chính sách bảo mật</a></li></ul>
                      </div>
                   </div>
                </div>
@@ -123,3 +125,30 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="{{ asset('js/function.js') }}"></script>
 @stack('scripts')
+<script>
+$(function () {
+    $('#newsletterForm').on('submit', function (e) {
+        e.preventDefault();
+        var $btn = $('#newsletterBtn');
+        var $msg = $('#newsletterMsg');
+        var email = $('#newsletterEmail').val().trim();
+        $btn.prop('disabled', true).text('Đang gửi...');
+        $.ajax({
+            url: '{{ route('subscribe') }}',
+            method: 'POST',
+            data: { email: email, _token: $('input[name=_token]').val() },
+            success: function (res) {
+                $msg.css({ color: '#2d6a4f', display: 'block' }).text(res.message);
+                $('#newsletterEmail').val('');
+            },
+            error: function (xhr) {
+                var msg = xhr.responseJSON?.message || 'Có lỗi xảy ra. Vui lòng thử lại.';
+                $msg.css({ color: '#c0392b', display: 'block' }).text(msg);
+            },
+            complete: function () {
+                $btn.prop('disabled', false).text('ĐĂNG KÝ');
+            }
+        });
+    });
+});
+</script>

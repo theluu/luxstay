@@ -2,6 +2,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends Model
 {
@@ -13,4 +14,5 @@ class Post extends Model
     public function category(): BelongsTo { return $this->belongsTo(PostCategory::class, 'post_category_id'); }
     public function author(): BelongsTo { return $this->belongsTo(User::class, 'author_id'); }
     public function scopePublished($query) { return $query->where('status', 'published')->whereNotNull('published_at')->where('published_at', '<=', now()); }
+    public function comments(): HasMany { return $this->hasMany(PostComment::class); }
 }

@@ -13,7 +13,7 @@ class BookingController extends Controller
 {
     public function index(): AnonymousResourceCollection
     {
-        return BookingResource::collection(Booking::with('user', 'room')->latest()->paginate(20));
+        return BookingResource::collection(Booking::with(['user', 'room', 'transactions' => fn ($q) => $q->latest()])->latest()->paginate(20));
     }
 
     public function store(Request $request): JsonResponse
@@ -23,7 +23,7 @@ class BookingController extends Controller
 
     public function show(Booking $booking): BookingResource
     {
-        return new BookingResource($booking->load('user', 'room'));
+        return new BookingResource($booking->load(['user', 'room', 'transactions' => fn ($q) => $q->latest()]));
     }
 
     public function update(Request $request, Booking $booking): BookingResource
@@ -33,7 +33,7 @@ class BookingController extends Controller
             'payment_status' => 'sometimes|in:unpaid,paid,refunded',
         ]);
         $booking->update($data);
-        return new BookingResource($booking->load('user', 'room'));
+        return new BookingResource($booking->load(['user', 'room', 'transactions' => fn ($q) => $q->latest()]));
     }
 
     public function destroy(Booking $booking): JsonResponse

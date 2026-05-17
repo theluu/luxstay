@@ -6,7 +6,7 @@
       <div class="sisf-banner position-relative">
          <div class="banner-img">
             <figure>
-               <img src="{{ $activity->hero_image ? asset('storage/' . $activity->hero_image) : asset('images/title-banner.png') }}" alt="Luxestay">
+               <img src="{{ $activity->hero_image ? asset($activity->hero_image) : asset('images/title-banner.png') }}" alt="Luxestay">
             </figure>
          </div>
          <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
@@ -81,7 +81,7 @@
                      </div>
                      <div class="sisf-m-button sisf-sis-clear pt-4">
                         <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                        <span class="sisf-m-text">VIEW MORE</span>
+                        <span class="sisf-m-text">XEM THÊM</span>
                         </a>
                      </div>
                   </div>
@@ -127,7 +127,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>
@@ -165,7 +165,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>
@@ -203,7 +203,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>
@@ -241,7 +241,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>
@@ -279,7 +279,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>
@@ -317,7 +317,7 @@
                                     </div>
                                     <div class="sisf-m-button sisf-sis-clear pt-3">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('contact') }}">
-                                       <span class="sisf-m-text">Book Now</span>
+                                       <span class="sisf-m-text">Đặt ngay</span>
                                        </a>
                                     </div>
                                  </div>
@@ -344,7 +344,7 @@
                         <p>Our Comfort Is Our Priority" expresses a commitment to providing the highest level of comfort and satisfaction for our customers. Whether you're staying with us, using our services, or purchasing our products.</p>
                      </div>
                      <div class="sisf-m-button pt-4">
-                        <a href="{{ route('contact') }}" class="btn-default">BOOK NOW</a>
+                        <a href="{{ route('contact') }}" class="btn-default">ĐẶT NGAY</a>
                      </div>
                   </div>
                   <!-- Section Title End -->

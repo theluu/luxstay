@@ -11,7 +11,7 @@
          <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
             <div class="sisf-m-inner">
                <div class="sisf-m-content sisf-content-grid ">
-                  <h1 class="sisf-m-title text-center entry-title">Room & Suits</h1>
+                  <h1 class="sisf-m-title text-center entry-title">Phòng & Suite cao cấp</h1>
                </div>
             </div>
          </div>
@@ -25,17 +25,17 @@
                   <div class="check-in-out-form bg-black p-4 form-section wow bounceInRight">
                      <form>
                         <div class="booking-form-col position-relative">
-                           <label class="form-label" for="checkin">Check-in</label>
-                           <input type="text" id="checkin" class="form-control mb-0 ps-0" placeholder="Select date">
+                           <label class="form-label" for="checkin">Nhận phòng</label>
+                           <input type="text" id="checkin" class="form-control mb-0 ps-0" placeholder="Chọn ngày">
                            <i class="fa-regular fa-calendar"></i>
                         </div>
                         <div class="booking-form-col position-relative">
-                           <label class="form-label" for="checkout">Check-out</label>
-                           <input type="text" id="checkout" class="form-control mb-0 ps-0" placeholder="Select date">
+                           <label class="form-label" for="checkout">Trả phòng</label>
+                           <input type="text" id="checkout" class="form-control mb-0 ps-0" placeholder="Chọn ngày">
                            <i class="fa-regular fa-calendar"></i>
                         </div>
                         <div class="select-wrapper booking-form-col position-relative">
-                           <label class="form-label" for="rooms">Rooms</label>
+                           <label class="form-label" for="rooms">Số phòng</label>
                            <select class="form-select form-control mb-0 ps-0" id="rooms">
                               <option value="1" selected>1</option>
                               <option value="2">2</option>
@@ -61,15 +61,15 @@
                            <i class="fa-solid fa-chevron-down custom-select-icon"></i>
                         </div>
                         <div class="select-wrapper booking-form-col position-relative custom-guests-dropdown">
-                           <label class="form-label" for="guests">Guests</label>
+                           <label class="form-label" for="guests">Khách</label>
                            <div class="dropdown">
                               <button class="form-select form-control mb-0 ps-0 dropdown-toggle" type="button"
                                  id="guestsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                              1 Adult
+                              1 Người lớn
                               </button>
                               <ul class="dropdown-menu p-3" aria-labelledby="guestsDropdown">
                                  <li class="mb-2">
-                                    <label class="form-label d-block">Adults</label>
+                                    <label class="form-label d-block">Người lớn</label>
                                     <select id="guests" class="form-select">
                                        <option value="0">0</option>
                                        <option value="1" selected>1</option>
@@ -79,7 +79,7 @@
                                     </select>
                                  </li>
                                  <li class="mb-2">
-                                    <label class="form-label d-block">Children <small>(2–12 years old)</small></label>
+                                    <label class="form-label d-block">Trẻ em <small>(2–12 tuổi)</small></label>
                                     <select class="form-select">
                                        <option value="0" selected>0</option>
                                        <option value="1">1</option>
@@ -89,7 +89,7 @@
                                     </select>
                                  </li>
                                  <li>
-                                    <label class="form-label d-block">Infants <small>(0–2 years old)</small></label>
+                                    <label class="form-label d-block">Sơ sinh <small>(0–2 tuổi)</small></label>
                                     <select class="form-select">
                                        <option value="0" selected>0</option>
                                        <option value="1">1</option>
@@ -101,7 +101,7 @@
                            <i class="fa-solid fa-chevron-down custom-select-icon"></i>
                         </div>
                         <div class="sisf-m-button text-center">
-                           <button type="submit" class="check-btn">Check Availability</button>
+                           <button type="submit" class="check-btn">Kiểm tra phòng trống</button>
                         </div>
                      </form>
                   </div>
@@ -121,11 +121,11 @@
                         <div class="sisf-e-media position-relative">
                            <div class="sisf-image-holder">
                               <figure>
-                                 <img src="{{ $room->thumbnail ? asset('storage/' . $room->thumbnail) : asset('images/room-suits-img1.png') }}" class="w-100" alt="{{ $room->name }}">
+                                 <img src="{{ $room->thumbnail ? asset($room->thumbnail) : asset('images/room-suits-img1.png') }}" class="w-100" alt="{{ $room->name }}">
                               </figure>
                            </div>
                            <span class="sisf-e-price">
-                           <span class="sisf-e-price-label">From</span>
+                           <span class="sisf-e-price-label">Từ</span>
                            <span class="sisf-e-price-value">${{ number_format($room->price_per_night, 0) }}</span>
                            </span>
                         </div>
@@ -138,7 +138,7 @@
                                  </li>
                                  <li class="sisf-e-item sisf-e-capacity text-black">
                                     <span><img src="{{ asset('images/small-img2.png') }}" alt="LuxeStay"></span>
-                                    <span>{{ $room->max_guests }} Guests</span>
+                                    <span>{{ $room->max_guests }} khách</span>
                                  </li>
                               </ul>
                            </div>
@@ -151,7 +151,7 @@
                               <p class="sisf-e-excerpt mb-2">{{ Str::limit($room->description, 90) }}</p>
                               <div class="sisf-m-button sisf-sis-clear">
                                  <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('rooms.show', $room->slug) }}">
-                                 <span class="sisf-m-text">Explore More</span>
+                                 <span class="sisf-m-text">Khám phá thêm</span>
                                  </a>
                               </div>
                            </div>
@@ -160,7 +160,7 @@
                   </div>
                </div>
                @empty
-               <div class="col-12 text-center py-5"><p>No rooms available at this time.</p></div>
+               <div class="col-12 text-center py-5"><p>Hiện không có phòng nào.</p></div>
                @endforelse
             </div>
          </div>

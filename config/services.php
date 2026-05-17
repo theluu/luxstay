@@ -35,4 +35,14 @@ return [
         ],
     ],
 
+    'vnpay' => [
+        'url' => env('VNPAY_PAYMENT_URL', 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html'),
+        'tmn_code' => env('VNPAY_TMN_CODE'),
+        'hash_secret' => env('VNPAY_HASH_SECRET'),
+        'return_url' => env('VNPAY_RETURN_URL'),
+        'ipn_url' => env('VNPAY_IPN_URL'),
+        'locale' => env('VNPAY_LOCALE', 'vn'),
+        'usd_to_vnd' => (int) env('VNPAY_USD_TO_VND', 25000),
+    ],
+
 ];

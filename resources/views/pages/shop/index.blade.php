@@ -11,7 +11,7 @@
          <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
             <div class="sisf-m-inner">
                <div class="sisf-m-content sisf-content-grid ">
-                  <h1 class="sisf-m-title text-center entry-title">Shop</h1>
+                  <h1 class="sisf-m-title text-center entry-title">Cửa hàng</h1>
                </div>
             </div>
          </div>
@@ -24,28 +24,20 @@
                <div class="row">
                   <div class="col-lg-3 col-md-4">
                      <div class="sisf-page-sidebar">
-                        <div class="sidebar-widget widget_search">
-                           <div class="sisf-search-form">
-                              <div class="sisf-search-form-inner border-0">
-                                 <input type="search" class="sisf-search-form-field " name="s" value="" placeholder="Search…" required="">
-                                 <button type="submit" class="sisf-search-form-button text-black">
-                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                 </button>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="sidebar-separator">
-                           <hr class="separator sidebar-line">
-                        </div>
                         <!-- Product Categories Start -->
                         <div class="sidebar-widget widget_categories">
-                           <h3 class="sidebar-title">Categories</h3>
+                           <h3 class="sidebar-title">Danh mục</h3>
                            <div class="product-categories">
                               <ul class="product-categories-list">
-                                 @foreach($categories as $category)
                                  <li class="product-categories-list-item">
-                                    <a href="{{ route('shop.index') }}?category={{ $category->id }}">
-                                    <span>{{ $category->name }}</span>
+                                    <a href="{{ route('shop.index', array_filter(['orderby' => $orderby])) }}">
+                                       <span>Tất cả</span>
+                                    </a>
+                                 </li>
+                                 @foreach($categories as $cat)
+                                 <li class="product-categories-list-item {{ ($category ?? null) == $cat->id ? 'current-cat' : '' }}">
+                                    <a href="{{ route('shop.index', array_filter(['category' => $cat->id, 'orderby' => $orderby])) }}">
+                                    <span>{{ $cat->name }}</span>
                                     </a>
                                  </li>
                                  @endforeach
@@ -58,7 +50,7 @@
                         </div>
                         <!-- Popular Products Start -->
                         <div class="sidebar-widget widget_popular_products">
-                           <h3 class="sidebar-title">Feature Products</h3>
+                           <h3 class="sidebar-title">Sản phẩm nổi bật</h3>
                            <div class="sidebar_content-list">
                               <ul class="content_list_widget">
                                  <li>
@@ -129,18 +121,21 @@
                   </div>
                   <div class="col-lg-9 col-md-8">
                      <div class="sisf-shop-results">
-                        <p class="product-result-count">Showing {{ $products->firstItem() }}–{{ $products->lastItem() }} of {{ $products->total() }} results</p>
-                        <form class="product-ordering" >
-                           <select name="orderby" class="orderby" data-minimum-results-for-search="Infinity" aria-label="Shop order" tabindex="-1" aria-hidden="true">
-                              <option value="menu_order" selected="selected">Default sorting</option>
-                              <option value="popularity">Sort by popularity</option>
-                              <option value="rating">Sort by average rating</option>
-                              <option value="date">Sort by latest</option>
-                              <option value="price">Sort by price: low to high</option>
-                              <option value="price-desc">Sort by price: high to low</option>
-                           </select>
-                           <i class="fas fa-chevron-down custom-toggle-icon"></i>
-                        </form>
+                        <p class="product-result-count">Hiển thị {{ $products->firstItem() }}–{{ $products->lastItem() }} / {{ $products->total() }} sản phẩm</p>
+                        <div class="product-ordering shop-sort" id="shopSort">
+                           <button type="button" class="sort-trigger" id="sortTrigger" aria-haspopup="listbox" aria-expanded="false">
+                              <span>{{ $sortLabel }}</span>
+                              <i class="fas fa-chevron-down sort-chevron"></i>
+                           </button>
+                           <ul class="sort-menu" id="sortMenu" role="listbox">
+                              @foreach($sortOptions as $val => $label)
+                              <li role="option">
+                                 <a href="{{ route('shop.index', array_filter(['category' => $category, 'orderby' => $val !== 'menu_order' ? $val : null])) }}"
+                                    class="{{ $orderby === $val ? 'active' : '' }}">{{ $label }}</a>
+                              </li>
+                              @endforeach
+                           </ul>
+                        </div>
                      </div>
                      <!-- Product List Start -->
                      <div class="sisf-product-list">
@@ -154,7 +149,7 @@
                                     <div class="sisf-product-image">
                                        <a href="{{ route('shop.show', $product->slug) }}">
                                           <figure>
-                                             <img src="{{ $product->thumbnail ? asset('storage/' . $product->thumbnail) : asset('images/product1.png') }}" class="image-fluid" alt="{{ $product->name }}">
+                                             <img src="{{ $product->thumbnail ? asset($product->thumbnail) : asset('images/product1.png') }}" class="image-fluid" alt="{{ $product->name }}">
                                           </figure>
                                        </a>
                                        <div class="sisf-m-button sisf--m-button text-center">
@@ -162,7 +157,7 @@
                                              @csrf
                                              <input type="hidden" name="product_id" value="{{ $product->id }}">
                                              <input type="hidden" name="quantity" value="1">
-                                             <button type="submit" class="btn-default w-100"><span> Add to cart</span></button>
+                                             <button type="submit" class="btn-default w-100"><span> Thêm vào giỏ</span></button>
                                           </form>
                                        </div>
                                     </div>
@@ -189,7 +184,7 @@
                            </div>
                            <!-- Product-Item End -->
                            @empty
-                           <p class="col-12 text-center py-5">No products available.</p>
+                           <p class="col-12 text-center py-5">Không có sản phẩm nào.</p>
                            @endforelse
                         </div>
                      </div>
@@ -204,3 +199,101 @@
       </div>
       <!-- Page-Section End -->
 @endsection
+
+@push('styles')
+<style>
+.shop-sort { position: relative; }
+.sort-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    color: #333;
+    min-width: 210px;
+    justify-content: space-between;
+    transition: border-color .2s;
+}
+.sort-trigger:hover { border-color: #999; }
+.sort-chevron { font-size: 12px; transition: transform .25s ease; }
+.sort-trigger.is-open .sort-chevron { transform: rotate(180deg); }
+.sort-menu {
+    position: absolute;
+    top: calc(100% + 2px);
+    right: 0;
+    list-style: none;
+    margin: 0;
+    padding: 6px 0;
+    background: #111;
+    min-width: 100%;
+    border-radius: 6px;
+    z-index: 200;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.sort-menu.is-open { opacity: 1; transform: translateY(0); pointer-events: all; }
+.sort-menu li a {
+    display: block;
+    padding: 11px 20px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background .15s;
+}
+.sort-menu li a:hover, .sort-menu li a.active { background: #c9a96e; color: #fff; }
+</style>
+@endpush
+
+@push('scripts')
+<script>
+(function () {
+    var trigger = document.getElementById('sortTrigger');
+    var menu    = document.getElementById('sortMenu');
+    if (!trigger || !menu) return;
+
+    // Restore scroll position after filter navigation
+    var saved = sessionStorage.getItem('shopScrollY');
+    if (saved) {
+        window.scrollTo({ top: parseInt(saved), behavior: 'instant' });
+        sessionStorage.removeItem('shopScrollY');
+    }
+
+    trigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = menu.classList.toggle('is-open');
+        trigger.classList.toggle('is-open', open);
+        trigger.setAttribute('aria-expanded', open);
+    });
+
+    document.addEventListener('click', function () {
+        menu.classList.remove('is-open');
+        trigger.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+    });
+
+    menu.addEventListener('click', function (e) { e.stopPropagation(); });
+
+    // Save scroll before navigating
+    menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+            sessionStorage.setItem('shopScrollY', window.scrollY);
+        });
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            menu.classList.remove('is-open');
+            trigger.classList.remove('is-open');
+            trigger.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+@endpush

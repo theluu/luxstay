@@ -30,7 +30,7 @@
                                  <div class="sisf-e-media-image">
                                     <a href="#">
                                        <figure class="image-anime reveal">
-                                          <img src="{{ $post->thumbnail ? asset('storage/' . $post->thumbnail) : asset('images/blog-author-bg.png') }}" class="image-fluid" alt="LuxeStay">
+                                          <img src="{{ $post->thumbnail ? asset($post->thumbnail) : asset('images/blog-author-bg.png') }}" class="image-fluid" alt="LuxeStay">
                                        </figure>
                                     </a>
                                  </div>
@@ -167,121 +167,89 @@
                               </div>
                            </div>
                         </div>
-                        <div class="sisf-page-comments mt-5">
+                        <div class="sisf-page-comments mt-5" id="comments">
                            <div class="comments">
-                              <h2 class="reviews-title">Comments (3)</h2>
+                              <h2 class="reviews-title">Bình luận ({{ $comments->count() }})</h2>
+                              @if(session('comment_success'))
+                                 <div style="background:#1a1a1a;color:#fff;padding:14px 20px;border-radius:8px;margin-bottom:20px;font-size:14px">
+                                    {{ session('comment_success') }}
+                                 </div>
+                              @endif
                               <ul class="commentlist">
+                                 @forelse($comments as $comment)
                                  <li class="review-list">
                                     <div class="comment_container">
                                        <div class="sisf-e-image mt-1">
                                           <figure>
-                                             <img src="{{ asset('images/default_user.png') }}" class="image-fluid" alt="Luxestay">
+                                             <img src="https://www.gravatar.com/avatar/{{ md5(strtolower(trim($comment->author_email))) }}?s=60&d=mp" class="image-fluid" alt="{{ $comment->author_name }}">
                                           </figure>
                                        </div>
                                        <div class="comment-text">
                                           <div class="meta d-flex align-items-center mb-2">
-                                             <strong class="review-author m-0">Gia Villi</strong>
-                                             <span class="review-published-date">July 19, 2024</span>
-                                          </div>
-                                          <div class="sisf-ratings">
-                                             <div class="sisf-m-star sisf--initial">
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                             </div>
+                                             @if($comment->author_website)
+                                                <strong class="review-author m-0"><a href="{{ $comment->author_website }}" target="_blank" rel="nofollow">{{ $comment->author_name }}</a></strong>
+                                             @else
+                                                <strong class="review-author m-0">{{ $comment->author_name }}</strong>
+                                             @endif
+                                             <span class="review-published-date">{{ $comment->created_at->format('F d, Y') }}</span>
                                           </div>
                                        </div>
                                     </div>
                                     <div class="description">
-                                       <p>Hotel prices can vary significantly based on the time of year, day of the week, and local events. Being flexible with your travel dates can help you find lower rates.</p>
+                                       <p>{{ $comment->body }}</p>
                                     </div>
-                                 </li>
-                                 <li class="review-list">
-                                    <div class="comment_container">
+                                    {{-- Admin replies --}}
+                                    @foreach($comment->replies as $reply)
+                                    <div class="comment_container ms-5 mt-3 p-3" style="background:#f9f7f4;border-left:3px solid #c9a96e;border-radius:4px">
                                        <div class="sisf-e-image mt-1">
                                           <figure>
-                                             <img src="{{ asset('images/default_user.png') }}" class="image-fluid" alt="Luxestay">
+                                             <img src="{{ asset('images/logo.png') }}" style="width:40px;height:40px;object-fit:cover;border-radius:50%" alt="LuxeStay">
                                           </figure>
                                        </div>
                                        <div class="comment-text">
                                           <div class="meta d-flex align-items-center mb-2">
-                                             <strong class="review-author m-0">Era Scott</strong>
-                                             <span class="review-published-date">July 19, 2024</span>
+                                             <strong class="review-author m-0" style="color:#c9a96e">LuxeStay Team</strong>
+                                             <span class="review-published-date">{{ $reply->created_at->format('F d, Y') }}</span>
                                           </div>
-                                          <div class="sisf-ratings">
-                                             <div class="sisf-m-star sisf--initial">
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                             </div>
-                                          </div>
+                                          <p class="mb-0">{{ $reply->body }}</p>
                                        </div>
                                     </div>
-                                    <div class="description">
-                                       <p>Hotel prices can vary significantly based on the time of year, day of the week, and local events. Being flexible with your travel dates can help you find lower rates.</p>
-                                    </div>
+                                    @endforeach
                                  </li>
+                                 @empty
                                  <li class="review-list">
-                                    <div class="comment_container">
-                                       <div class="sisf-e-image mt-1">
-                                          <figure>
-                                             <img src="{{ asset('images/default_user.png') }}" class="image-fluid" alt="Luxestay">
-                                          </figure>
-                                       </div>
-                                       <div class="comment-text">
-                                          <div class="meta d-flex align-items-center mb-2">
-                                             <strong class="review-author m-0">Eva Brayer</strong>
-                                             <span class="review-published-date">July 19, 2024</span>
-                                          </div>
-                                          <div class="sisf-ratings">
-                                             <div class="sisf-m-star sisf--initial">
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                                <span class="star sisf-e-colored">★</span>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="description">
-                                       <p>Hotel prices can vary significantly based on the time of year, day of the week, and local events. Being flexible with your travel dates can help you find lower rates.</p>
-                                    </div>
+                                    <p class="text-muted">Chưa có bình luận. Hãy là người đầu tiên!</p>
                                  </li>
+                                 @endforelse
                               </ul>
                            </div>
                            <div class="review_form review--form mt-3">
-                              <h2 class="comment-reply-title">Leave a Reply</h2>
-                              <form id="commentform">
-                                 <p class="comment-notes">Your email address will not be published. Required fields are marked
-                                    <span class="required">*</span>
-                                 </p>
+                              <h2 class="comment-reply-title">Để lại bình luận</h2>
+                              @if($errors->any())
+                                 <div style="background:#c0392b;color:#fff;padding:14px 20px;border-radius:8px;margin-bottom:20px;font-size:14px">
+                                    {{ $errors->first() }}
+                                 </div>
+                              @endif
+                              <form action="{{ route('blog.comment', $post->slug) }}" method="POST">
+                                 @csrf
+                                 <p class="comment-notes">Địa chỉ email của bạn sẽ không được hiển thị. Các trường bắt buộc được đánh dấu <span class="required">*</span></p>
                                  <div class="review_form_box">
                                     <div class="form_box-grid d-flex">
                                        <div class="form_box-item me-4">
-                                          <input id="author" name="author" placeholder="Your Name *" type="text" value="" size="30" maxlength="245" required="required">
+                                          <input name="author" placeholder="Họ và tên *" type="text" value="{{ old('author') }}" size="30" maxlength="245" required>
                                        </div>
                                        <div class="form_box-item">
-                                          <input id="email" name="email" placeholder="Email *" type="text" value="" size="30" maxlength="100" required="required">
+                                          <input name="email" placeholder="Email *" type="email" value="{{ old('email') }}" size="30" maxlength="100" required>
                                        </div>
                                     </div>
                                     <div class="w-100">
-                                       <input id="url" name="url" placeholder="Website" type="text" value="" size="30" maxlength="200">
+                                       <input name="url" placeholder="Trang web" type="url" value="{{ old('url') }}" size="30" maxlength="200">
                                     </div>
                                     <div class="comment-form-comment">
-                                       <textarea id="comment" name="comment" placeholder="Your Review *" cols="45" rows="4" maxlength="65525" required="required"></textarea>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center">
-                                       <input class="form-check-input" name="wp-comment-cookies-consent" type="checkbox" value="yes">
-                                       <label class="form-check-label ms-2 mt-1">Save my name, and email in this browser for the next time I comment.</label>
+                                       <textarea name="comment" placeholder="Bình luận của bạn *" cols="45" rows="4" maxlength="2000" required>{{ old('comment') }}</textarea>
                                     </div>
                                     <div class="sisf-m-button mt-4">
-                                       <button type="submit" class="btn-default btn-secondary rounded-0"><span>Post Comment</span>
-                                       </button>
+                                       <button type="submit" class="btn-default btn-secondary rounded-0"><span>Đăng bình luận</span></button>
                                     </div>
                                  </div>
                               </form>
@@ -306,7 +274,7 @@
                            <hr class="separator sidebar-line">
                         </div>
                         <div class="sidebar-widget widget_categories">
-                           <h3 class="sidebar-title">Categories</h3>
+                           <h3 class="sidebar-title">Danh mục</h3>
                            <div class="product-categories">
                               <ul class="product-categories-list">
                                  <li class="product-categories-list-item">
@@ -341,13 +309,13 @@
                            <hr class="separator sidebar-line">
                         </div>
                         <div class="sidebar-widget widget_popular_blog">
-                           <h3 class="sidebar-title">Latest Blog</h3>
+                           <h3 class="sidebar-title">Bài viết mới nhất</h3>
                            <div class="sidebar_content-list">
                               <ul class="content_list_widget">
                                  @foreach($recent as $recentPost)
                                  <li>
                                     <div class="sisf-image">
-                                       <a href="{{ route('blog.show', $recentPost->slug) }}"><img src="{{ $recentPost->thumbnail ? asset('storage/' . $recentPost->thumbnail) : asset('images/blog-list_1.png') }}" class="image-fluid" alt="LuxeStay"></a>
+                                       <a href="{{ route('blog.show', $recentPost->slug) }}"><img src="{{ $recentPost->thumbnail ? asset($recentPost->thumbnail) : asset('images/blog-list_1.png') }}" class="image-fluid" alt="LuxeStay"></a>
                                     </div>
                                     <div class="sisf-blog-content">
                                        <h5 class="sisf-blog-title"><a href="{{ route('blog.show', $recentPost->slug) }}">{{ $recentPost->title }}</a></h5>
@@ -364,7 +332,7 @@
                            <hr class="separator sidebar-line">
                         </div>
                         <div class="sidebar-widget widget_popular_tag">
-                           <h3 class="sidebar-title">Popular Tags</h3>
+                           <h3 class="sidebar-title">Thẻ phổ biến</h3>
                            <div class="sidebar_tag-list">
                               <a href="{{ route('blog.index') }}" class="tag">Best Hotels</a>
                               <a href="{{ route('blog.index') }}" class="tag">Booking Tips</a>
@@ -377,7 +345,7 @@
                            <hr class="separator sidebar-line">
                         </div>
                         <div class="sidebar-widget widget_follow_us">
-                           <h3 class="sidebar-title">Follow Us On</h3>
+                           <h3 class="sidebar-title">Theo dõi chúng tôi</h3>
                            <div class="sisf-author-info text-center">
                               <a class="sisf-author-info-image mb-3 d-block" href="#">
                               <img src="{{ asset('images/default_user.png') }}" class="image-fluid" alt="LuxeStay">

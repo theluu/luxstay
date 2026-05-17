@@ -1,0 +1,352 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - button "Mở menu" [ref=e4]: ☰
+      - link "Thiên Hà Medical Beauty Center" [ref=e5] [cursor=pointer]:
+        - /url: https://vienthammythienha.ddev.site/
+        - img "Thiên Hà Medical Beauty Center" [ref=e8]
+      - link "Tìm kiếm" [ref=e9] [cursor=pointer]:
+        - /url: https://vienthammythienha.ddev.site/?s=
+        - text: ⌕
+  - main [ref=e10]:
+    - generic [ref=e12]:
+      - link "Trang chủ" [ref=e13] [cursor=pointer]:
+        - /url: https://vienthammythienha.ddev.site/
+      - text: /
+      - link "Kiến thức da liễu" [ref=e14] [cursor=pointer]:
+        - /url: /kien-thuc-da-lieu
+      - text: /
+      - link "Trị mụn" [ref=e15] [cursor=pointer]:
+        - /url: https://vienthammythienha.ddev.site/tri-mun
+    - article [ref=e16]:
+      - 'heading "Mụn bọc: Dấu hiệu nhận biết, nguyên nhân gây mụn và cách xử lý đúng cách" [level=1] [ref=e17]'
+      - generic [ref=e18]:
+        - generic [ref=e19]: 07/05/2026
+        - generic [ref=e20]: Thiên Hà Medical Beauty Center
+      - link "Theo dõi Thiên Hà Medical Beauty Center trên Google News" [ref=e21] [cursor=pointer]:
+        - /url: https://vienthammythienha.ddev.site/
+      - generic [ref=e22]:
+        - generic [ref=e23]: Cố vấn chuyên môn
+        - generic [ref=e24]:
+          - img "Dr. Tuấn Hùng Choi" [ref=e28]
+          - generic [ref=e29]:
+            - heading "Dr. Tuấn Hùng Choi" [level=3] [ref=e30]:
+              - link "Dr. Tuấn Hùng Choi" [ref=e31] [cursor=pointer]:
+                - /url: https://vienthammythienha.ddev.site/dr-tuan-hung-choi
+            - paragraph [ref=e32]: Tốt nghiệp chuyên ngành Da liễu Thẩm mỹ – Đại học Y Hà Nội, Từng công tác tại Bệnh viện Da liễu Trung Ương – cái nôi y…
+            - link "Đặt lịch hẹn" [ref=e33] [cursor=pointer]:
+              - /url: https://vienthammythienha.ddev.site/lien-he
+      - 'img "Mụn bọc: Dấu hiệu nhận biết, nguyên nhân gây mụn và cách xử lý đúng cách" [ref=e37]'
+      - generic [ref=e38]:
+        - navigation [ref=e39]:
+          - paragraph [ref=e40]: Nội dung bài viết
+          - list [ref=e41]:
+            - listitem [ref=e42]:
+              - link "1. Mụn bọc là gì ? Đặc điểm nhận biết" [ref=e43] [cursor=pointer]:
+                - /url: "#1-mun-boc-la-gi-dac-diem-nhan-biet"
+            - listitem [ref=e44]:
+              - link "2. Nguyên nhân chính gây mụn bọc" [ref=e45] [cursor=pointer]:
+                - /url: "#2-nguyen-nhan-chinh-gay-mun-boc"
+            - listitem [ref=e46]:
+              - link "3. Cách xử lý và điều trị mụn bọc" [ref=e47] [cursor=pointer]:
+                - /url: "#3-cach-xu-ly-va-dieu-tri-mun-boc"
+            - listitem [ref=e48]:
+              - link "4. Phòng ngừa mụn bọc" [ref=e49] [cursor=pointer]:
+                - /url: "#4-phong-ngua-mun-boc"
+            - listitem [ref=e50]:
+              - link "5. Một số câu hỏi thường gặp về mụn bọc" [ref=e51] [cursor=pointer]:
+                - /url: "#5-mot-so-cau-hoi-thuong-gap-ve-mun-boc"
+            - listitem [ref=e52]:
+              - link "5.1. Mụn bọc có nên nặn không?" [ref=e53] [cursor=pointer]:
+                - /url: "#5-1-mun-boc-co-nen-nan-khong"
+            - listitem [ref=e54]:
+              - link "5.2. Mụn bọc bao lâu thì khỏi?" [ref=e55] [cursor=pointer]:
+                - /url: "#5-2-mun-boc-bao-lau-thi-khoi"
+            - listitem [ref=e56]:
+              - link "5.3. Mụn bọc có để lại sẹo không?" [ref=e57] [cursor=pointer]:
+                - /url: "#5-3-mun-boc-co-de-lai-seo-khong"
+        - paragraph [ref=e58]:
+          - generic [ref=e59]:
+            - strong [ref=e60]: Mụn bọc không chỉ gây đau nhức mà còn ảnh hưởng đến sự tự tin và thẩm mỹ hàng ngày. Nhiều chị em gặp khó khăn trong việc kiểm soát tình trạng này do không hiểu rõ nguyên nhân và cách xử lý đúng. Bài viết này Viện thẩm mỹ Thiên Hà sẽ hướng dẫn bạn cách nhận diện, phòng ngừa và điều trị mụn bọc hiệu quả, an toà
+            - text: n.
+        - heading "1. Mụn bọc là gì ? Đặc điểm nhận biết" [level=2] [ref=e61]
+        - paragraph [ref=e62]: Mụn bọc là một dạng mụn viêm nặng, hình thành khi lỗ chân lông bị bít tắc nghiêm trọng và vi khuẩn phát triển mạnh ở sâu dưới da. Không chỉ gây đau nhức, mụn bọc còn tiềm ẩn nguy cơ để lại thâm và sẹo nếu không được chăm sóc đúng cách. Việc nhận biết sớm các đặc điểm của mụn bọc sẽ giúp bạn có hướng xử lý an toàn và hiệu quả hơn.
+        - figure "Mụn bọc là gì ?" [ref=e63]:
+          - img "Mụn bọc là gì ?" [ref=e66]
+          - generic [ref=e67]: Mụn bọc là gì ?
+        - paragraph [ref=e68]: "Đặc điểm nhận biết mụn bọc gồm:"
+        - list [ref=e69]:
+          - listitem [level=1] [ref=e70]:
+            - text: "Kích thước lớn: Mụn phát triển sâu dưới bề mặt da, thường sưng to và có cảm giác cứng khi chạm vào."
+            - generic:
+              - paragraph
+          - listitem [level=1] [ref=e71]:
+            - text: "Sưng đỏ, đau nhức: Vùng da xung quanh mụn có phản ứng viêm rõ rệt, gây đau và khó chịu."
+            - generic:
+              - paragraph
+          - listitem [level=1] [ref=e72]:
+            - text: "Có nhân mủ: Bên trong mụn chứa dịch mủ màu trắng hoặc vàng, đôi khi khó nhìn thấy bằng mắt thường."
+            - generic:
+              - paragraph
+          - listitem [level=1] [ref=e73]:
+            - text: "Vị trí thường gặp: Mụn bọc hay xuất hiện ở mặt, ngực, lưng và vai – những vùng da có nhiều tuyến bã nhờn."
+            - generic:
+              - paragraph
+        - paragraph [ref=e74]: Việc hiểu rõ mụn bọc là gì và các dấu hiệu đặc trưng sẽ giúp bạn chủ động hơn trong chăm sóc da, hạn chế biến chứng và bảo vệ làn da khỏe mạnh lâu dài.
+        - heading "2. Nguyên nhân chính gây mụn bọc" [level=2] [ref=e75]
+        - paragraph [ref=e76]: Mụn bọc hình thành do sự kết hợp của nhiều yếu tố bên trong và bên ngoài cơ thể. Khi các yếu tố này tác động đồng thời, tình trạng viêm nhiễm dưới da trở nên nghiêm trọng hơn, khiến mụn dễ sưng to và đau nhức.
+        - figure "Nguyên nhân chính gây mụn bọc" [ref=e77]:
+          - generic [ref=e80]: Nguyên nhân chính gây mụn bọc
+        - paragraph [ref=e81]: "Những nguyên nhân phổ biến gây mụn bọc gồm:"
+        - list [ref=e82]:
+          - listitem [level=1] [ref=e83]:
+            - text: "Lỗ chân lông bị bít tắc: Dầu thừa, bụi bẩn, tế bào chết tích tụ lâu ngày hoặc cặn trang điểm chưa được làm sạch kỹ là điều kiện thuận lợi khiến lỗ chân lông bị tắc nghẽn."
+            - generic:
+              - paragraph
+          - listitem [level=1] [ref=e84]:
+            - text: "Vi khuẩn hoạt động mạnh: Vi khuẩn P. acnes phát triển trong môi trường bí tắc, kích thích phản ứng viêm và hình thành mụn bọc."
+            - generic:
+              - paragraph
+          - listitem [level=1] [ref=e85]:
+            - text: "Yếu tố nội tiết: Sự rối loạn hormone, đặc biệt trong giai đoạn dậy thì, chu kỳ kinh nguyệt hoặc căng thẳng kéo dài, làm tăng tiết bã nhờn trên da."
+            - generic:
+              - paragraph
+          - listitem [level=1] [ref=e86]:
+            - text: "Chế độ sinh hoạt chưa hợp lý: Thói quen ăn nhiều đồ cay nóng, dầu mỡ, thường xuyên thức khuya hoặc stress khiến da dễ bùng phát mụn."
+            - generic:
+              - paragraph
+          - listitem [level=1] [ref=e87]:
+            - text: "Chăm sóc da sai cách: Sử dụng mỹ phẩm không phù hợp với loại da, lạm dụng sản phẩm gây kích ứng hoặc vệ sinh da không đúng cách đều có thể khiến mụn bọc xuất hiện và nặng hơn."
+            - generic:
+              - paragraph
+        - paragraph [ref=e88]: Hiểu rõ nguyên nhân gây mụn bọc là bước quan trọng giúp bạn điều chỉnh thói quen sinh hoạt và lựa chọn phương pháp chăm sóc da phù hợp, từ đó hỗ trợ cải thiện tình trạng mụn hiệu quả và bền vững.
+        - heading "3. Cách xử lý và điều trị mụn bọc" [level=2] [ref=e89]
+        - paragraph [ref=e90]: Mụn bọc là dạng mụn viêm nặng, vì vậy việc xử lý cần đúng cách và kiên nhẫn để hạn chế viêm nhiễm lan rộng cũng như nguy cơ để lại sẹo. Tùy theo mức độ mụn, bạn có thể áp dụng các biện pháp chăm sóc tại nhà hoặc can thiệp y tế khi cần thiết.
+        - figure "Cách xử lý và điều trị mụn bọc" [ref=e91]:
+          - generic [ref=e94]: Cách xử lý và điều trị mụn bọc
+        - paragraph [ref=e95]: "Các phương pháp xử lý và điều trị mụn bọc phổ biến gồm:"
+        - list [ref=e96]:
+          - listitem [level=1] [ref=e97]:
+            - text: "Sử dụng thuốc bôi tại chỗ:"
+            - generic [ref=e98]:
+              - paragraph
+              - list [ref=e99]:
+                - listitem [level=2] [ref=e100]:
+                  - text: "Benzoyl Peroxide: Giúp tiêu diệt vi khuẩn gây mụn và làm khô cồi mụn, hỗ trợ giảm viêm."
+                  - generic:
+                    - paragraph
+                - listitem [level=2] [ref=e101]:
+                  - text: "Retinoids (Adapalene): Giúp làm thông thoáng lỗ chân lông, ngăn ngừa bít tắc và hạn chế mụn mới hình thành."
+                  - generic:
+                    - paragraph
+                - listitem [level=2] [ref=e102]:
+                  - text: "Kháng sinh bôi: Như Clindamycin hoặc Metronidazol có tác dụng giảm viêm nhanh, thường được chỉ định trong các trường hợp mụn viêm nhiều (ví dụ: Novolinda, Klenzit C)."
+                  - generic:
+                    - paragraph
+          - listitem [level=1] [ref=e103]:
+            - text: "Chăm sóc mụn bọc tại nhà:"
+            - generic [ref=e104]:
+              - paragraph
+              - list [ref=e105]:
+                - listitem [level=2] [ref=e106]:
+                  - text: "Chườm đá: Giúp co mạch máu, giảm sưng đỏ và cảm giác đau nhức tạm thời."
+                  - generic:
+                    - paragraph
+                - listitem [level=2] [ref=e107]:
+                  - text: "Vệ sinh da đúng cách: Sử dụng sữa rửa mặt dịu nhẹ, phù hợp với da mụn; tránh chà xát mạnh hoặc tự ý nặn mụn để không làm vỡ ổ viêm."
+                  - generic:
+                    - paragraph
+          - listitem [level=1] [ref=e108]:
+            - text: "Can thiệp y tế khi cần thiết:"
+            - generic [ref=e109]:
+              - paragraph
+              - list [ref=e110]:
+                - listitem [level=2] [ref=e111]:
+                  - text: Với trường hợp mụn bọc nặng, tái phát nhiều hoặc không đáp ứng với thuốc bôi, bác sĩ da liễu có thể chỉ định thuốc uống (kháng sinh, Isotretinoin) hoặc tiêm cortisone trực tiếp vào nốt mụn nhằm giảm viêm và giúp mụn xẹp nhanh hơn.
+                  - generic:
+                    - paragraph
+        - paragraph [ref=e112]: Việc điều trị mụn bọc hiệu quả không chỉ dừng lại ở xử lý nốt mụn hiện tại mà còn cần kết hợp chăm sóc da đúng cách và duy trì lối sống lành mạnh để ngăn ngừa mụn tái phát lâu dài.
+        - heading "4. Phòng ngừa mụn bọc" [level=2] [ref=e113]
+        - paragraph [ref=e114]: Phòng ngừa mụn bọc không chỉ giúp hạn chế tình trạng mụn tái phát mà còn góp phần duy trì làn da khỏe mạnh, ổn định lâu dài. Việc xây dựng thói quen chăm sóc da và sinh hoạt khoa học mỗi ngày đóng vai trò then chốt trong quá trình này.
+        - figure "Phòng ngừa mụn bọc" [ref=e115]:
+          - generic [ref=e118]: Phòng ngừa mụn bọc
+        - paragraph [ref=e119]: "Các biện pháp phòng ngừa mụn bọc hiệu quả gồm:"
+        - list [ref=e120]:
+          - listitem [level=1] [ref=e121]:
+            - text: "Duy trì vệ sinh da sạch sẽ: Làm sạch da đều đặn bằng sản phẩm dịu nhẹ giúp loại bỏ dầu thừa, bụi bẩn và vi khuẩn – những yếu tố dễ gây bít tắc lỗ chân lông."
+            - generic:
+              - paragraph
+          - listitem [level=1] [ref=e122]:
+            - text: "Ăn uống lành mạnh: Ưu tiên thực phẩm giàu vitamin, rau xanh và trái cây; hạn chế đồ cay nóng, dầu mỡ để giảm nguy cơ kích thích viêm mụn."
+            - generic:
+              - paragraph
+          - listitem [level=1] [ref=e123]:
+            - text: "Giữ tinh thần thoải mái, ngủ đủ giấc: Tránh căng thẳng kéo dài và đảm bảo ngủ đủ mỗi ngày giúp cân bằng nội tiết, từ đó hỗ trợ làn da phục hồi và khỏe mạnh hơn."
+            - generic:
+              - paragraph
+        - paragraph [ref=e124]: Thực hiện đều đặn các biện pháp trên sẽ giúp bạn chủ động phòng ngừa mụn bọc và duy trì làn da sạch mụn, tươi sáng theo thời gian.
+        - heading "5. Một số câu hỏi thường gặp về mụn bọc" [level=2] [ref=e125]
+        - heading "5.1. Mụn bọc có nên nặn không?" [level=4] [ref=e126]
+        - figure "Một số câu hỏi thường gặp về mụn bọc" [ref=e127]:
+          - generic [ref=e130]: Một số câu hỏi thường gặp về mụn bọc
+        - paragraph [ref=e131]: Không nên tự ý nặn mụn bọc tại nhà. Mụn bọc nằm sâu dưới da, có ổ viêm lớn nên việc nặn sai cách dễ làm vỡ ổ viêm, khiến vi khuẩn lan rộng, tình trạng mụn nặng hơn và tăng nguy cơ để lại thâm, sẹo lõm. Nếu cần xử lý, bạn nên đến cơ sở da liễu uy tín để được bác sĩ can thiệp an toàn.
+        - heading "5.2. Mụn bọc bao lâu thì khỏi?" [level=4] [ref=e132]
+        - paragraph [ref=e133]: Thời gian mụn bọc khỏi nhanh hay chậm phụ thuộc vào mức độ viêm và cách điều trị. Thông thường, nếu được chăm sóc và điều trị đúng cách, mụn bọc có thể giảm sưng và xẹp dần sau 7–14 ngày. Trường hợp mụn nặng hoặc tái phát nhiều có thể kéo dài lâu hơn và cần theo dõi bởi bác sĩ da liễu.
+        - heading "5.3. Mụn bọc có để lại sẹo không?" [level=4] [ref=e134]
+        - paragraph [ref=e135]: Mụn bọc có nguy cơ để lại sẹo nếu viêm nặng, kéo dài hoặc bị nặn sai cách. Tuy nhiên, nếu được điều trị sớm, đúng phương pháp và chăm sóc da cẩn thận sau mụn, nguy cơ sẹo và thâm có thể được hạn chế đáng kể.
+        - paragraph [ref=e136]: Mụn bọc tuy là tình trạng da liễu phổ biến nhưng hoàn toàn có thể kiểm soát và cải thiện nếu được xác định đúng nguyên nhân và điều trị theo phác đồ phù hợp. Việc kết hợp chăm sóc da đúng cách, điều chỉnh lối sống khoa học và can thiệp chuyên môn khi cần thiết sẽ giúp hạn chế viêm nhiễm, ngăn ngừa sẹo và duy trì làn da khỏe mạnh lâu dài.
+        - paragraph [ref=e137]:
+          - generic [ref=e138]:
+            - text: Để đạt hiệu quả điều trị tối ưu và an toàn, bạn nên thăm khám và nhận tư vấn trực tiếp từ chuyên gia da liễu.
+            - link "Viện thẩm mỹ Thiên Hà" [ref=e139] [cursor=pointer]:
+              - /url: https://vienthammythienha.ddev.site/
+            - text: sẵn sàng đồng hành cùng bạn với các giải pháp điều trị mụn bọc chuyên sâu, cá nhân hóa theo từng tình trạng da, giúp làn da sạch mụn – khỏe mạnh – mịn màng từ gốc.
+        - paragraph [ref=e140]: "Nguồn tham khảo :"
+        - paragraph [ref=e141]: https://www.medicalnewstoday.com/articles/103258
+        - paragraph [ref=e142]: https://www.healthline.com/health/beauty-skin-care/cystic-acne
+        - paragraph [ref=e143]
+      - generic [ref=e144]:
+        - generic [ref=e145]: Chủ đề
+        - generic [ref=e146]:
+          - link "#mụn bọc" [ref=e147] [cursor=pointer]:
+            - /url: https://vienthammythienha.ddev.site/tag/mun-boc
+          - link "#cách trị mụn bọc" [ref=e148] [cursor=pointer]:
+            - /url: https://vienthammythienha.ddev.site/tag/cach-tri-mun-boc
+    - generic [ref=e149]:
+      - generic [ref=e150]: Đặt lịch tư vấn với chuyên gia
+      - paragraph [ref=e151]: Đội ngũ Thiên Hà sẽ tư vấn phác đồ phù hợp với tình trạng da của bạn.
+      - link "Đặt lịch ngay" [ref=e152] [cursor=pointer]:
+        - /url: https://vienthammythienha.ddev.site/lien-he
+      - link "Gọi 0985845994" [ref=e153] [cursor=pointer]:
+        - /url: tel:0985845994
+    - generic [ref=e154]:
+      - generic [ref=e155]: Có thể bạn quan tâm
+      - generic [ref=e156]:
+        - article [ref=e157]:
+          - link "Top 5 thuốc trị mụn bọc sưng đỏ được tin dùng và an toàn cho da" [ref=e158] [cursor=pointer]:
+            - /url: https://vienthammythienha.ddev.site/thuoc-tri-mun-boc-sung-do
+            - generic [ref=e161]: Top 5 thuốc trị mụn bọc sưng đỏ được tin dùng và an toàn cho da
+        - article [ref=e162]:
+          - 'link "Mụn bọc ở trán: Nguyên nhân, dấu hiệu nguy hiểm và cách điều trị hiệu quả" [ref=e163] [cursor=pointer]':
+            - /url: https://vienthammythienha.ddev.site/mun-boc-o-tran
+            - generic [ref=e166]: "Mụn bọc ở trán: Nguyên nhân, dấu hiệu nguy hiểm và cách điều trị hiệu quả"
+        - article [ref=e167]:
+          - link "Mụn bọc ở má là gì? Cách nhận biết, điều trị và phòng ngừa tái phát" [ref=e168] [cursor=pointer]:
+            - /url: https://vienthammythienha.ddev.site/mun-boc-o-ma
+            - generic [ref=e171]: Mụn bọc ở má là gì? Cách nhận biết, điều trị và phòng ngừa tái phát
+        - article [ref=e172]:
+          - 'link "Mụn bọc ở mũi: Dấu hiệu nhận biết, nguyên nhân và cách xử lý hiệu quả" [ref=e173] [cursor=pointer]':
+            - /url: https://vienthammythienha.ddev.site/mun-boc-o-mui
+            - generic [ref=e176]: "Mụn bọc ở mũi: Dấu hiệu nhận biết, nguyên nhân và cách xử lý hiệu quả"
+    - generic [ref=e177]:
+      - generic [ref=e178]: Bài viết cùng chuyên mục
+      - generic [ref=e179]:
+        - article [ref=e180]:
+          - 'link "Cách trị mụn viêm hiệu quả: Hướng dẫn chăm sóc, điều trị và phòng ngừa" [ref=e181] [cursor=pointer]':
+            - /url: https://vienthammythienha.ddev.site/cach-tri-mun-viem
+            - generic [ref=e182]: "Cách trị mụn viêm hiệu quả: Hướng dẫn chăm sóc, điều trị và phòng ngừa"
+        - article [ref=e183]:
+          - 'link "Lá tía tô trị mụn thâm: 4 cách phổ biến và lưu ý quan trọng" [ref=e184] [cursor=pointer]':
+            - /url: https://vienthammythienha.ddev.site/la-tia-to-tri-mun-tham
+            - generic [ref=e187]: "Lá tía tô trị mụn thâm: 4 cách phổ biến và lưu ý quan trọng"
+        - article [ref=e188]:
+          - link "Mụn viêm là gì? Nguyên nhân, dấu hiệu nhận biết và cách điều trị hiệu quả" [ref=e189] [cursor=pointer]:
+            - /url: https://vienthammythienha.ddev.site/mun-viem
+            - generic [ref=e192]: Mụn viêm là gì? Nguyên nhân, dấu hiệu nhận biết và cách điều trị hiệu quả
+        - article [ref=e193]:
+          - link "Top 5 thuốc trị mụn bọc sưng đỏ được tin dùng và an toàn cho da" [ref=e194] [cursor=pointer]:
+            - /url: https://vienthammythienha.ddev.site/thuoc-tri-mun-boc-sung-do
+            - generic [ref=e197]: Top 5 thuốc trị mụn bọc sưng đỏ được tin dùng và an toàn cho da
+    - generic [ref=e198]:
+      - generic [ref=e199]: Tin mới nhất
+      - list [ref=e200]:
+        - listitem [ref=e201]:
+          - 'link "Cách trị mụn viêm hiệu quả: Hướng dẫn chăm sóc, điều trị và phòng ngừa" [ref=e202] [cursor=pointer]':
+            - /url: https://vienthammythienha.ddev.site/cach-tri-mun-viem
+        - listitem [ref=e203]:
+          - 'link "Lá tía tô trị mụn thâm: 4 cách phổ biến và lưu ý quan trọng" [ref=e204] [cursor=pointer]':
+            - /url: https://vienthammythienha.ddev.site/la-tia-to-tri-mun-tham
+        - listitem [ref=e205]:
+          - link "Mụn viêm là gì? Nguyên nhân, dấu hiệu nhận biết và cách điều trị hiệu quả" [ref=e206] [cursor=pointer]:
+            - /url: https://vienthammythienha.ddev.site/mun-viem
+        - listitem [ref=e207]:
+          - link "Top 5 thuốc trị mụn bọc sưng đỏ được tin dùng và an toàn cho da" [ref=e208] [cursor=pointer]:
+            - /url: https://vienthammythienha.ddev.site/thuoc-tri-mun-boc-sung-do
+        - listitem [ref=e209]:
+          - link "Cách dùng rau diếp cá trị mụn thâm hiệu quả, tránh kích ứng da" [ref=e210] [cursor=pointer]:
+            - /url: https://vienthammythienha.ddev.site/rau-diep-ca-tri-mun-tham
+  - contentinfo [ref=e211]:
+    - generic [ref=e212]:
+      - heading "Công ty TNHH đầu tư thương mại và dịch vụ An Hoàng Gia" [level=3] [ref=e216]
+      - paragraph [ref=e217]:
+        - strong [ref=e218]: "ĐKKD số:"
+        - text: 0108109838 do sở KHDT cấp 02/01/2018
+      - paragraph [ref=e219]:
+        - strong [ref=e220]: "Email:"
+        - text: cskh@vienthammythienha.com
+      - paragraph [ref=e221]:
+        - strong [ref=e222]: "Hotline:"
+        - text: 0943 43 9999 - 097 968 9393
+      - link "☎ 0985845994" [ref=e224] [cursor=pointer]:
+        - /url: tel:0985845994
+      - generic [ref=e225]:
+        - heading "Thiên Hà Medical Beauty Center" [level=4] [ref=e226]
+        - list [ref=e227]:
+          - listitem [ref=e228]:
+            - strong [ref=e229]: CƠ SỞ 1
+            - text: ":"
+            - link "176 Trần Duy Hưng, Cầu Giấy, Hà Nội" [ref=e230] [cursor=pointer]:
+              - /url: https://maps.app.goo.gl/2aLf1jRKGuhRz1fx8
+            - text: "GP Phòng khám da liễu: 4403/HNO – GPH GP Phẫu thuật thẩm mỹ: 1476/ HNO – GPHĐ/CL4"
+          - listitem [ref=e231]:
+            - strong [ref=e232]: CƠ SỞ 2
+            - text: ":"
+            - link "79 Bà Triệu, Hai Bà Trưng, Hà Nội" [ref=e233] [cursor=pointer]:
+              - /url: https://maps.app.goo.gl/zqU4wX6tDi5y3a9J6
+            - text: "GP Phòng khám da liễu: 3196/HNO – GPHĐ/CLI"
+        - paragraph [ref=e234]:
+          - strong [ref=e235]: "THỜI GIAN MỞ CỬA:"
+          - text: "Thứ 2 – CN: 08h30 – 19h00"
+      - heading "Liên kết" [level=4] [ref=e236]
+      - navigation "Menu chân trang" [ref=e237]:
+        - list [ref=e238]:
+          - listitem [ref=e239]:
+            - link "Trang chủ" [ref=e240] [cursor=pointer]:
+              - /url: https://vienthammythienha.ddev.site/
+          - listitem [ref=e241]:
+            - link "Giới thiệu" [ref=e242] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e243]:
+            - link "Dịch vụ" [ref=e244] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e245]:
+            - link "Tin tức" [ref=e246] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e247]:
+            - link "Liên hệ" [ref=e248] [cursor=pointer]:
+              - /url: "#"
+      - link [ref=e250] [cursor=pointer]:
+        - /url: http://online.gov.vn/Home/WebDetails/137327
+      - paragraph
+  - navigation "Menu tiện ích" [ref=e253]:
+    - generic [ref=e254]:
+      - link "🎫 Ưu đãi" [ref=e255] [cursor=pointer]:
+        - /url: https://zalo.me/0869306697
+        - generic [ref=e256]: 🎫
+        - generic [ref=e257]: Ưu đãi
+      - link "📍 Chi nhánh" [ref=e258] [cursor=pointer]:
+        - /url: https://vienthammythienha.ddev.site/lien-he
+        - generic [ref=e259]: 📍
+        - generic [ref=e260]: Chi nhánh
+      - link "☎ Hotline" [ref=e261] [cursor=pointer]:
+        - /url: tel:0985845994
+        - generic [ref=e262]: ☎
+        - generic [ref=e263]: Hotline
+      - link "📅 Đặt lịch" [ref=e264] [cursor=pointer]:
+        - /url: https://vienthammythienha.ddev.site/lien-he
+        - generic [ref=e265]: 📅
+        - generic [ref=e266]: Đặt lịch
+      - link "💬 Tư vấn" [ref=e267] [cursor=pointer]:
+        - /url: https://m.me/vienthammythienha
+        - generic [ref=e268]: 💬
+        - generic [ref=e269]: Tư vấn

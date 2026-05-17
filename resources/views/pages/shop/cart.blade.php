@@ -11,7 +11,7 @@
          <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
             <div class="sisf-m-inner">
                <div class="sisf-m-content sisf-content-grid ">
-                  <h1 class="sisf-m-title text-center entry-title">Cart</h1>
+                  <h1 class="sisf-m-title text-center entry-title">Giỏ hàng</h1>
                </div>
             </div>
          </div>
@@ -30,10 +30,10 @@
                                  <th class="product-thumbnail">
                                     <span class="screen-reader-text"> </span>
                                  </th>
-                                 <th class="product-name">Product</th>
-                                 <th class="product-price">Price</th>
-                                 <th class="product-quantity">Quantity</th>
-                                 <th class="product-subtotal">Subtotal</th>
+                                 <th class="product-name">Sản phẩm</th>
+                                 <th class="product-price">Giá</th>
+                                 <th class="product-quantity">Số lượng</th>
+                                 <th class="product-subtotal">Tạm tính</th>
                                  <th class="product-remove"><span class="screen-reader-text"> </span></th>
                               </tr>
                            </thead>
@@ -43,27 +43,28 @@
                               <tr class="cart_item sisf-product-type-product">
                                  <td class="product-thumbnail">
                                     <a href="{{ route('shop.show', $item['product']->slug) }}">
-                                       <img src="{{ $item['product']->thumbnail ? asset('storage/' . $item['product']->thumbnail) : asset('images/product_1.png') }}" class="image-fluid" alt="{{ $item['product']->name }}">
+                                       <img src="{{ $item['product']->thumbnail ? asset($item['product']->thumbnail) : asset('images/product_1.png') }}" class="image-fluid" alt="{{ $item['product']->name }}">
                                     </a>
                                  </td>
-                                 <td class="product-name" data-title="Product">
+                                 <td class="product-name" data-title="Sản phẩm">
                                     <a href="{{ route('shop.show', $item['product']->slug) }}">{{ $item['product']->name }}</a>
                                  </td>
-                                 <td class="product-price" data-title="Price">{{ $item['quantity'] }} x <span class="price-amount"><span class="Price-currencySymbol">$</span>{{ number_format($item['product']->price, 2) }}</span>
+                                 <td class="product-price" data-title="Giá">{{ $item['quantity'] }} x <span class="price-amount"><span class="Price-currencySymbol">$</span>{{ number_format($item['product']->price, 2) }}</span>
                                  </td>
-                                 <td class="product-quantity" data-title="Quantity">
-                                    <form action="{{ route('cart.update') }}" method="POST">
+                                 <td class="product-quantity" data-title="Số lượng">
+                                    <form action="{{ route('cart.update') }}" method="POST" class="d-flex align-items-center gap-2">
                                        @csrf
                                        <input type="hidden" name="product_id" value="{{ $item['product']->id }}">
                                        <div class="sisf-quantity-buttons quantity">
                                           <span class="sisf-quantity-minus">
                                           <i class="fas fa-chevron-down custom-toggle-icon"></i>
                                           </span>
-                                          <input type="text" class="sisf-quantity-input" data-step="1" data-min="1" data-max="" name="quantity" value="{{ $item['quantity'] }}" title="Qty" size="4" placeholder="">
+                                          <input type="number" class="sisf-quantity-input" min="1" name="quantity" value="{{ $item['quantity'] }}" title="Qty" size="4">
                                           <span class="sisf-quantity-plus">
                                           <i class="fas fa-chevron-down custom-toggle-icon"></i>
                                           </span>
                                        </div>
+                                       <button type="submit" class="border-0 bg-transparent text-muted" title="Update"><i class="fa fa-rotate-right"></i></button>
                                     </form>
                                  </td>
                                  <td class="product-subtotal">
@@ -79,18 +80,14 @@
                               </tr>
                               <!-- Cart Item End -->
                               @empty
-                              <tr><td colspan="6" class="text-center">Your cart is empty.</td></tr>
+                              <tr><td colspan="6" class="text-center">Giỏ hàng của bạn đang trống.</td></tr>
                               @endforelse
                            </tbody>
                            <tfoot>
                               <tr>
                                  <td colspan="6" class="actions">
-                                    <div class="coupon">
-                                       <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code">
-                                       <button type="submit" class="button sisf-button sisf-layout--outlined" name="apply_coupon" value="Apply coupon">Apply coupon</button>
-                                    </div>
                                     <div class="d-flex justify-content-end">
-                                       <button type="submit" class="button sisf-button sisf-layout--outlined" name="update_cart" value="Update cart" disabled="">Update cart</button>
+                                       <a href="{{ route('shop.index') }}" class="button sisf-button sisf-layout--outlined">Tiếp tục mua sắm</a>
                                     </div>
                                  </td>
                               </tr>
@@ -99,21 +96,21 @@
                      </div>
                      <div class="cart-collaterals">
                         <div class="cart_totals">
-                           <h2>Cart totals</h2>
+                           <h2>Tổng giỏ hàng</h2>
                            <table class="shop_table">
                               <tbody>
                                  <tr class="cart-subtotal">
-                                    <th>Subtotal</th>
-                                    <td data-title="Subtotal"><span class="price-amount"><span class="price-currencysymbol">$</span>{{ number_format($total, 2) }}</span></td>
+                                    <th>Tạm tính</th>
+                                    <td data-title="Tạm tính"><span class="price-amount"><span class="price-currencysymbol">$</span>{{ number_format($total, 2) }}</span></td>
                                  </tr>
                                  <tr class="order-total">
-                                    <th>Total</th>
-                                    <td data-title="Total"><strong><span class="price-amount"><span class="price-currencysymbol">$</span>{{ number_format($total, 2) }}</span></strong></td>
+                                    <th>Tổng cộng</th>
+                                    <td data-title="Tổng cộng"><strong><span class="price-amount"><span class="price-currencysymbol">$</span>{{ number_format($total, 2) }}</span></strong></td>
                                  </tr>
                               </tbody>
                            </table>
                            <div class="proceed-to-checkout text-center mt-3">
-                              <a href="{{ route('checkout.index') }}" class="checkout-button button sisf-button sisf-layout--outlined">Proceed to checkout</a>
+                              <a href="{{ route('checkout.index') }}" class="checkout-button button sisf-button sisf-layout--outlined">Tiến hành thanh toán</a>
                            </div>
                         </div>
                      </div>

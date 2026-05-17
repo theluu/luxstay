@@ -125,8 +125,8 @@ Sidebar heading     :  26px,500,normal "Nunito Sans", sans-serif (Default Font);
 	--divider-color: #FFFFFF26;
 	--dark-divider-color: #E9E9E9;
 	--error-color: rgb(230, 87, 87);
-	--default-font: "Nunito Sans", sans-serif;
-	--heading-font: "Nanum Myeongjo", Sans-serif;
+	--default-font: "Be Vietnam Pro", "Nunito Sans", sans-serif;
+	--heading-font: "Cormorant Garamond", "Nanum Myeongjo", serif;
 }
 
 /************************************/

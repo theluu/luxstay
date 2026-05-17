@@ -28,15 +28,15 @@
                      <div class="sisf-page-sidebar">
                         <nav class="account-navigation">
                            <ul class="list-unstyled">
-                              <li><a href="{{ route('account.index') }}">Dashboard</a></li>
-                              <li class="is-active"><a href="{{ route('orders.index') }}">Orders</a></li>
-                              <li><a href="{{ route('account.downloads') }}">Downloads</a></li>
-                              <li><a href="{{ route('account.address') }}">Addresses</a></li>
-                              <li><a href="{{ route('account.edit') }}">Account details</a></li>
+                              <li><a href="{{ route('account.index') }}">Bảng điều khiển</a></li>
+                              <li class="is-active"><a href="{{ route('orders.index') }}">Đơn hàng</a></li>
+                              <li><a href="{{ route('account.downloads') }}">Tải xuống</a></li>
+                              <li><a href="{{ route('account.address') }}">Địa chỉ</a></li>
+                              <li><a href="{{ route('account.edit') }}">Thông tin tài khoản</a></li>
                               <li>
                                  <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" class="btn btn-link p-0">Logout</button>
+                                    <button type="submit" class="btn btn-link p-0">Đăng xuất</button>
                                  </form>
                               </li>
                            </ul>
@@ -47,28 +47,28 @@
                      <div class="account-content">
                         <div class="mb-4">
                            <a href="{{ route('orders.index') }}" class="sisf-button sisf-layout--outlined">
-                              <i class="fa-solid fa-arrow-left me-2"></i>Back to Orders
+                              <i class="fa-solid fa-arrow-left me-2"></i>Quay lại đơn hàng
                            </a>
                         </div>
                         <div class="order-detail-meta mb-4">
-                           <p><strong>Order Date:</strong> {{ $order->created_at->format('F d, Y') }}</p>
-                           <p><strong>Status:</strong> {{ ucfirst($order->status) }}</p>
-                           <p><strong>Payment:</strong> {{ ucfirst($order->payment_status) }}</p>
+                           <p><strong>Ngày đặt hàng:</strong> {{ $order->created_at->format('d/m/Y') }}</p>
+                           <p><strong>Trạng thái:</strong> {{ ucfirst($order->status) }}</p>
+                           <p><strong>Thanh toán:</strong> {{ ucfirst($order->payment_status) }}</p>
                         </div>
                         <div class="cart-form-table table-responsive">
                            <table class="shop_table cart_table table">
                               <thead>
                                  <tr>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Qty</th>
-                                    <th>Subtotal</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>SL</th>
+                                    <th>Tạm tính</th>
                                  </tr>
                               </thead>
                               <tbody>
                                  @foreach($order->items as $item)
                                  <tr>
-                                    <td>{{ $item->product ? $item->product->name : 'Product removed' }}</td>
+                                    <td>{{ $item->product ? $item->product->name : 'Sản phẩm đã bị xóa' }}</td>
                                     <td>${{ number_format($item->unit_price, 2) }}</td>
                                     <td>{{ $item->quantity }}</td>
                                     <td>${{ number_format($item->unit_price * $item->quantity, 2) }}</td>
@@ -77,7 +77,7 @@
                               </tbody>
                               <tfoot>
                                  <tr>
-                                    <th colspan="3">Total</th>
+                                    <th colspan="3">Tổng cộng</th>
                                     <td><strong>${{ number_format($order->total, 2) }}</strong></td>
                                  </tr>
                               </tfoot>
