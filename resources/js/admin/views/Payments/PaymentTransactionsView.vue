@@ -2,14 +2,83 @@
   <AppLayout>
     <div class="mb-6">
       <h1 class="text-2xl font-bold text-slate-900">Thanh toán</h1>
-      <p class="text-sm text-slate-500 mt-1">Theo dõi giao dịch VNPAY và trạng thái xử lý</p>
+      <p class="text-sm text-slate-500 mt-1">Cấu hình VNPAY, theo dõi giao dịch và trạng thái xử lý</p>
     </div>
 
     <div v-if="loading" class="space-y-3">
       <div v-for="i in 5" :key="i" class="h-12 bg-slate-200 rounded-xl animate-pulse"></div>
     </div>
 
-    <div v-else class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-x-auto">
+    <section v-else class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 mb-6">
+      <div class="flex items-start justify-between gap-4 mb-5">
+        <div>
+          <h2 class="font-bold text-slate-900">Setup VNPAY</h2>
+          <p class="text-xs text-slate-500 mt-1">Lưu cấu hình sandbox/production. Hash secret không hiển thị lại sau khi lưu.</p>
+        </div>
+        <label class="inline-flex items-center gap-2 text-sm font-medium text-slate-700 cursor-pointer">
+          <input v-model="settings.vnpay_enabled" type="checkbox" class="w-4 h-4">
+          Bật VNPAY
+        </label>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Môi trường</label>
+          <select v-model="settings.vnpay_environment" @change="applyEnvironmentUrl"
+            class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm">
+            <option value="sandbox">Sandbox</option>
+            <option value="production">Production</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Payment URL</label>
+          <input v-model="settings.vnpay_payment_url" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">TMN Code</label>
+          <input v-model="settings.vnpay_tmn_code" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">
+            Hash Secret
+            <span v-if="settings.vnpay_has_hash_secret" class="text-xs text-emerald-600 font-normal">(đã lưu, nhập mới để thay đổi)</span>
+          </label>
+          <input v-model="settings.vnpay_hash_secret" type="password" autocomplete="new-password"
+            class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Return URL</label>
+          <input v-model="settings.vnpay_return_url" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">IPN URL</label>
+          <input v-model="settings.vnpay_ipn_url" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Locale</label>
+          <select v-model="settings.vnpay_locale" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm">
+            <option value="vn">Tiếng Việt</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Tỷ giá USD sang VND</label>
+          <input v-model.number="settings.vnpay_usd_to_vnd" type="number" min="1"
+            class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm">
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 mt-5">
+        <button @click="saveSettings" :disabled="savingSettings"
+          class="bg-black text-white px-5 py-2 rounded-lg text-sm font-semibold disabled:opacity-60">
+          {{ savingSettings ? 'Đang lưu...' : 'Lưu setup VNPAY' }}
+        </button>
+        <p v-if="settingsSaved" class="text-sm text-emerald-600">Đã lưu cấu hình.</p>
+        <p v-if="settingsError" class="text-sm text-rose-600">{{ settingsError }}</p>
+      </div>
+    </section>
+
+    <div v-if="!loading" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-x-auto">
       <table class="w-full text-sm">
         <thead class="bg-slate-50 border-b border-slate-200">
           <tr>
@@ -70,13 +139,45 @@ import api from '../../stores/api'
 const transactions = ref([])
 const loading = ref(true)
 const selected = ref(null)
+const settings = ref({})
+const savingSettings = ref(false)
+const settingsSaved = ref(false)
+const settingsError = ref('')
 
 onMounted(load)
 
 async function load() {
-  const { data } = await api.get('/payment-transactions')
-  transactions.value = data.data
+  const [txRes, settingsRes] = await Promise.all([
+    api.get('/payment-transactions'),
+    api.get('/payment-settings'),
+  ])
+  transactions.value = txRes.data.data
+  settings.value = settingsRes.data.data
   loading.value = false
+}
+
+async function saveSettings() {
+  savingSettings.value = true
+  settingsSaved.value = false
+  settingsError.value = ''
+  try {
+    const { data } = await api.put('/payment-settings', settings.value)
+    settings.value = data.data
+    settingsSaved.value = true
+    setTimeout(() => (settingsSaved.value = false), 3000)
+  } catch (e) {
+    settingsError.value = e.response?.data?.message || 'Lưu cấu hình thất bại.'
+  } finally {
+    savingSettings.value = false
+  }
+}
+
+function applyEnvironmentUrl() {
+  if (settings.value.vnpay_environment === 'sandbox') {
+    settings.value.vnpay_payment_url = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html'
+  } else {
+    settings.value.vnpay_payment_url = 'https://pay.vnpay.vn/vpcpay.html'
+  }
 }
 
 function statusClass(status) {

@@ -4,6 +4,7 @@ namespace App\Services\Payments;
 
 use App\Models\Booking;
 use App\Models\Order;
+use App\Models\SiteSetting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -18,13 +19,13 @@ class VnpayService
         $params = [
             'vnp_Version' => '2.1.0',
             'vnp_Command' => 'pay',
-            'vnp_TmnCode' => (string) config('services.vnpay.tmn_code'),
+            'vnp_TmnCode' => (string) $this->setting('tmn_code'),
             'vnp_Amount' => $this->toGatewayAmount($amount),
             'vnp_CurrCode' => 'VND',
             'vnp_TxnRef' => $txnRef,
             'vnp_OrderInfo' => $this->normalizeOrderInfo($orderInfo),
             'vnp_OrderType' => $payable instanceof Booking ? 'hotel' : 'other',
-            'vnp_Locale' => (string) config('services.vnpay.locale', 'vn'),
+            'vnp_Locale' => (string) $this->setting('locale', 'vn'),
             'vnp_ReturnUrl' => $this->returnUrl(),
             'vnp_IpAddr' => $request->ip() ?: '127.0.0.1',
             'vnp_CreateDate' => Carbon::now('Asia/Ho_Chi_Minh')->format('YmdHis'),
@@ -33,7 +34,7 @@ class VnpayService
 
         ksort($params);
 
-        return rtrim((string) config('services.vnpay.url'), '?')
+        return rtrim((string) $this->setting('payment_url'), '?')
             . '?'
             . $this->buildQuery($params)
             . '&vnp_SecureHash='
@@ -75,19 +76,23 @@ class VnpayService
 
     private function ensureConfigured(): void
     {
-        if (empty(config('services.vnpay.tmn_code')) || empty(config('services.vnpay.hash_secret'))) {
+        if (!filter_var($this->setting('enabled', false), FILTER_VALIDATE_BOOLEAN)) {
+            throw new RuntimeException('VNPAY chưa được bật trong phần cấu hình thanh toán.');
+        }
+
+        if (empty($this->setting('tmn_code')) || empty($this->setting('hash_secret'))) {
             throw new RuntimeException('VNPAY chưa được cấu hình. Vui lòng thêm VNPAY_TMN_CODE và VNPAY_HASH_SECRET vào .env.');
         }
     }
 
     private function returnUrl(): string
     {
-        return config('services.vnpay.return_url') ?: route('payment.vnpay.return');
+        return $this->setting('return_url') ?: route('payment.vnpay.return');
     }
 
     private function toGatewayAmount(float $amount): int
     {
-        $vndAmount = (int) round($amount * (int) config('services.vnpay.usd_to_vnd', 25000));
+        $vndAmount = (int) round($amount * (int) $this->setting('usd_to_vnd', 25000));
 
         return $vndAmount * 100;
     }
@@ -102,7 +107,7 @@ class VnpayService
 
     private function sign(array $params): string
     {
-        return hash_hmac('sha512', $this->buildQuery($params), (string) config('services.vnpay.hash_secret'));
+        return hash_hmac('sha512', $this->buildQuery($params), (string) $this->setting('hash_secret'));
     }
 
     private function buildQuery(array $params): string
@@ -118,5 +123,31 @@ class VnpayService
         }
 
         return implode('&', $parts);
+    }
+
+    private function setting(string $key, mixed $default = null): mixed
+    {
+        $map = [
+            'enabled' => ['db' => 'vnpay_enabled', 'config' => null],
+            'payment_url' => ['db' => 'vnpay_payment_url', 'config' => 'services.vnpay.url'],
+            'tmn_code' => ['db' => 'vnpay_tmn_code', 'config' => 'services.vnpay.tmn_code'],
+            'hash_secret' => ['db' => 'vnpay_hash_secret', 'config' => 'services.vnpay.hash_secret'],
+            'return_url' => ['db' => 'vnpay_return_url', 'config' => 'services.vnpay.return_url'],
+            'ipn_url' => ['db' => 'vnpay_ipn_url', 'config' => 'services.vnpay.ipn_url'],
+            'locale' => ['db' => 'vnpay_locale', 'config' => 'services.vnpay.locale'],
+            'usd_to_vnd' => ['db' => 'vnpay_usd_to_vnd', 'config' => 'services.vnpay.usd_to_vnd'],
+        ];
+
+        $meta = $map[$key] ?? null;
+        if (!$meta) {
+            return $default;
+        }
+
+        $value = SiteSetting::get($meta['db']);
+        if ($value !== null && $value !== '') {
+            return $value;
+        }
+
+        return $meta['config'] ? config($meta['config'], $default) : $default;
     }
 }

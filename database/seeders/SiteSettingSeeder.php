@@ -21,6 +21,13 @@ class SiteSettingSeeder extends Seeder
             'phone'           => '(617) 623-2338',
             'email'           => 'info@luxestay.com',
             'services_video_url' => 'https://luxestay.wpthemeverse.com/wp-content/uploads/2024/07/video2.mp4',
+            'vnpay_enabled'   => '0',
+            'vnpay_environment' => 'sandbox',
+            'vnpay_payment_url' => 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html',
+            'vnpay_return_url' => url('/payment/vnpay/return'),
+            'vnpay_ipn_url'   => url('/payment/vnpay/ipn'),
+            'vnpay_locale'    => 'vn',
+            'vnpay_usd_to_vnd' => '25000',
             'about_page'      => json_encode(AboutPageController::defaultAboutPage()),
             'footer_gallery'  => json_encode(AboutPageController::defaultFooterGallery()),
             'nav_items'       => json_encode([
