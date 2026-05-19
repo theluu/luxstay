@@ -20,6 +20,8 @@ import MenuView         from '../views/Menu/MenuView.vue'
 import SubscribersView  from '../views/Subscribers/SubscribersView.vue'
 import SlidersView      from '../views/Sliders/SlidersView.vue'
 import SliderFormView   from '../views/Sliders/SliderFormView.vue'
+import AboutPageView    from '../views/About/AboutPageView.vue'
+import PaymentTransactionsView from '../views/Payments/PaymentTransactionsView.vue'
 
 const routes = [
     { path: '/admin/login',                  component: LoginView,       meta: { public: true } },
@@ -45,6 +47,8 @@ const routes = [
     { path: '/admin/sliders',                component: SlidersView      },
     { path: '/admin/sliders/create',         component: SliderFormView   },
     { path: '/admin/sliders/:id/edit',       component: SliderFormView   },
+    { path: '/admin/about-page',             component: AboutPageView    },
+    { path: '/admin/payment-transactions',    component: PaymentTransactionsView },
 ]
 
 const router = createRouter({

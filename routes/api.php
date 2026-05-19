@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\SubscriberController;
 use App\Http\Controllers\Api\SliderController;
 use App\Http\Controllers\Api\UploadController;
 use App\Http\Controllers\Api\PaymentTransactionController;
+use App\Http\Controllers\Api\AboutPageController;
 use App\Models\RoomType;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,8 @@ Route::prefix('v1')->name('api.')->group(function () {
         Route::get('/room-types',              fn () => response()->json(['data' => RoomType::orderBy('name')->get(['id','name'])]));
         Route::get('/settings',    [SiteSettingController::class, 'index']);
         Route::put('/settings',    [SiteSettingController::class, 'update']);
+        Route::get('/about-page',   [AboutPageController::class, 'index']);
+        Route::put('/about-page',   [AboutPageController::class, 'update']);
 
         Route::get('/comments',                      [CommentController::class, 'index']);
         Route::patch('/comments/{comment}/approve',  [CommentController::class, 'approve']);

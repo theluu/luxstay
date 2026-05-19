@@ -1,18 +1,22 @@
 @extends('layouts.app')
-@section('title', 'About Us – LuxeStay')
+@section('title', ($aboutPage['hero']['title'] ?? 'About Us') . ' – LuxeStay')
 @section('content')
+      @php
+         $mediaUrl = fn ($path) => preg_match('/^https?:\/\//', $path ?? '') ? $path : asset($path ?? '');
+         $lineBreaks = fn ($text) => nl2br(e($text ?? ''));
+      @endphp
       {{-- about-us.html body content between header and footer --}}
       <!-- Banner Section Start -->
       <div class="sisf-banner position-relative">
          <div class="banner-img">
             <figure>
-               <img src="{{ asset('images/about_hero_img.png') }}" alt="Luxestay">
+               <img src="{{ $mediaUrl($aboutPage['hero']['image'] ?? 'images/about_hero_img.png') }}" alt="Luxestay">
             </figure>
          </div>
          <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
             <div class="sisf-m-inner">
                <div class="sisf-m-content sisf-content-grid ">
-                  <h1 class="sisf-m-title text-center entry-title">About Us</h1>
+                  <h1 class="sisf-m-title text-center entry-title">{{ $aboutPage['hero']['title'] ?? 'About Us' }}</h1>
                </div>
             </div>
          </div>
@@ -25,10 +29,11 @@
                <div class="col-md-6">
                   <!-- Section Title Start -->
                   <div class="sisf-sis-section-title section-title wow slideInLeft">
-                     <h2 class="sisf-m-title sisf-m-title--scroll">Quality Services &<br> Activities Near you</h2>
+                     <h2 class="sisf-m-title sisf-m-title--scroll">{!! $lineBreaks($aboutPage['intro']['title'] ?? '') !!}</h2>
                      <div class="sisf-m-text">
-                        <p>Our Comfort Is Our Priority" expresses a commitment to providing the highest level of comfort and satisfaction for our customers. Whether you're staying with us, using our services, or purchasing our products, we prioritize your needs and ensure a relaxing and enjoyable experience.</p>
-                        <p>From cozy accommodations and personalized services to high-quality products designed with your comfort in mind, everything we do is centered around making you feel at ease and valued. Your comfort isn't just our goal—it's our top priority.</p>
+                        @foreach($aboutPage['intro']['paragraphs'] ?? [] as $paragraph)
+                           <p>{{ $paragraph }}</p>
+                        @endforeach
                      </div>
                   </div>
                   <!-- Section Title End -->
@@ -36,38 +41,40 @@
                <div class="col-md-3">
                   <div class="sisf-about-us-content wow zoomIn">
                      <div class="sisf-e-text text-center">
+                        @php($card = $aboutPage['intro']['cards'][0] ?? [])
                         <h3 class="sisf-service-title mb-2">
-                           <a class="sisf-e-title-link" href="{{ route('about') }}">About Us</a>
+                           <a class="sisf-e-title-link" href="{{ $card['url'] ?? route('about') }}">{{ $card['title'] ?? 'About Us' }}</a>
                         </h3>
-                        <p class="sisf-service-description mb-2">It refers to an establishment that provides lodging, typically on a short-term basis.</p>
+                        <p class="sisf-service-description mb-2">{{ $card['description'] ?? '' }}</p>
                         <div class="sisf-m-button sisf-sis-clear">
-                           <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('about') }}">
-                           <span class="sisf-m-text">Explore More</span>
+                           <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ $card['url'] ?? route('about') }}">
+                           <span class="sisf-m-text">{{ $card['button_text'] ?? 'Explore More' }}</span>
                            </a>
                         </div>
                      </div>
                   </div>
                   <div class="sisf-image-box wow zoomIn">
                      <figure>
-                        <img src="{{ asset('images/about_us_img-1.png') }}" class="w-100" alt="Luxestay">
+                        <img src="{{ $mediaUrl($card['image'] ?? 'images/about_us_img-1.png') }}" class="w-100" alt="Luxestay">
                      </figure>
                   </div>
                </div>
                <div class="col-md-3">
                   <div class="sisf-image-box pt-5 wow zoomIn">
                      <figure>
-                        <img src="{{ asset('images/about_us_img-2.png') }}" class="w-100" alt="Luxestay">
+                        @php($card = $aboutPage['intro']['cards'][1] ?? [])
+                        <img src="{{ $mediaUrl($card['image'] ?? 'images/about_us_img-2.png') }}" class="w-100" alt="Luxestay">
                      </figure>
                   </div>
                   <div class="sisf-luxury-room-content wow zoomIn">
                      <div class="sisf-e-text text-center">
                         <h3 class="sisf-service-title mb-2">
-                           <a class="sisf-e-title-link" href="{{ route('rooms.index') }}">Luxury Rooms</a>
+                           <a class="sisf-e-title-link" href="{{ $card['url'] ?? route('rooms.index') }}">{{ $card['title'] ?? 'Luxury Rooms' }}</a>
                         </h3>
-                        <p class="sisf-service-description mb-2">It refers to an establishment that provides lodging, typically on a short-term basis.</p>
+                        <p class="sisf-service-description mb-2">{{ $card['description'] ?? '' }}</p>
                         <div class="sisf-m-button sisf-sis-clear">
-                           <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('rooms.index') }}">
-                           <span class="sisf-m-text">Explore More</span>
+                           <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ $card['url'] ?? route('rooms.index') }}">
+                           <span class="sisf-m-text">{{ $card['button_text'] ?? 'Explore More' }}</span>
                            </a>
                         </div>
                      </div>
@@ -85,7 +92,7 @@
                   <div class="col-12">
                      <!-- Section Title Start -->
                      <div class="sisf-sis-section-title text-center section-title mb-0 wow wow-bounce">
-                        <h2 class="sisf-m-title text-white mb-0 sisf-m-title--scroll">Quality Services<br> & Activities Near you</h2>
+                        <h2 class="sisf-m-title text-white mb-0 sisf-m-title--scroll">{!! $lineBreaks($aboutPage['band']['title'] ?? '') !!}</h2>
                      </div>
                      <!-- Section Title End -->
                   </div>
@@ -101,14 +108,14 @@
                <div class="col-md-2">
                   <div class="sisf-sis--image wow bounceInLeft">
                      <figure>
-                        <img src="{{ asset('images/your_comfort_img-1.png') }}" class="w-100" alt="Luxestay">
+                        <img src="{{ $mediaUrl($aboutPage['comfort']['left_image'] ?? 'images/your_comfort_img-1.png') }}" class="w-100" alt="Luxestay">
                      </figure>
                   </div>
                </div>
                <div class="col-md-4">
                   <!-- Section Title Start -->
                   <div class="sisf-sis-section-title section-title wow wow-bounce">
-                     <h2 class="sisf-m-title sisf-m-title--scroll">YOUR COMFORT <br>IS OUR HIGH PRIORITY </h2>
+                     <h2 class="sisf-m-title sisf-m-title--scroll">{!! $lineBreaks($aboutPage['comfort']['title'] ?? '') !!}</h2>
                   </div>
                   <!-- Section Title End -->
                   <div class="row">
@@ -118,14 +125,14 @@
                            <!-- Counter Title Start -->
                            <div class="counter-title">
                               <h2 class="d-flex align-items-center justify-content-center">
-                                 <span class="counter">45</span>
-                                 <span class="sisf-digit-label">+</span>
+                                 <span class="counter">{{ $aboutPage['comfort']['counters'][0]['number'] ?? '45' }}</span>
+                                 <span class="sisf-digit-label">{{ $aboutPage['comfort']['counters'][0]['suffix'] ?? '+' }}</span>
                               </h2>
                            </div>
                            <!-- Counter Title End -->
                            <!-- Counter Content Start -->
                            <div class="counter-content">
-                              <span class="text-uppercase">Rooms</span>
+                              <span class="text-uppercase">{{ $aboutPage['comfort']['counters'][0]['label'] ?? 'Rooms' }}</span>
                            </div>
                            <!-- Counter Content End -->
                         </div>
@@ -137,14 +144,14 @@
                            <!-- Counter Title Start -->
                            <div class="counter-title">
                               <h2 class="d-flex align-items-center justify-content-center">
-                                 <span class="counter">12</span>
-                                 <span class="sisf-digit-label">K</span>
+                                 <span class="counter">{{ $aboutPage['comfort']['counters'][1]['number'] ?? '12' }}</span>
+                                 <span class="sisf-digit-label">{{ $aboutPage['comfort']['counters'][1]['suffix'] ?? 'K' }}</span>
                               </h2>
                            </div>
                            <!-- Counter Title End -->
                            <!-- Counter Content Start -->
                            <div class="counter-content">
-                              <span class="text-uppercase">REVIEWS</span>
+                              <span class="text-uppercase">{{ $aboutPage['comfort']['counters'][1]['label'] ?? 'REVIEWS' }}</span>
                            </div>
                            <!-- Counter Content End -->
                         </div>
@@ -156,14 +163,14 @@
                            <!-- Counter Title Start -->
                            <div class="counter-title">
                               <h2 class="d-flex align-items-center justify-content-center">
-                                 <span class="counter">250</span>
-                                 <span class="sisf-digit-label">+</span>
+                                 <span class="counter">{{ $aboutPage['comfort']['counters'][2]['number'] ?? '250' }}</span>
+                                 <span class="sisf-digit-label">{{ $aboutPage['comfort']['counters'][2]['suffix'] ?? '+' }}</span>
                               </h2>
                            </div>
                            <!-- Counter Title End -->
                            <!-- Counter Content Start -->
                            <div class="counter-content">
-                              <span class="text-uppercase">STAFFS</span>
+                              <span class="text-uppercase">{{ $aboutPage['comfort']['counters'][2]['label'] ?? 'STAFFS' }}</span>
                            </div>
                            <!-- Counter Content End -->
                         </div>
@@ -175,14 +182,14 @@
                            <!-- Counter Title Start -->
                            <div class="counter-title">
                               <h2 class="d-flex align-items-center justify-content-center">
-                                 <span class="counter">15</span>
-                                 <span class="sisf-digit-label">+</span>
+                                 <span class="counter">{{ $aboutPage['comfort']['counters'][3]['number'] ?? '15' }}</span>
+                                 <span class="sisf-digit-label">{{ $aboutPage['comfort']['counters'][3]['suffix'] ?? '+' }}</span>
                               </h2>
                            </div>
                            <!-- Counter Title End -->
                            <!-- Counter Content Start -->
                            <div class="counter-content">
-                              <span class="text-uppercase">YEARS JOURNEY</span>
+                              <span class="text-uppercase">{{ $aboutPage['comfort']['counters'][3]['label'] ?? 'YEARS JOURNEY' }}</span>
                            </div>
                            <!-- Counter Content End -->
                         </div>
@@ -193,7 +200,7 @@
                <div class="col-md-6">
                   <div class="sisf-sis--image wow bounceInRight">
                      <figure>
-                        <img src="{{ asset('images/your_comfort_img-2.png') }}" class="w-100" alt="Luxestay">
+                        <img src="{{ $mediaUrl($aboutPage['comfort']['right_image'] ?? 'images/your_comfort_img-2.png') }}" class="w-100" alt="Luxestay">
                      </figure>
                   </div>
                </div>
@@ -208,7 +215,7 @@
                <div class="col-12">
                   <!-- Section Title Start -->
                   <div class="sisf-sis-section-title text-center section-title wow wow-bounce">
-                     <h2 class="sisf-m-title sisf-m-title--scroll">OUR TRUSTED <br>PARTNERS </h2>
+                     <h2 class="sisf-m-title sisf-m-title--scroll">{!! $lineBreaks($aboutPage['partners']['title'] ?? '') !!}</h2>
                   </div>
                   <!-- Section Title End -->
                </div>
@@ -218,116 +225,19 @@
                   <div class="comman--swiper-slider wow fadeInUp">
                      <div class="swiper">
                         <div class="swiper-wrapper">
-                           <div class="swiper-slide">
-                              <div class="sisf-e-inner">
-                                 <div class="sisf-image-holder">
-                                    <div class="sisf-e-media">
-                                       <figure>
-                                          <img src="{{ asset('images/client_logo1.png') }}" class="w-100" alt="Luxestay">
-                                       </figure>
+                           @foreach(array_merge($aboutPage['partners']['logos'] ?? [], $aboutPage['partners']['logos'] ?? []) as $logo)
+                              <div class="swiper-slide">
+                                 <div class="sisf-e-inner">
+                                    <div class="sisf-image-holder">
+                                       <div class="sisf-e-media">
+                                          <figure>
+                                             <img src="{{ $mediaUrl($logo) }}" class="w-100" alt="Luxestay">
+                                          </figure>
+                                       </div>
                                     </div>
                                  </div>
                               </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="sisf-e-inner">
-                                 <div class="sisf-image-holder">
-                                    <div class="sisf-e-media">
-                                       <figure>
-                                          <img src="{{ asset('images/client_logo2.png') }}" class="w-100" alt="Luxestay">
-                                       </figure>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="sisf-e-inner">
-                                 <div class="sisf-image-holder">
-                                    <div class="sisf-e-media">
-                                       <figure>
-                                          <img src="{{ asset('images/client_logo3.png') }}" class="w-100" alt="Luxestay">
-                                       </figure>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="sisf-e-inner">
-                                 <div class="sisf-image-holder">
-                                    <div class="sisf-e-media">
-                                       <figure>
-                                          <img src="{{ asset('images/client_logo4.png') }}" class="w-100" alt="Luxestay">
-                                       </figure>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="sisf-e-inner">
-                                 <div class="sisf-image-holder">
-                                    <div class="sisf-e-media">
-                                       <figure>
-                                          <img src="{{ asset('images/client_logo5.png') }}" class="w-100" alt="Luxestay">
-                                       </figure>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="sisf-e-inner">
-                                 <div class="sisf-image-holder">
-                                    <div class="sisf-e-media">
-                                       <figure>
-                                          <img src="{{ asset('images/client_logo1.png') }}" class="w-100" alt="Luxestay">
-                                       </figure>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="sisf-e-inner">
-                                 <div class="sisf-image-holder">
-                                    <div class="sisf-e-media">
-                                       <figure>
-                                          <img src="{{ asset('images/client_logo2.png') }}" class="w-100" alt="Luxestay">
-                                       </figure>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="sisf-e-inner">
-                                 <div class="sisf-image-holder">
-                                    <div class="sisf-e-media">
-                                       <figure>
-                                          <img src="{{ asset('images/client_logo3.png') }}" class="w-100" alt="Luxestay">
-                                       </figure>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="sisf-e-inner">
-                                 <div class="sisf-image-holder">
-                                    <div class="sisf-e-media">
-                                       <figure>
-                                          <img src="{{ asset('images/client_logo4.png') }}" class="w-100" alt="Luxestay">
-                                       </figure>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="swiper-slide">
-                              <div class="sisf-e-inner">
-                                 <div class="sisf-image-holder">
-                                    <div class="sisf-e-media">
-                                       <figure>
-                                          <img src="{{ asset('images/client_logo5.png') }}" class="w-100" alt="Luxestay">
-                                       </figure>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
+                           @endforeach
                         </div>
                      </div>
                   </div>

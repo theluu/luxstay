@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\AboutPageController;
 use App\Models\ContactMessage;
 use App\Models\Subscriber;
 use Illuminate\Http\JsonResponse;
@@ -12,7 +13,10 @@ use Illuminate\View\View;
 
 class PageController extends Controller
 {
-    public function about(): View   { return view('pages.about'); }
+    public function about(): View
+    {
+        return view('pages.about', ['aboutPage' => AboutPageController::getAboutPage()]);
+    }
     public function contact(): View { return view('pages.contact'); }
     public function offers(): View  { return view('pages.offers'); }
     public function landing(): View { return view('pages.landing'); }

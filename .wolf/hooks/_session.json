@@ -11,6 +11,11 @@
       "count": 1,
       "tokens": 545,
       "first_read": "2026-05-17T16:22:22.321Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/.ddev/config.yaml": {
+      "count": 1,
+      "tokens": 3357,
+      "first_read": "2026-05-17T23:42:42.297Z"
     }
   },
   "files_written": [
@@ -24,9 +29,9 @@
   "edit_counts": {
     "resources/views/components/header.blade.php": 1
   },
-  "anatomy_hits": 2,
+  "anatomy_hits": 3,
   "anatomy_misses": 0,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 1
+  "stop_count": 3
 }

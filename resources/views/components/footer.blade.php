@@ -46,10 +46,10 @@
                </div>
                <div class="footer-social-links d-flex align-items-center justify-content-center wow fadeInUp">
                   <ul class="mb-0">
-                     <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                     <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                     <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-                     <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                     <li><a href="{{ $siteSettings['facebook_url'] ?? '#' }}"><i class="fa-brands fa-facebook"></i></a></li>
+                     <li><a href="{{ $siteSettings['instagram_url'] ?? '#' }}"><i class="fa-brands fa-instagram"></i></a></li>
+                     <li><a href="{{ $siteSettings['linkedin_url'] ?? '#' }}"><i class="fa-brands fa-linkedin"></i></a></li>
+                     <li><a href="{{ $siteSettings['twitter_url'] ?? '#' }}"><i class="fa-brands fa-x-twitter"></i></a></li>
                   </ul>
                </div>
                <div class="menu-footer-menu-container d-flex align-items-center justify-content-center wow fadeInUp">
@@ -63,11 +63,22 @@
                   </ul>
                </div>
                <div class="gallery-container gallery-items">
-                  @foreach(['footer_img1','footer_img2','footer_img3','footer_img4','footer_img5'] as $img)
+                  @php
+                     $footerGallery = json_decode($siteSettings['footer_gallery'] ?? '[]', true);
+                     $footerGallery = is_array($footerGallery) && $footerGallery ? $footerGallery : [
+                        'images/footer_img1.png',
+                        'images/footer_img2.png',
+                        'images/footer_img3.png',
+                        'images/footer_img4.png',
+                        'images/footer_img5.png',
+                     ];
+                     $footerMediaUrl = fn ($path) => preg_match('/^https?:\/\//', $path ?? '') ? $path : asset($path ?? '');
+                  @endphp
+                  @foreach($footerGallery as $img)
                   <div class="gallery-item single-center">
                      <div class="wow fadeInUp">
-                        <a href="{{ asset('images/'.$img.'.png') }}">
-                           <figure><img src="{{ asset('images/'.$img.'.png') }}" alt="LuxeStay"></figure>
+                        <a href="{{ $footerMediaUrl($img) }}">
+                           <figure><img src="{{ $footerMediaUrl($img) }}" alt="LuxeStay"></figure>
                         </a>
                      </div>
                   </div>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Http\Controllers\Api\AboutPageController;
 use App\Models\SiteSetting;
 use Illuminate\Database\Seeder;
 
@@ -20,6 +21,8 @@ class SiteSettingSeeder extends Seeder
             'phone'           => '(617) 623-2338',
             'email'           => 'info@luxestay.com',
             'services_video_url' => 'https://luxestay.wpthemeverse.com/wp-content/uploads/2024/07/video2.mp4',
+            'about_page'      => json_encode(AboutPageController::defaultAboutPage()),
+            'footer_gallery'  => json_encode(AboutPageController::defaultFooterGallery()),
             'nav_items'       => json_encode([
                 ['label' => 'Home',  'url' => '/',     'children' => []],
                 ['label' => 'Rooms', 'url' => '/rooms','children' => [

@@ -686,3 +686,5 @@
 | 23:22 | Edited resources/views/components/header.blade.php | 3→3 lines | ~44 |
 | 23:22 | Fix 'Đặt Ngay' button in header — was redirecting guests to login, now links to rooms.index | resources/views/components/header.blade.php | Fixed: changed route('login') to route('rooms.index') for unauthenticated users | ~200 |
 | 23:22 | Session end: 1 writes across 1 files (header.blade.php) | 2 reads | ~2534 tok |
+| 23:27 | Session end: 1 writes across 1 files (header.blade.php) | 2 reads | ~2534 tok |
+| 06:43 | Session end: 1 writes across 1 files (header.blade.php) | 3 reads | ~5891 tok |
