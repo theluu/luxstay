@@ -78,18 +78,7 @@
         <button @click="about.partners.logos.push('')" class="text-sm underline mt-4">+ Thêm logo</button>
       </section>
 
-      <section class="bg-white border border-slate-200 rounded-lg p-6">
-        <h2 class="font-semibold text-lg mb-4">Gallery footer</h2>
-        <div class="grid md:grid-cols-5 gap-4">
-          <div v-for="(_, i) in footerGallery" :key="i">
-            <ImageUpload v-model="footerGallery[i]" :label="`Ảnh ${i + 1}`" />
-            <button @click="footerGallery.splice(i, 1)" class="text-xs text-rose-500 mt-2">Xóa ảnh</button>
-          </div>
-        </div>
-        <button @click="footerGallery.push('')" class="text-sm underline mt-4">+ Thêm ảnh footer</button>
-      </section>
-
-      <p v-if="saved" class="text-emerald-600 text-sm">Đã lưu nội dung.</p>
+<p v-if="saved" class="text-emerald-600 text-sm">Đã lưu nội dung.</p>
       <p v-if="error" class="text-rose-600 text-sm">{{ error }}</p>
 
       <button @click="save" :disabled="saving"
@@ -111,14 +100,12 @@ const saving = ref(false)
 const saved = ref(false)
 const error = ref('')
 const about = ref({})
-const footerGallery = ref([])
 
 onMounted(load)
 
 async function load() {
   const { data } = await api.get('/about-page')
   about.value = data.data.about_page
-  footerGallery.value = data.data.footer_gallery
   loading.value = false
 }
 
@@ -129,7 +116,6 @@ async function save() {
   try {
     await api.put('/about-page', {
       about_page: about.value,
-      footer_gallery: footerGallery.value.filter(Boolean),
     })
     saved.value = true
     setTimeout(() => (saved.value = false), 3000)

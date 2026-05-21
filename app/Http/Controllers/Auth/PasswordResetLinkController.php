@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Services\RecaptchaService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -26,6 +27,11 @@ class PasswordResetLinkController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        if (!RecaptchaService::verify($request->input('recaptcha_token', ''), 'forgot_password')) {
+            return back()->withInput($request->only('email'))
+                ->withErrors(['email' => 'Xác minh bảo mật thất bại. Vui lòng thử lại.']);
+        }
+
         $request->validate([
             'email' => ['required', 'email'],
         ]);

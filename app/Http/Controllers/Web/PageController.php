@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\AboutPageController;
 use App\Models\ContactMessage;
 use App\Models\Subscriber;
+use App\Services\RecaptchaService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -27,6 +28,10 @@ class PageController extends Controller
     {
         $request->validate(['email' => 'required|email|max:255']);
 
+        if (!RecaptchaService::verify($request->input('recaptcha_token', ''), 'subscribe')) {
+            return response()->json(['message' => 'Xác minh bảo mật thất bại. Vui lòng thử lại.'], 422);
+        }
+
         if (Subscriber::where('email', $request->email)->exists()) {
             return response()->json(['message' => 'Email này đã được đăng ký.'], 409);
         }
@@ -44,6 +49,10 @@ class PageController extends Controller
             'msg'    => 'required|string|max:2000',
             'source' => 'nullable|string|in:contact_page,home_extra_service',
         ]);
+
+        if (!RecaptchaService::verify($request->input('recaptcha_token', ''), 'contact')) {
+            return back()->withInput()->with('error', 'Xác minh bảo mật thất bại. Vui lòng thử lại.');
+        }
 
         ContactMessage::create([
             'name'    => $request->name,

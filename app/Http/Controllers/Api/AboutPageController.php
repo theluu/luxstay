@@ -14,7 +14,6 @@ class AboutPageController extends Controller
         return response()->json([
             'data' => [
                 'about_page' => $this->aboutPage(),
-                'footer_gallery' => $this->footerGallery(),
             ],
         ]);
     }
@@ -23,11 +22,9 @@ class AboutPageController extends Controller
     {
         $data = $request->validate([
             'about_page' => 'required|array',
-            'footer_gallery' => 'nullable|array|max:10',
         ]);
 
         SiteSetting::set('about_page', json_encode($data['about_page']));
-        SiteSetting::set('footer_gallery', json_encode(array_values($data['footer_gallery'] ?? [])));
 
         return $this->index();
     }
@@ -37,13 +34,6 @@ class AboutPageController extends Controller
         $stored = json_decode(SiteSetting::get('about_page', '[]'), true);
 
         return array_replace_recursive(self::defaultAboutPage(), is_array($stored) ? $stored : []);
-    }
-
-    public static function getFooterGallery(): array
-    {
-        $stored = json_decode(SiteSetting::get('footer_gallery', '[]'), true);
-
-        return is_array($stored) && $stored ? array_values($stored) : self::defaultFooterGallery();
     }
 
     public static function defaultAboutPage(): array
@@ -103,24 +93,8 @@ class AboutPageController extends Controller
         ];
     }
 
-    public static function defaultFooterGallery(): array
-    {
-        return [
-            'images/footer_img1.png',
-            'images/footer_img2.png',
-            'images/footer_img3.png',
-            'images/footer_img4.png',
-            'images/footer_img5.png',
-        ];
-    }
-
     private function aboutPage(): array
     {
         return self::getAboutPage();
-    }
-
-    private function footerGallery(): array
-    {
-        return self::getFooterGallery();
     }
 }

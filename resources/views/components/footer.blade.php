@@ -52,14 +52,35 @@
                      <li><a href="{{ $siteSettings['twitter_url'] ?? '#' }}"><i class="fa-brands fa-x-twitter"></i></a></li>
                   </ul>
                </div>
+               @php
+                  $footerMenuRaw   = json_decode($siteSettings['footer_menu'] ?? '[]', true);
+                  $footerMenuItems = (is_array($footerMenuRaw) && $footerMenuRaw) ? $footerMenuRaw : [
+                     ['label' => 'Trang chủ',    'url' => '/',        'children' => []],
+                     ['label' => 'Về chúng tôi', 'url' => '/about',   'children' => []],
+                     ['label' => 'Phòng',        'url' => '/rooms',   'children' => []],
+                     ['label' => 'Cửa hàng',     'url' => '/shop',    'children' => []],
+                     ['label' => 'Blog',         'url' => '/blog',    'children' => []],
+                     ['label' => 'Liên hệ',      'url' => '/contact', 'children' => []],
+                  ];
+               @endphp
                <div class="menu-footer-menu-container d-flex align-items-center justify-content-center wow fadeInUp">
                   <ul class="menu list-unstyled p-0 mb-0 d-flex align-items-center">
-                     <li class="menu-item text-uppercase"><a href="{{ route('home') }}">Trang chủ</a></li>
-                     <li class="menu-item text-uppercase"><a href="{{ route('about') }}">Về chúng tôi</a></li>
-                     <li class="menu-item text-uppercase"><a href="{{ route('rooms.index') }}">Phòng</a></li>
-                     <li class="menu-item text-uppercase"><a href="{{ route('shop.index') }}">Cửa hàng</a></li>
-                     <li class="menu-item text-uppercase"><a href="{{ route('blog.index') }}">Blog</a></li>
-                     <li class="menu-item text-uppercase"><a href="{{ route('contact') }}">Liên hệ</a></li>
+                     @foreach($footerMenuItems as $footerItem)
+                        @if(empty($footerItem['children']))
+                           <li class="menu-item text-uppercase">
+                              <a href="{{ $footerItem['url'] }}">{{ $footerItem['label'] }}</a>
+                           </li>
+                        @else
+                           <li class="menu-item text-uppercase submenu">
+                              <a href="{{ $footerItem['url'] }}">{{ $footerItem['label'] }} <i class="fas fa-chevron-down" style="font-size:10px;margin-left:4px"></i></a>
+                              <ul class="sub-menu">
+                                 @foreach($footerItem['children'] as $footerChild)
+                                    <li class="menu-item"><a href="{{ $footerChild['url'] }}">{{ $footerChild['label'] }}</a></li>
+                                 @endforeach
+                              </ul>
+                           </li>
+                        @endif
+                     @endforeach
                   </ul>
                </div>
                <div class="gallery-container gallery-items">
@@ -144,22 +165,39 @@ $(function () {
         var $msg = $('#newsletterMsg');
         var email = $('#newsletterEmail').val().trim();
         $btn.prop('disabled', true).text('Đang gửi...');
-        $.ajax({
-            url: '{{ route('subscribe') }}',
-            method: 'POST',
-            data: { email: email, _token: $('input[name=_token]').val() },
-            success: function (res) {
-                $msg.css({ color: '#2d6a4f', display: 'block' }).text(res.message);
-                $('#newsletterEmail').val('');
-            },
-            error: function (xhr) {
-                var msg = xhr.responseJSON?.message || 'Có lỗi xảy ra. Vui lòng thử lại.';
-                $msg.css({ color: '#c0392b', display: 'block' }).text(msg);
-            },
-            complete: function () {
-                $btn.prop('disabled', false).text('ĐĂNG KÝ');
-            }
-        });
+
+        function doPost(token) {
+            $.ajax({
+                url: '{{ route('subscribe') }}',
+                method: 'POST',
+                data: { email: email, _token: $('input[name=_token]').val(), recaptcha_token: token || '' },
+                success: function (res) {
+                    $msg.css({ color: '#2d6a4f', display: 'block' }).text(res.message);
+                    $('#newsletterEmail').val('');
+                },
+                error: function (xhr) {
+                    var msg = xhr.responseJSON?.message || 'Có lỗi xảy ra. Vui lòng thử lại.';
+                    $msg.css({ color: '#c0392b', display: 'block' }).text(msg);
+                },
+                complete: function () {
+                    $btn.prop('disabled', false).text('ĐĂNG KÝ');
+                }
+            });
+        }
+
+        @if($recaptchaEnabled && $recaptchaSiteKey)
+        if (typeof grecaptcha !== 'undefined' && window.__recaptchaSiteKey) {
+            grecaptcha.ready(function () {
+                grecaptcha.execute(window.__recaptchaSiteKey, { action: 'subscribe' }).then(function (token) {
+                    doPost(token);
+                });
+            });
+        } else {
+            doPost('');
+        }
+        @else
+        doPost('');
+        @endif
     });
 });
 </script>

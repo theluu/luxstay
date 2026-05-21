@@ -56,6 +56,37 @@
         </div>
       </section>
 
+      <!-- reCAPTCHA v3 -->
+      <section class="bg-white rounded shadow p-6 mb-6 max-w-2xl">
+        <h2 class="font-semibold text-lg mb-1">reCAPTCHA v3</h2>
+        <p class="text-xs text-gray-400 mb-4">
+          Bảo vệ tất cả form (liên hệ, đặt phòng, bình luận, đăng ký, đăng nhập…).
+          Lấy key tại <a href="https://www.google.com/recaptcha/admin" target="_blank" class="underline">Google reCAPTCHA Admin</a>.
+        </p>
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" v-model="form.recaptcha_enabled" class="sr-only peer" true-value="1" false-value="0" />
+              <div class="w-10 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-black after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+            </label>
+            <span class="text-sm font-medium">Bật reCAPTCHA</span>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Site Key <span class="text-gray-400 font-normal">(public)</span></label>
+            <input v-model="form.recaptcha_site_key" placeholder="6Le..." class="w-full border rounded px-3 py-2 text-sm font-mono" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">
+              Secret Key <span class="text-gray-400 font-normal">(private)</span>
+              <span v-if="form.recaptcha_has_secret_key" class="ml-2 text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Đã lưu</span>
+            </label>
+            <input v-model="form.recaptcha_secret_key" type="password" placeholder="Nhập key mới để thay đổi…"
+              class="w-full border rounded px-3 py-2 text-sm font-mono" autocomplete="new-password" />
+            <p class="text-xs text-gray-400 mt-1">Để trống nếu không muốn thay đổi secret key đã lưu.</p>
+          </div>
+        </div>
+      </section>
+
       <p v-if="saved" class="text-green-600 text-sm mb-3">✓ Đã lưu cài đặt.</p>
       <p v-if="error" class="text-red-500 text-sm mb-3">{{ error }}</p>
 
@@ -81,6 +112,10 @@ const error   = ref('')
 const form = ref({
   site_name: '', phone: '', email: '', logo: '', favicon: '',
   facebook_url: '', instagram_url: '', linkedin_url: '', twitter_url: '',
+  recaptcha_enabled: '0',
+  recaptcha_site_key: '',
+  recaptcha_secret_key: '',
+  recaptcha_has_secret_key: false,
 })
 
 const socials = [
@@ -93,6 +128,8 @@ const socials = [
 onMounted(async () => {
   const { data } = await api.get('/settings')
   Object.assign(form.value, data.data)
+  // secret key is never returned — clear the input field
+  form.value.recaptcha_secret_key = ''
   loading.value = false
 })
 
@@ -101,7 +138,13 @@ async function save() {
   saved.value  = false
   error.value  = ''
   try {
-    await api.put('/settings', form.value)
+    const payload = { ...form.value }
+    // Don't send has_secret_key indicator back
+    delete payload.recaptcha_has_secret_key
+    const { data } = await api.put('/settings', payload)
+    // Refresh has_secret_key indicator from response
+    form.value.recaptcha_has_secret_key = data.data.recaptcha_has_secret_key ?? false
+    form.value.recaptcha_secret_key = ''
     saved.value = true
     setTimeout(() => saved.value = false, 3000)
   } catch (e) {

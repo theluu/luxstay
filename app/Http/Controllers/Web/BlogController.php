@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\PostComment;
+use App\Services\RecaptchaService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -37,6 +38,10 @@ class BlogController extends Controller
             'url'     => 'nullable|url|max:255',
             'comment' => 'required|string|max:2000',
         ]);
+
+        if (!RecaptchaService::verify($request->input('recaptcha_token', ''), 'comment')) {
+            return back()->withInput()->with('error', 'Xác minh bảo mật thất bại. Vui lòng thử lại.');
+        }
 
         PostComment::create([
             'post_id'          => $post->id,

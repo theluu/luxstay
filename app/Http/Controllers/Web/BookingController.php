@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\PaymentTransaction;
 use App\Models\Room;
 use App\Services\Payments\VnpayService;
+use App\Services\RecaptchaService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +34,10 @@ class BookingController extends Controller
             'payment_method'   => 'required|in:pay_later,vnpay',
             'special_requests' => 'nullable|string|max:1000',
         ]);
+
+        if (!RecaptchaService::verify($request->input('recaptcha_token', ''), 'booking')) {
+            return back()->withInput()->with('error', 'Xác minh bảo mật thất bại. Vui lòng thử lại.');
+        }
 
         if ($data['payment_method'] === 'vnpay') {
             try {

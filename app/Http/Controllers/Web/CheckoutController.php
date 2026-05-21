@@ -8,6 +8,7 @@ use App\Models\OrderItem;
 use App\Models\PaymentTransaction;
 use App\Models\Product;
 use App\Services\Payments\VnpayService;
+use App\Services\RecaptchaService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +57,10 @@ class CheckoutController extends Controller
             'billing_email'      => 'required|email|max:255',
             'payment_method'     => 'required|in:cod,vnpay',
         ]);
+
+        if (!RecaptchaService::verify($request->input('recaptcha_token', ''), 'checkout')) {
+            return back()->withInput()->with('error', 'Xác minh bảo mật thất bại. Vui lòng thử lại.');
+        }
 
         if ($request->payment_method === 'vnpay') {
             try {

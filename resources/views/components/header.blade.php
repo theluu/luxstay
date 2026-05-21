@@ -80,25 +80,37 @@
             <img src="{{ asset($siteSettings['logo'] ?? 'images/logo.png') }}" alt="{{ $siteSettings['site_name'] ?? 'LuxeStay' }}">
          </a>
          <div class="sisf-divided-header-right-wrapper justify-content-between d-flex align-items-center">
-            {{-- Right nav: Activities (dynamic from DB) --}}
+            {{-- Right nav (dynamic from DB + auto Hoạt động) --}}
             <nav class="navbar navbar-expand-lg">
                <div class="collapse navbar-collapse main-menu">
                   <div class="nav-menu-wrapper">
                      <ul class="navbar-nav mr-auto" id="menu2">
+                        {{-- Hoạt động: luôn là submenu, children lấy từ bảng activities --}}
                         <li class="nav-item submenu">
                            <a class="nav-link" href="#">Hoạt động<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
                            <ul class="sub-menu">
                               @foreach($navActivities as $activity)
-                              <li class="nav-item"><a class="nav-link" href="{{ route('activity.show', $activity->slug) }}">{{ $activity->title }}</a></li>
+                                 <li class="nav-item"><a class="nav-link" href="{{ route('activity.show', $activity->slug) }}">{{ $activity->title }}</a></li>
                               @endforeach
                            </ul>
                         </li>
-                        <li class="nav-item me-3">
-                           <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="{{ route('landing') }}">Trang đích</a>
-                        </li>
+                        {{-- Các items từ DB (Blog, Trang đích, ...) --}}
+                        @foreach($navRightItems as $item)
+                           @if(empty($item['children']))
+                              <li class="nav-item me-3">
+                                 <a class="nav-link" href="{{ $item['url'] }}">{{ $item['label'] }}</a>
+                              </li>
+                           @else
+                              <li class="nav-item submenu">
+                                 <a class="nav-link" href="{{ $item['url'] }}">{{ $item['label'] }}<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
+                                 <ul class="sub-menu">
+                                    @foreach($item['children'] as $child)
+                                       <li class="nav-item"><a class="nav-link" href="{{ $child['url'] }}">{{ $child['label'] }}</a></li>
+                                    @endforeach
+                                 </ul>
+                              </li>
+                           @endif
+                        @endforeach
                      </ul>
                   </div>
                </div>

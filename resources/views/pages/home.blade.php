@@ -464,7 +464,7 @@
                            {{ $errors->first() }}
                         </div>
                      @endif
-                     <form id="homeExtraServiceForm" action="{{ route('contact.store') }}" method="POST" data-wow-delay="0.5s">
+                     <form id="homeExtraServiceForm" action="{{ route('contact.store') }}" method="POST" data-wow-delay="0.5s" data-recaptcha data-recaptcha-action="contact">
                         @csrf
                         <input type="hidden" name="source" value="home_extra_service">
                         <div class="row">

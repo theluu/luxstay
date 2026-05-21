@@ -154,6 +154,7 @@ const navGroups = [
     { to: '/admin/activities', label: 'Hoạt động', icon: icons.bolt },
     { to: '/admin/sliders', label: 'Slide & Banner', icon: icons.image },
     { to: '/admin/about-page', label: 'Trang About', icon: icons.folder },
+    { to: '/admin/footer',     label: 'Footer',      icon: icons.image  },
   ] },
   { key: 'customers', label: 'Khách hàng', links: [
     { to: '/admin/comments', label: 'Bình luận', icon: icons.chat },

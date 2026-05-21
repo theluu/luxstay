@@ -259,7 +259,7 @@
                            <h3 class="sisf-room-reservation-title text-center">Đặt phòng của bạn</h3>
                         </div>
                         <div class="check-in-out-form room-reservation-form form-section">
-                           <form action="{{ route('bookings.store') }}" method="POST">
+                           <form action="{{ route('bookings.store') }}" method="POST" data-recaptcha data-recaptcha-action="booking">
                               @csrf
                               <input type="hidden" name="room_id" value="{{ $room->id }}">
                               @guest

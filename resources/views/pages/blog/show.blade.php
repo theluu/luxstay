@@ -230,7 +230,7 @@
                                     {{ $errors->first() }}
                                  </div>
                               @endif
-                              <form action="{{ route('blog.comment', $post->slug) }}" method="POST">
+                              <form action="{{ route('blog.comment', $post->slug) }}" method="POST" data-recaptcha data-recaptcha-action="comment">
                                  @csrf
                                  <p class="comment-notes">Địa chỉ email của bạn sẽ không được hiển thị. Các trường bắt buộc được đánh dấu <span class="required">*</span></p>
                                  <div class="review_form_box">

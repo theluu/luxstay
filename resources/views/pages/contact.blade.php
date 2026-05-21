@@ -182,7 +182,7 @@
                            {{ $errors->first() }}
                         </div>
                      @endif
-                     <form id="luxeContactForm" action="{{ route('contact.store') }}" method="POST">
+                     <form id="luxeContactForm" action="{{ route('contact.store') }}" method="POST" data-recaptcha data-recaptcha-action="contact">
                         @csrf
                         <input type="hidden" name="source" value="contact_page">
                         <div class="row align-items-center">

@@ -28,7 +28,7 @@
                      <div class="col-md-8">
                         <div class="sisf-checkout-left">
                            <div class="sisf-checkout-left-inner">
-                              <form class="checkout-form" action="{{ route('checkout.store') }}" method="POST">
+                              <form class="checkout-form" action="{{ route('checkout.store') }}" method="POST" data-recaptcha data-recaptcha-action="checkout">
                                  @csrf
                                  <div class="sisf-billing-fields mb-3">
                                     <h3 class="checkout-title">Thông tin thanh toán</h3>

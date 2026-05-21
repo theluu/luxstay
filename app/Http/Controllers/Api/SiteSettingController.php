@@ -11,7 +11,13 @@ class SiteSettingController extends Controller
 {
     public function index(): JsonResponse
     {
-        return response()->json(['data' => SiteSetting::allKeyed()]);
+        $data = SiteSetting::allKeyed();
+
+        // Never expose secret key — replace with a boolean indicator
+        $data['recaptcha_has_secret_key'] = !empty($data['recaptcha_secret_key']);
+        unset($data['recaptcha_secret_key']);
+
+        return response()->json(['data' => $data]);
     }
 
     public function update(Request $request): JsonResponse
@@ -26,19 +32,22 @@ class SiteSettingController extends Controller
             'instagram_url',
             'linkedin_url',
             'twitter_url',
-            'nav_items',
             'services_video_url',
+            'recaptcha_enabled',
+            'recaptcha_site_key',
         ];
 
         foreach ($allowed as $key) {
             if ($request->has($key)) {
-                $value = $key === 'nav_items'
-                    ? json_encode($request->input($key))
-                    : $request->input($key);
-                SiteSetting::set($key, $value);
+                SiteSetting::set($key, $request->input($key));
             }
         }
 
-        return response()->json(['data' => SiteSetting::allKeyed()]);
+        // Secret key: only save if a non-empty value is sent
+        if ($request->has('recaptcha_secret_key') && trim((string) $request->input('recaptcha_secret_key')) !== '') {
+            SiteSetting::set('recaptcha_secret_key', trim($request->input('recaptcha_secret_key')));
+        }
+
+        return $this->index();
     }
 }
