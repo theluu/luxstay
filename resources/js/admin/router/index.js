@@ -23,6 +23,8 @@ import SliderFormView   from '../views/Sliders/SliderFormView.vue'
 import AboutPageView    from '../views/About/AboutPageView.vue'
 import FooterView       from '../views/Footer/FooterView.vue'
 import PaymentTransactionsView from '../views/Payments/PaymentTransactionsView.vue'
+import TranslationsView from '../views/Translations/TranslationsView.vue'
+import UsersView from '../views/Users/UsersView.vue'
 
 const routes = [
     { path: '/admin/login',                  component: LoginView,       meta: { public: true } },
@@ -51,6 +53,8 @@ const routes = [
     { path: '/admin/about-page',             component: AboutPageView    },
     { path: '/admin/footer',                 component: FooterView       },
     { path: '/admin/payment-transactions',    component: PaymentTransactionsView },
+    { path: '/admin/translations', component: TranslationsView },
+    { path: '/admin/users', component: UsersView },
 ]
 
 const router = createRouter({

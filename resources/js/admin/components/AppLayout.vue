@@ -15,7 +15,7 @@
           </div>
           <div v-if="!collapsed" class="min-w-0">
             <p class="text-white font-bold text-sm leading-none truncate">LuxeStay</p>
-            <p class="text-purple-300 text-xs mt-1 truncate">Bảng quản trị</p>
+            <p class="text-purple-300 text-xs mt-1 truncate">{{ t('nav.admin_panel') }}</p>
           </div>
         </div>
       </div>
@@ -69,8 +69,23 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
           </svg>
-          <span v-if="!collapsed">Đăng xuất</span>
+          <span v-if="!collapsed">{{ t('nav.logout') }}</span>
         </button>
+
+        <!-- Locale switcher -->
+        <div class="flex gap-1 mt-3" :class="collapsed ? 'justify-center' : 'justify-start'">
+          <button
+            v-for="loc in ['vi', 'en', 'zh']"
+            :key="loc"
+            @click="switchLocale(loc)"
+            class="text-xs px-2 py-1 rounded transition-colors"
+            :class="currentLocale === loc
+              ? 'bg-white/20 text-white font-bold'
+              : 'text-purple-300 hover:text-white hover:bg-white/10'"
+          >
+            {{ loc.toUpperCase() }}
+          </button>
+        </div>
       </div>
     </aside>
 
@@ -88,7 +103,7 @@
             </svg>
           </button>
           <p class="text-sm text-slate-500">
-            Chào mừng trở lại, <span class="text-slate-900 font-semibold">{{ auth.user?.name }}</span>
+            {{ t('nav.welcome_back') }}, <span class="text-slate-900 font-semibold">{{ auth.user?.name }}</span>
           </p>
         </div>
         <div class="flex items-center gap-2">
@@ -97,10 +112,10 @@
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3h7v7m0-7L10 14m-4-7H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-1"/>
             </svg>
-            Xem website
+            {{ t('nav.view_site') }}
           </a>
           <span class="inline-flex items-center gap-1.5 text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full font-medium">
-            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Trực tuyến
+            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> {{ t('nav.online') }}
           </span>
         </div>
       </header>
@@ -113,12 +128,21 @@
 </template>
 
 <script setup>
-import { reactive, ref, watch } from 'vue'
+import { reactive, ref, computed, watch } from 'vue'
 import { useAuthStore } from '../stores/auth'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 const auth = useAuthStore()
 const router = useRouter()
+const { locale, t } = useI18n()
+const currentLocale = computed(() => locale.value)
+
+function switchLocale(loc) {
+  locale.value = loc
+  localStorage.setItem('admin_locale', loc)
+}
+
 const collapsed = ref(localStorage.getItem('admin_sidebar_collapsed') === '1')
 const openGroups = reactive(JSON.parse(localStorage.getItem('admin_nav_groups') || '{"operations":true,"content":true,"customers":true,"system":true}'))
 
@@ -138,34 +162,38 @@ const icons = {
   card: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg>`,
   menu: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>`,
   cog: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+  globe: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>`,
+  users: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
 }
 
-const navGroups = [
-  { key: 'operations', label: 'Vận hành', links: [
-    { to: '/admin', label: 'Bảng điều khiển', icon: icons.dashboard },
-    { to: '/admin/rooms', label: 'Phòng', icon: icons.rooms },
-    { to: '/admin/bookings', label: 'Đặt phòng', icon: icons.calendar },
-    { to: '/admin/orders', label: 'Đơn hàng', icon: icons.clipboard },
-    { to: '/admin/payment-transactions', label: 'Thanh toán', icon: icons.card },
+const navGroups = computed(() => [
+  { key: 'operations', label: t('nav.group_operations'), links: [
+    { to: '/admin',                    label: t('nav.dashboard'), icon: icons.dashboard },
+    { to: '/admin/rooms',              label: t('nav.rooms'),     icon: icons.rooms },
+    { to: '/admin/bookings',           label: t('nav.bookings'),  icon: icons.calendar },
+    { to: '/admin/orders',             label: t('nav.orders'),    icon: icons.clipboard },
+    { to: '/admin/payment-transactions', label: t('nav.payments'), icon: icons.card },
   ] },
-  { key: 'content', label: 'Nội dung', links: [
-    { to: '/admin/posts', label: 'Bài viết Blog', icon: icons.document },
-    { to: '/admin/products', label: 'Sản phẩm', icon: icons.bag },
-    { to: '/admin/activities', label: 'Hoạt động', icon: icons.bolt },
-    { to: '/admin/sliders', label: 'Slide & Banner', icon: icons.image },
-    { to: '/admin/about-page', label: 'Trang About', icon: icons.folder },
-    { to: '/admin/footer',     label: 'Footer',      icon: icons.image  },
+  { key: 'content', label: t('nav.group_content'), links: [
+    { to: '/admin/posts',       label: t('nav.posts'),      icon: icons.document },
+    { to: '/admin/products',    label: t('nav.products'),   icon: icons.bag },
+    { to: '/admin/activities',  label: t('nav.activities'), icon: icons.bolt },
+    { to: '/admin/sliders',     label: t('nav.sliders'),    icon: icons.image },
+    { to: '/admin/about-page',  label: t('nav.about'),        icon: icons.folder },
+    { to: '/admin/footer',      label: t('nav.footer'),       icon: icons.image },
+    { to: '/admin/translations', label: t('nav.translations'), icon: icons.globe },
   ] },
-  { key: 'customers', label: 'Khách hàng', links: [
-    { to: '/admin/comments', label: 'Bình luận', icon: icons.chat },
-    { to: '/admin/messages', label: 'Tin nhắn', icon: icons.mail },
-    { to: '/admin/subscribers', label: 'Đăng ký tin', icon: icons.bell },
+  { key: 'customers', label: t('nav.group_customers'), links: [
+    { to: '/admin/users',       label: t('nav.users'),       icon: icons.users },
+    { to: '/admin/comments',    label: t('nav.comments'),    icon: icons.chat },
+    { to: '/admin/messages',    label: t('nav.messages'),    icon: icons.mail },
+    { to: '/admin/subscribers', label: t('nav.subscribers'), icon: icons.bell },
   ] },
-  { key: 'system', label: 'Hệ thống', links: [
-    { to: '/admin/menu', label: 'Điều hướng', icon: icons.menu },
-    { to: '/admin/settings', label: 'Cài đặt', icon: icons.cog },
+  { key: 'system', label: t('nav.group_system'), links: [
+    { to: '/admin/menu',     label: t('nav.menu'),     icon: icons.menu },
+    { to: '/admin/settings', label: t('nav.settings'), icon: icons.cog },
   ] },
-]
+])
 
 watch(collapsed, value => localStorage.setItem('admin_sidebar_collapsed', value ? '1' : '0'))
 
