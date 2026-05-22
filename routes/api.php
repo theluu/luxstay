@@ -21,6 +21,9 @@ use App\Http\Controllers\Api\AboutPageController;
 use App\Http\Controllers\Api\FooterController;
 use App\Http\Controllers\Api\MenuController;
 use App\Http\Controllers\Api\PaymentSettingController;
+use App\Http\Controllers\Api\TranslationController;
+use App\Http\Controllers\Api\MailSettingController;
+use App\Http\Controllers\Api\UserController;
 use App\Models\RoomType;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +43,11 @@ Route::prefix('v1')->name('api.')->group(function () {
         Route::put('/settings',    [SiteSettingController::class, 'update']);
         Route::get('/payment-settings', [PaymentSettingController::class, 'show']);
         Route::put('/payment-settings', [PaymentSettingController::class, 'update']);
+        Route::get('/mail-settings',           [MailSettingController::class, 'show']);
+        Route::put('/mail-settings',           [MailSettingController::class, 'update']);
+        Route::post('/mail-settings/test',     [MailSettingController::class, 'testEmail']);
+
+        Route::get('/users', [UserController::class, 'index']);
         Route::get('/about-page',   [AboutPageController::class, 'index']);
         Route::put('/about-page',   [AboutPageController::class, 'update']);
         Route::get('/footer',       [FooterController::class, 'index']);
@@ -69,5 +77,11 @@ Route::prefix('v1')->name('api.')->group(function () {
         Route::apiResource('sliders',    SliderController::class);
         Route::get('/payment-transactions', [PaymentTransactionController::class, 'index']);
         Route::get('/payment-transactions/{paymentTransaction}', [PaymentTransactionController::class, 'show']);
+
+        // Translations management
+        Route::post('/translations/translate',               [TranslationController::class, 'translate']);
+        Route::get('/translations/{model}',                  [TranslationController::class, 'index']);
+        Route::put('/translations/{model}/{id}',             [TranslationController::class, 'update']);
+        Route::delete('/translations/{model}/{id}/{locale}', [TranslationController::class, 'clearLocale']);
     });
 });
