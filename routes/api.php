@@ -24,6 +24,7 @@ use App\Http\Controllers\Api\PaymentSettingController;
 use App\Http\Controllers\Api\TranslationController;
 use App\Http\Controllers\Api\MailSettingController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\EmailTemplateController;
 use App\Models\RoomType;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,10 @@ Route::prefix('v1')->name('api.')->group(function () {
         Route::get('/mail-settings',           [MailSettingController::class, 'show']);
         Route::put('/mail-settings',           [MailSettingController::class, 'update']);
         Route::post('/mail-settings/test',     [MailSettingController::class, 'testEmail']);
+
+        Route::get('/email-templates',           [EmailTemplateController::class, 'index']);
+        Route::get('/email-templates/{key}',     [EmailTemplateController::class, 'show']);
+        Route::put('/email-templates/{key}',     [EmailTemplateController::class, 'update']);
 
         Route::get('/users', [UserController::class, 'index']);
         Route::get('/about-page',   [AboutPageController::class, 'index']);
