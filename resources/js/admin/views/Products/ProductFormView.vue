@@ -10,7 +10,7 @@
         </select>
       </div>
       <div>
-        <label class="block text-sm font-medium mb-1">Tên <span class="text-red-500">*</span></label>
+        <label class="block text-sm font-medium mb-1">Tên (mặc định VI) <span class="text-red-500">*</span></label>
         <input v-model="form.name" required class="w-full border rounded px-3 py-2 text-sm" />
       </div>
       <div>
@@ -28,9 +28,34 @@
         </div>
       </div>
       <ImageUpload v-model="form.thumbnail" label="Thumbnail" />
-      <div>
-        <label class="block text-sm font-medium mb-1">Mô tả</label>
-        <textarea v-model="form.description" rows="4" class="w-full border rounded px-3 py-2 text-sm"></textarea>
+      <!-- Translation tabs -->
+      <div class="border border-gray-200 rounded-lg overflow-hidden">
+        <div class="flex border-b border-gray-200 bg-gray-50">
+          <button v-for="tab in [{ code:'vi', label:'🇻🇳 VI' },{ code:'en', label:'🇬🇧 EN' },{ code:'zh', label:'🇨🇳 ZH' }]"
+            :key="tab.code" type="button" @click="activeTranslationTab = tab.code"
+            class="px-4 py-2 text-sm font-medium border-b-2 transition-colors -mb-px"
+            :class="activeTranslationTab === tab.code ? 'border-indigo-500 text-indigo-600 bg-white' : 'border-transparent text-gray-500 hover:text-gray-700'">
+            {{ tab.label }}
+          </button>
+        </div>
+        <div class="p-4 space-y-3">
+          <template v-for="loc in ['vi','en','zh']" :key="loc">
+            <div v-show="activeTranslationTab === loc">
+              <div class="mb-3">
+                <label class="block text-sm font-medium mb-1 text-gray-700">Tên sản phẩm</label>
+                <input v-model="form.translations.name[loc]" type="text"
+                  class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+                  :placeholder="loc==='vi'?'Tên sản phẩm...':loc==='en'?'Product name...':'商品名称...'" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-1 text-gray-700">Mô tả</label>
+                <textarea v-model="form.translations.description[loc]" rows="4"
+                  class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+                  :placeholder="loc==='vi'?'Mô tả sản phẩm...':loc==='en'?'Product description...':'商品描述...'"></textarea>
+              </div>
+            </div>
+          </template>
+        </div>
       </div>
       <div>
         <label class="flex items-center gap-2 text-sm cursor-pointer">
@@ -51,6 +76,8 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+
+const activeTranslationTab = ref('vi')
 import { useRoute, useRouter } from 'vue-router'
 import AppLayout from '../../components/AppLayout.vue'
 import ImageUpload from '../../components/ImageUpload.vue'
@@ -72,6 +99,10 @@ const form = ref({
   thumbnail:   '',
   description: '',
   is_active:   true,
+  translations: {
+    name:        { vi: '', en: '', zh: '' },
+    description: { vi: '', en: '', zh: '' },
+  },
 })
 
 onMounted(async () => {
@@ -81,6 +112,7 @@ onMounted(async () => {
   if (isEdit.value) {
     const res = await api.get(`/products/${route.params.id}`)
     const p   = res.data.data
+    const tr = p.all_translations || {}
     form.value = {
       product_category_id: p.product_category_id ?? p.category?.id ?? '',
       name:        p.name,
@@ -90,6 +122,10 @@ onMounted(async () => {
       thumbnail:   p.thumbnail ?? '',
       description: p.description ?? '',
       is_active:   p.is_active,
+      translations: {
+        name:        Object.assign({ vi:'', en:'', zh:'' }, tr.name        || {}),
+        description: Object.assign({ vi:'', en:'', zh:'' }, tr.description || {}),
+      },
     }
   }
 })

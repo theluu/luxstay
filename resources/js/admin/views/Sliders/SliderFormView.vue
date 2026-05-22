@@ -58,11 +58,27 @@
           </p>
         </div>
 
-        <!-- Title -->
+        <!-- Title with translation tabs -->
         <div>
           <label class="block text-sm font-semibold text-slate-700 mb-2">Tiêu đề <span class="text-slate-400 font-normal">(tuỳ chọn)</span></label>
-          <textarea v-model="form.title" rows="3" placeholder="Tiêu đề hiển thị trên slide&#10;Dùng Enter để xuống dòng"
-            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 resize-none"></textarea>
+          <div class="border border-slate-200 rounded-xl overflow-hidden">
+            <div class="flex border-b border-slate-200 bg-slate-50">
+              <button v-for="tab in [{ code:'vi', label:'🇻🇳 VI' },{ code:'en', label:'🇬🇧 EN' },{ code:'zh', label:'🇨🇳 ZH' }]"
+                :key="tab.code" type="button" @click="activeTranslationTab = tab.code"
+                class="px-4 py-2 text-xs font-semibold border-b-2 transition-colors -mb-px"
+                :class="activeTranslationTab === tab.code ? 'border-purple-500 text-purple-600 bg-white' : 'border-transparent text-slate-500 hover:text-slate-700'">
+                {{ tab.label }}
+              </button>
+            </div>
+            <div class="p-3">
+              <template v-for="loc in ['vi','en','zh']" :key="loc">
+                <textarea v-show="activeTranslationTab === loc"
+                  v-model="form.translations.title[loc]" rows="3"
+                  :placeholder="loc==='vi'?'Tiêu đề tiếng Việt...\nDùng Enter để xuống dòng':loc==='en'?'Slide title in English...':'幻灯片标题...'"
+                  class="w-full border-0 outline-none text-sm resize-none focus:ring-0 p-0"></textarea>
+              </template>
+            </div>
+          </div>
         </div>
 
         <!-- Sort order + Active -->
@@ -109,6 +125,8 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+
+const activeTranslationTab = ref('vi')
 import { useRoute, useRouter } from 'vue-router'
 import AppLayout from '../../components/AppLayout.vue'
 import api from '../../stores/api'
@@ -126,6 +144,9 @@ const form = ref({
   media_url: '',
   sort_order: 0,
   is_active: true,
+  translations: {
+    title: { vi: '', en: '', zh: '' },
+  },
 })
 
 const previewUrl = computed(() => {
@@ -176,6 +197,11 @@ async function submit() {
 onMounted(async () => {
   if (!isEdit.value) return
   const { data } = await api.get(`/sliders/${route.params.id}`)
-  Object.assign(form.value, data.data)
+  const s = data.data
+  Object.assign(form.value, s)
+  const tr = s.all_translations || {}
+  form.value.translations = {
+    title: Object.assign({ vi: '', en: '', zh: '' }, tr.title || {}),
+  }
 })
 </script>

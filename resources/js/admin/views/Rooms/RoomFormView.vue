@@ -9,8 +9,56 @@
           <option v-for="rt in roomTypes" :key="rt.id" :value="rt.id">{{ rt.name }}</option>
         </select>
       </div>
+      <!-- Translation tabs -->
+      <div class="mb-2">
+        <label class="block text-sm font-medium text-gray-700 mb-2">
+          Nội dung đa ngôn ngữ
+        </label>
+        <div class="flex gap-2 mb-4 border-b border-gray-200">
+          <button
+            v-for="tab in [
+              { code: 'vi', label: '🇻🇳 VI' },
+              { code: 'en', label: '🇬🇧 EN' },
+              { code: 'zh', label: '🇨🇳 ZH' }
+            ]"
+            :key="tab.code"
+            type="button"
+            @click="activeTranslationTab = tab.code"
+            class="px-4 py-2 text-sm font-medium border-b-2 transition-colors -mb-px"
+            :class="activeTranslationTab === tab.code
+              ? 'border-indigo-500 text-indigo-600'
+              : 'border-transparent text-gray-500 hover:text-gray-700'"
+          >
+            {{ tab.label }}
+          </button>
+        </div>
+
+        <template v-for="loc in ['vi', 'en', 'zh']" :key="loc">
+          <div v-show="activeTranslationTab === loc">
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Tên phòng</label>
+              <input
+                v-model="form.translations.name[loc]"
+                type="text"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                :placeholder="loc === 'vi' ? 'Tên phòng tiếng Việt' : loc === 'en' ? 'Room name in English' : '中文房间名称'"
+              />
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Mô tả</label>
+              <textarea
+                v-model="form.translations.description[loc]"
+                rows="4"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                :placeholder="loc === 'vi' ? 'Mô tả phòng...' : loc === 'en' ? 'Room description...' : '客房描述...'"
+              ></textarea>
+            </div>
+          </div>
+        </template>
+      </div>
+
       <div>
-        <label class="block text-sm font-medium mb-1">Tên <span class="text-red-500">*</span></label>
+        <label class="block text-sm font-medium mb-1">Tên (mặc định) <span class="text-red-500">*</span></label>
         <input v-model="form.name" required class="w-full border rounded px-3 py-2 text-sm" />
       </div>
       <div>
@@ -40,10 +88,6 @@
         </div>
       </div>
       <ImageUpload v-model="form.thumbnail" label="Thumbnail" />
-      <div>
-        <label class="block text-sm font-medium mb-1">Mô tả</label>
-        <textarea v-model="form.description" rows="4" class="w-full border rounded px-3 py-2 text-sm"></textarea>
-      </div>
       <p v-if="error" class="text-red-500 text-sm">{{ error }}</p>
       <div class="flex gap-3">
         <button type="submit" :disabled="saving" class="bg-black text-white px-6 py-2 rounded text-sm disabled:opacity-60">
@@ -69,6 +113,7 @@ const isEdit = computed(() => !!route.params.id)
 const saving    = ref(false)
 const error     = ref('')
 const roomTypes = ref([])
+const activeTranslationTab = ref('vi')
 const form = ref({
   room_type_id:    '',
   name:            '',
@@ -79,6 +124,10 @@ const form = ref({
   is_available:    true,
   thumbnail:       '',
   description:     '',
+  translations: {
+    name:        { vi: '', en: '', zh: '' },
+    description: { vi: '', en: '', zh: '' },
+  },
 })
 
 onMounted(async () => {
@@ -98,6 +147,14 @@ onMounted(async () => {
       is_available:    room.is_available,
       thumbnail:       room.thumbnail ?? '',
       description:     room.description ?? '',
+      translations: {
+        name:        { vi: '', en: '', zh: '' },
+        description: { vi: '', en: '', zh: '' },
+      },
+    }
+    if (room.all_translations) {
+      form.value.translations.name        = room.all_translations.name        || { vi: '', en: '', zh: '' }
+      form.value.translations.description = room.all_translations.description || { vi: '', en: '', zh: '' }
     }
   }
 })

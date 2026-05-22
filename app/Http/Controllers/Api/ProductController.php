@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Api\Concerns\SavesTranslations;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
@@ -11,6 +12,8 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ProductController extends Controller
 {
+    use SavesTranslations;
+
     public function index(): AnonymousResourceCollection
     {
         return ProductResource::collection(Product::with('category')->latest()->paginate(20));
@@ -29,15 +32,24 @@ class ProductController extends Controller
             'product_category_id' => 'nullable|exists:product_categories,id',
         ]);
         $product = Product::create($data);
-        return (new ProductResource($product))->response()->setStatusCode(201);
+        if ($request->has('translations')) {
+            $this->applyTranslations($product, $request->input('translations', []));
+            $product->save();
+        }
+        return (new ProductResource($product->load('category')))->response()->setStatusCode(201);
     }
 
-    public function show(Product $product): ProductResource
+    public function show(Product $product): JsonResponse
     {
-        return new ProductResource($product->load('category'));
+        $product->load('category');
+        return response()->json([
+            'data' => array_merge((new ProductResource($product))->resolve(), [
+                'all_translations' => $this->allTranslations($product),
+            ]),
+        ]);
     }
 
-    public function update(Request $request, Product $product): ProductResource
+    public function update(Request $request, Product $product): JsonResponse
     {
         $data = $request->validate([
             'name'                => 'sometimes|string|max:255',
@@ -50,7 +62,16 @@ class ProductController extends Controller
             'product_category_id' => 'nullable|exists:product_categories,id',
         ]);
         $product->update($data);
-        return new ProductResource($product->load('category'));
+        if ($request->has('translations')) {
+            $this->applyTranslations($product, $request->input('translations', []));
+            $product->save();
+        }
+        $product->load('category');
+        return response()->json([
+            'data' => array_merge((new ProductResource($product))->resolve(), [
+                'all_translations' => $this->allTranslations($product),
+            ]),
+        ]);
     }
 
     public function destroy(Product $product): JsonResponse

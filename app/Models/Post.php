@@ -3,9 +3,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\Translatable\HasTranslations;
 
 class Post extends Model
 {
+    use HasTranslations;
+
+    public $translatable = ['title', 'excerpt', 'content'];
     protected $fillable = [
         'post_category_id', 'author_id', 'title', 'slug',
         'excerpt', 'content', 'thumbnail', 'type', 'status', 'published_at',

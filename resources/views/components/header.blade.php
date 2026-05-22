@@ -8,7 +8,7 @@
                      <div class="sisf-icon-list-item sisf-icon--icon-pack">
                         <a href="tel:{{ preg_replace('/[^0-9]/', '', $siteSettings['phone'] ?? '6176232338') }}" target="_self">
                         <span class="sisf-e-title-inner">
-                        <span class="sisf-e-title-text"><span class="sisf-icon-simple-line-icons icon-call-out sisf-icon sisf-e me-1"></span> Gọi cho chúng tôi: {{ $siteSettings['phone'] ?? '(617) 623-2338' }}</span>
+                        <span class="sisf-e-title-text"><span class="sisf-icon-simple-line-icons icon-call-out sisf-icon sisf-e me-1"></span> {{ __('common.call_us') }} {{ $siteSettings['phone'] ?? '(617) 623-2338' }}</span>
                         </span>
                         </a>
                      </div>
@@ -29,7 +29,7 @@
                   </div>
                   <div class="mail-us">
                      <a href="mailto:{{ $siteSettings['email'] ?? 'info@luxestay.com' }}">
-                        <span class="sisf-e-title-text"><span class="sisf-icon-simple-line-icons icon-envelope-open sisf-icon sisf-e me-2"></span> Email cho chúng tôi: {{ $siteSettings['email'] ?? 'info@luxestay.com' }}</span>
+                        <span class="sisf-e-title-text"><span class="sisf-icon-simple-line-icons icon-envelope-open sisf-icon sisf-e me-2"></span> {{ __('common.email_us') }} {{ $siteSettings['email'] ?? 'info@luxestay.com' }}</span>
                      </a>
                   </div>
                </div>
@@ -54,14 +54,14 @@
                         @foreach($navItems as $item)
                            @if(empty($item['children']))
                               <li class="nav-item me-3">
-                                 <a class="nav-link" href="{{ $item['url'] }}">{{ $item['label'] }}</a>
+                                 <a class="nav-link" href="{{ localizedUrl($item['url']) }}">{{ $item['translations'][currentLocale()] ?? $item['label'] }}</a>
                               </li>
                            @else
                               <li class="nav-item submenu">
-                                 <a class="nav-link" href="{{ $item['url'] }}">{{ $item['label'] }}<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
+                                 <a class="nav-link" href="{{ localizedUrl($item['url']) }}">{{ $item['translations'][currentLocale()] ?? $item['label'] }}<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
                                  <ul class="sub-menu">
                                     @foreach($item['children'] as $child)
-                                       <li class="nav-item"><a class="nav-link" href="{{ $child['url'] }}">{{ $child['label'] }}</a></li>
+                                       <li class="nav-item"><a class="nav-link" href="{{ localizedUrl($child['url']) }}">{{ $child['translations'][currentLocale()] ?? $child['label'] }}</a></li>
                                     @endforeach
                                  </ul>
                               </li>
@@ -87,7 +87,7 @@
                      <ul class="navbar-nav mr-auto" id="menu2">
                         {{-- Hoạt động: luôn là submenu, children lấy từ bảng activities --}}
                         <li class="nav-item submenu">
-                           <a class="nav-link" href="#">Hoạt động<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
+                           <a class="nav-link" href="#">{{ __('nav.activities') }}<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
                            <ul class="sub-menu">
                               @foreach($navActivities as $activity)
                                  <li class="nav-item"><a class="nav-link" href="{{ route('activity.show', $activity->slug) }}">{{ $activity->title }}</a></li>
@@ -98,14 +98,14 @@
                         @foreach($navRightItems as $item)
                            @if(empty($item['children']))
                               <li class="nav-item me-3">
-                                 <a class="nav-link" href="{{ $item['url'] }}">{{ $item['label'] }}</a>
+                                 <a class="nav-link" href="{{ localizedUrl($item['url']) }}">{{ $item['translations'][currentLocale()] ?? $item['label'] }}</a>
                               </li>
                            @else
                               <li class="nav-item submenu">
-                                 <a class="nav-link" href="{{ $item['url'] }}">{{ $item['label'] }}<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
+                                 <a class="nav-link" href="{{ localizedUrl($item['url']) }}">{{ $item['translations'][currentLocale()] ?? $item['label'] }}<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
                                  <ul class="sub-menu">
                                     @foreach($item['children'] as $child)
-                                       <li class="nav-item"><a class="nav-link" href="{{ $child['url'] }}">{{ $child['label'] }}</a></li>
+                                       <li class="nav-item"><a class="nav-link" href="{{ localizedUrl($child['url']) }}">{{ $child['translations'][currentLocale()] ?? $child['label'] }}</a></li>
                                     @endforeach
                                  </ul>
                               </li>
@@ -116,6 +116,7 @@
                </div>
             </nav>
             <div class="sisf-widget-holder sisf--two d-flex align-items-center gap-3">
+               <x-locale-switcher />
                <a href="{{ route('cart.index') }}" class="position-relative text-white" style="font-size:18px">
                   <i class="fa-solid fa-cart-shopping"></i>
                   @if($cartItemCount > 0)
@@ -126,9 +127,9 @@
                </a>
                <div class="header-btn">
                   @auth
-                     <a href="{{ route('account.index') }}" class="sisf-button sisf-layout--outlined">Tài khoản của tôi</a>
+                     <a href="{{ route('account.index') }}" class="sisf-button sisf-layout--outlined">{{ __('common.my_account') }}</a>
                   @else
-                     <a href="{{ route('rooms.index') }}" class="sisf-button sisf-layout--outlined">Đặt ngay</a>
+                     <a href="{{ route('rooms.index') }}" class="sisf-button sisf-layout--outlined">{{ __('common.book_now') }}</a>
                   @endauth
                </div>
             </div>

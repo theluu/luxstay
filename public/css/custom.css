@@ -783,8 +783,8 @@ body {
 
 .back-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 110px;
+    right: 16px;
     width: 40px;
     height: 40px;
 	display: flex;
@@ -815,6 +815,12 @@ body {
     opacity: 1;
     visibility: visible;
 	transition: all 0.3s ease-in-out;
+}
+
+/* reCAPTCHA badge: keep Google's default right/width animation intact,
+   only pin bottom so it stays below back-to-top (which is at 110px). */
+.grecaptcha-badge {
+    bottom: 16px !important;
 }
 
 /************************************/

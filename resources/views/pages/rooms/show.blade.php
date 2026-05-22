@@ -31,7 +31,7 @@
                               </figure>
                            </div>
                            <span class="sisf-e-price">
-                           <span class="sisf-e-price-label">Từ</span>
+                           <span class="sisf-e-price-label">{{ __('rooms.price_from') }}</span>
                            <span class="sisf-e-price-value">${{ number_format($room->price_per_night, 0) }}</span>
                            </span>
                         </div>
@@ -44,11 +44,11 @@
                                  </li>
                                  <li class="sisf-e-item sisf-e-capacity text-black">
                                     <span><img src="{{ asset('images/small-img2.png') }}" alt="LuxeStay"></span>
-                                    <span>{{ $room->max_guests }} khách</span>
+                                    <span>{{ $room->max_guests }} {{ __('common.guests') }}</span>
                                  </li>
                                  <li class="sisf-e-item sisf-e-beds text-black">
                                     <span><img src="{{ asset('images/small-img3.png') }}" alt="LuxeStay"></span>
-                                    <span>1 Giường</span>
+                                    <span>{{ __('common.bed') }}</span>
                                  </li>
                               </ul>
                            </div>
@@ -65,7 +65,7 @@
                      <div class="sisf-e-middle-holder">
                         <div class="sisf-e-amenities sisf-room-detail wow fadeInUp">
                            <h4 class="sisf-e-title">
-                              Tiện nghi
+                              {{ __('rooms.amenities') }}
                            </h4>
                            <div class="row">
                               <div class="col-md-12">
@@ -94,7 +94,7 @@
                                        <img src="{{ asset('images/rules-img1.png') }}" alt="LuxeStay">
                                        </span>
                                        <span class="sisf-e--content">
-                                       Nhận phòng: 3:00 CH - 9:00 CH
+                                       {{ __('rooms.check_in_time') }}
                                        </span>
                                     </li>
                                     <li class="sisf-e sisf-e-info-item">
@@ -102,7 +102,7 @@
                                        <img src="{{ asset('images/rules-img2.png') }}" alt="LuxeStay">
                                        </span>
                                        <span class="sisf-e--content">
-                                       Trả phòng: 11:00 SA
+                                       {{ __('rooms.check_out_time') }}
                                        </span>
                                     </li>
                                     <li class="sisf-e sisf-e-info-item">
@@ -256,7 +256,7 @@
                   <div class="col-md-4">
                      <div class="sisf-room-reservation">
                         <div class="sisf-title mb-4">
-                           <h3 class="sisf-room-reservation-title text-center">Đặt phòng của bạn</h3>
+                           <h3 class="sisf-room-reservation-title text-center">{{ __('rooms.reservation_title') }}</h3>
                         </div>
                         <div class="check-in-out-form room-reservation-form form-section">
                            <form action="{{ route('bookings.store') }}" method="POST" data-recaptcha data-recaptcha-action="booking">
@@ -273,17 +273,17 @@
                               </div>
                               <div class="booking-form-col position-relative">
                                  <label class="form-label" for="guest_phone">Điện thoại</label>
-                                 <input type="tel" id="guest_phone" name="guest_phone" class="form-control ps-0" placeholder="Số điện thoại" value="{{ old('guest_phone') }}">
+                                 <input type="tel" id="guest_phone" name="guest_phone" class="form-control ps-0" placeholder="{{ __('rooms.guest_phone') }}" value="{{ old('guest_phone') }}">
                               </div>
                               @endguest
                               <div class="booking-form-col position-relative">
-                                 <label class="form-label" for="checkin">Nhận phòng</label>
-                                 <input type="text" id="checkin" name="check_in" class="form-control ps-0 flatpickr-input" placeholder="Chọn ngày" value="{{ old('check_in') }}" required>
+                                 <label class="form-label" for="checkin">{{ __('rooms.check_in_label') }}</label>
+                                 <input type="text" id="checkin" name="check_in" class="form-control ps-0 flatpickr-input" placeholder="{{ __('rooms.select_date') }}" value="{{ old('check_in') }}" required>
                                  <i class="fa-regular fa-calendar"></i>
                               </div>
                               <div class="booking-form-col position-relative">
-                                 <label class="form-label" for="checkout">Trả phòng</label>
-                                 <input type="text" id="checkout" name="check_out" class="form-control ps-0 flatpickr-input" placeholder="Chọn ngày" value="{{ old('check_out') }}" required>
+                                 <label class="form-label" for="checkout">{{ __('rooms.check_out_label') }}</label>
+                                 <input type="text" id="checkout" name="check_out" class="form-control ps-0 flatpickr-input" placeholder="{{ __('rooms.select_date') }}" value="{{ old('check_out') }}" required>
                                  <i class="fa-regular fa-calendar"></i>
                               </div>
                               <div class="select-wrapper booking-form-col position-relative">
@@ -395,11 +395,11 @@
                                  <label class="form-label d-block">Phương thức thanh toán</label>
                                  <label class="d-flex align-items-start gap-2 mb-2">
                                     <input type="radio" name="payment_method" value="pay_later" @checked(old('payment_method', 'pay_later') === 'pay_later')>
-                                    <span>Thanh toán sau khi khách sạn xác nhận</span>
+                                    <span>{{ __('rooms.pay_after_confirm') }}</span>
                                  </label>
                                  <label class="d-flex align-items-start gap-2">
                                     <input type="radio" name="payment_method" value="vnpay" @checked(old('payment_method') === 'vnpay')>
-                                    <span>Thanh toán online qua VNPAY</span>
+                                    <span>{{ __('rooms.pay_online') }}</span>
                                  </label>
                               </div>
                               <div class="sisf-m-button text-center w-100">
@@ -412,7 +412,7 @@
                </div>
                <div class="sisf-room-related-items">
                   <div class="sis-e-items-title">
-                     <h3 class="sisf-m-title">Phòng tương tự</h3>
+                     <h3 class="sisf-m-title">{{ __('rooms.similar_rooms') }}</h3>
                   </div>
                   <div class="row">
                      <div class="col-lg-4 col-md-6">
@@ -466,7 +466,7 @@
                                     </div>
                                  </div>
                                  <span class="sisf-e-price">
-                                 <span class="sisf-e-price-label">Từ</span>
+                                 <span class="sisf-e-price-label">{{ __('rooms.price_from') }}</span>
                                  <span class="sisf-e-price-value">$399</span>
                                  </span>
                               </div>
@@ -479,11 +479,11 @@
                                        </li>
                                        <li class="sisf-e-item sisf-e-capacity text-black">
                                           <span><img src="{{ asset('images/small-img2.png') }}" alt="LuxeStay"></span>
-                                          <span>4 khách</span>
+                                          <span>4 {{ __('common.guests') }}</span>
                                        </li>
                                        <li class="sisf-e-item sisf-e-beds text-black">
                                           <span><img src="{{ asset('images/small-img3.png') }}" alt="LuxeStay"></span>
-                                          <span>1 Giường</span>
+                                          <span>{{ __('common.bed') }}</span>
                                        </li>
                                     </ul>
                                  </div>
@@ -496,7 +496,7 @@
                                     <p class="sisf-e-excerpt mb-2">A Garden View Room typically refers to a hotel or resort room that offers a view of the property's gardens or landscaped areas. These rooms often p</p>
                                     <div class="sisf-m-button sisf-sis-clear">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('rooms.index') }}">
-                                       <span class="sisf-m-text">Khám phá thêm</span>
+                                       <span class="sisf-m-text">{{ __('common.explore_more') }}</span>
                                        </a>
                                     </div>
                                  </div>
@@ -541,7 +541,7 @@
                                     </div>
                                  </div>
                                  <span class="sisf-e-price">
-                                 <span class="sisf-e-price-label">Từ</span>
+                                 <span class="sisf-e-price-label">{{ __('rooms.price_from') }}</span>
                                  <span class="sisf-e-price-value">$799</span>
                                  </span>
                               </div>
@@ -554,7 +554,7 @@
                                        </li>
                                        <li class="sisf-e-item sisf-e-capacity text-black">
                                           <span><img src="{{ asset('images/small-img2.png') }}" alt="LuxeStay"></span>
-                                          <span>4 khách</span>
+                                          <span>4 {{ __('common.guests') }}</span>
                                        </li>
                                        <li class="sisf-e-item sisf-e-beds text-black">
                                           <span><img src="{{ asset('images/small-img3.png') }}" alt="LuxeStay"></span>
@@ -571,7 +571,7 @@
                                     <p class="sisf-e-excerpt mb-2">Experience the ultimate in coastal luxury with our Ocean View Room. Situated on the upper floors, this room offers stunning panoramic views of the shimme</p>
                                     <div class="sisf-m-button sisf-sis-clear">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('rooms.index') }}">
-                                       <span class="sisf-m-text">Khám phá thêm</span>
+                                       <span class="sisf-m-text">{{ __('common.explore_more') }}</span>
                                        </a>
                                     </div>
                                  </div>
@@ -623,7 +623,7 @@
                                     </div>
                                  </div>
                                  <span class="sisf-e-price">
-                                 <span class="sisf-e-price-label">Từ</span>
+                                 <span class="sisf-e-price-label">{{ __('rooms.price_from') }}</span>
                                  <span class="sisf-e-price-value">$899</span>
                                  </span>
                               </div>
@@ -636,7 +636,7 @@
                                        </li>
                                        <li class="sisf-e-item sisf-e-capacity text-black">
                                           <span><img src="{{ asset('images/small-img2.png') }}" alt="LuxeStay"></span>
-                                          <span>4 khách</span>
+                                          <span>4 {{ __('common.guests') }}</span>
                                        </li>
                                        <li class="sisf-e-item sisf-e-beds text-black">
                                           <span><img src="{{ asset('images/small-img3.png') }}" alt="LuxeStay"></span>
@@ -653,7 +653,7 @@
                                     <p class="sisf-e-excerpt mb-2">A luxury suite room is typically a premium, upscale accommodation in a hotel or resort, offering a higher level of comfort, amenities, and services compa</p>
                                     <div class="sisf-m-button sisf-sis-clear">
                                        <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('rooms.index') }}">
-                                       <span class="sisf-m-text">Khám phá thêm</span>
+                                       <span class="sisf-m-text">{{ __('common.explore_more') }}</span>
                                        </a>
                                     </div>
                                  </div>

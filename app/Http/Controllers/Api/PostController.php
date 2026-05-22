@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Api\Concerns\SavesTranslations;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+    use SavesTranslations;
+
     public function index(): AnonymousResourceCollection
     {
         return PostResource::collection(Post::with('category', 'author')->latest()->paginate(20));
@@ -35,15 +38,24 @@ class PostController extends Controller
             $data['published_at'] = now();
         }
         $post = Post::create($data);
+        if ($request->has('translations')) {
+            $this->applyTranslations($post, $request->input('translations', []));
+            $post->save();
+        }
         return (new PostResource($post->load('category', 'author')))->response()->setStatusCode(201);
     }
 
-    public function show(Post $post): PostResource
+    public function show(Post $post): JsonResponse
     {
-        return new PostResource($post->load('category', 'author'));
+        $post->load('category', 'author');
+        return response()->json([
+            'data' => array_merge((new PostResource($post))->resolve(), [
+                'all_translations' => $this->allTranslations($post),
+            ]),
+        ]);
     }
 
-    public function update(Request $request, Post $post): PostResource
+    public function update(Request $request, Post $post): JsonResponse
     {
         $data = $request->validate([
             'title'            => 'sometimes|string|max:255',
@@ -60,7 +72,16 @@ class PostController extends Controller
             $data['published_at'] = now();
         }
         $post->update($data);
-        return new PostResource($post->load('category', 'author'));
+        if ($request->has('translations')) {
+            $this->applyTranslations($post, $request->input('translations', []));
+            $post->save();
+        }
+        $post->load('category', 'author');
+        return response()->json([
+            'data' => array_merge((new PostResource($post))->resolve(), [
+                'all_translations' => $this->allTranslations($post),
+            ]),
+        ]);
     }
 
     public function destroy(Post $post): JsonResponse

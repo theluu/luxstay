@@ -1776,6 +1776,310 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-17T14:53:18.108Z"
+    },
+    {
+      "id": "bug-112",
+      "timestamp": "2026-05-22T08:32:39.998Z",
+      "error_message": "Significant refactor of ",
+      "file": "database/migrations/2026_05_22_083218_migrate_translatable_fields_to_json.php",
+      "root_cause": "10 lines replaced/restructured",
+      "fix": "Rewrote 28→60 lines (10 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T08:32:39.998Z"
+    },
+    {
+      "id": "bug-113",
+      "timestamp": "2026-05-22T09:15:33.754Z",
+      "error_message": "Significant refactor of ",
+      "file": "resources/views/components/locale-switcher.blade.php",
+      "root_cause": "28 lines replaced/restructured",
+      "fix": "Rewrote 57→165 lines (28 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:15:33.754Z"
+    },
+    {
+      "id": "bug-114",
+      "timestamp": "2026-05-22T09:17:36.670Z",
+      "error_message": "CSS fix: bottom, right",
+      "file": "public/css/custom.css",
+      "root_cause": "bottom: 30px → 90px; right: 30px → 20px",
+      "fix": "Changed bottom: 30px → 90px; right: 30px → 20px",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "css"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:17:36.670Z"
+    },
+    {
+      "id": "bug-115",
+      "timestamp": "2026-05-22T09:32:12.520Z",
+      "error_message": "CSS fix: bottom, right",
+      "file": "public/css/custom.css",
+      "root_cause": "bottom: 90px → 110px; right: 20px → 16px",
+      "fix": "Changed bottom: 90px → 110px; right: 20px → 16px",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "css"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:32:12.520Z"
+    },
+    {
+      "id": "bug-116",
+      "timestamp": "2026-05-22T09:49:38.073Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/Http/Controllers/Auth/AuthenticatedSessionController.php",
+      "root_cause": "Had 'dashboard'",
+      "fix": "Changed to 'home'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:49:38.073Z"
+    },
+    {
+      "id": "bug-117",
+      "timestamp": "2026-05-22T09:49:39.086Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/Http/Controllers/Auth/RegisteredUserController.php",
+      "root_cause": "Had 'dashboard'",
+      "fix": "Changed to 'home'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:49:39.086Z"
+    },
+    {
+      "id": "bug-118",
+      "timestamp": "2026-05-22T09:49:40.572Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/Http/Controllers/Auth/ConfirmablePasswordController.php",
+      "root_cause": "Had 'dashboard'",
+      "fix": "Changed to 'home'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:49:40.572Z"
+    },
+    {
+      "id": "bug-119",
+      "timestamp": "2026-05-22T09:49:41.997Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/Http/Controllers/Auth/EmailVerificationPromptController.php",
+      "root_cause": "Had 'dashboard'",
+      "fix": "Changed to 'home'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:49:41.997Z"
+    },
+    {
+      "id": "bug-120",
+      "timestamp": "2026-05-22T09:49:43.476Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/Http/Controllers/Auth/EmailVerificationNotificationController.php",
+      "root_cause": "Had 'dashboard'",
+      "fix": "Changed to 'home'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:49:43.476Z"
+    },
+    {
+      "id": "bug-121",
+      "timestamp": "2026-05-22T09:50:04.934Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/components/header.blade.php",
+      "root_cause": "Had \"{{ route('",
+      "fix": "Changed to 'common.my_account'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:50:04.934Z"
+    },
+    {
+      "id": "bug-122",
+      "timestamp": "2026-05-22T09:50:10.316Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/rooms/show.blade.php",
+      "root_cause": "Had \"sisf-e-price-value\"",
+      "fix": "Changed to 'rooms.price_from'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-05-22T09:50:47.879Z"
+    },
+    {
+      "id": "bug-123",
+      "timestamp": "2026-05-22T09:51:38.732Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/search.blade.php",
+      "root_cause": "Had \"<strong>{{ $q }}</strong>\"",
+      "fix": "Changed to 'search.no_results'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T09:51:38.732Z"
+    },
+    {
+      "id": "bug-124",
+      "timestamp": "2026-05-22T09:58:46.580Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/shop/checkout.blade.php",
+      "root_cause": "Had \"Họ\"",
+      "fix": "Changed to \"{{ __('",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 10,
+      "last_seen": "2026-05-22T09:59:52.277Z"
+    },
+    {
+      "id": "bug-125",
+      "timestamp": "2026-05-22T10:00:25.976Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/views/pages/shop/show.blade.php",
+      "root_cause": "Had 'Còn hàng ('",
+      "fix": "Changed to 'shop.stock'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T10:00:25.976Z"
+    },
+    {
+      "id": "bug-126",
+      "timestamp": "2026-05-22T15:34:50.806Z",
+      "error_message": "Significant refactor of ",
+      "file": "docs/superpowers/plans/2026-05-22-mail-system-users.md",
+      "root_cause": "10 lines replaced/restructured",
+      "fix": "Rewrote 22→16 lines (10 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T15:34:50.806Z"
+    },
+    {
+      "id": "bug-127",
+      "timestamp": "2026-05-22T15:36:14.632Z",
+      "error_message": "Incorrect value in code",
+      "file": "app/Models/User.php",
+      "root_cause": "Had 'password'",
+      "fix": "Changed to 'phone'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T15:36:14.632Z"
+    },
+    {
+      "id": "bug-128",
+      "timestamp": "2026-05-22T15:37:17.390Z",
+      "error_message": "Missing error handling in register",
+      "file": "app/Providers/AppServiceProvider.php",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T15:37:17.390Z"
+    },
+    {
+      "id": "bug-129",
+      "timestamp": "2026-05-22T15:44:28.777Z",
+      "error_message": "Missing error handling in unknown",
+      "file": "app/Http/Controllers/Web/BookingController.php",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T15:44:28.777Z"
+    },
+    {
+      "id": "bug-130",
+      "timestamp": "2026-05-22T15:46:28.892Z",
+      "error_message": "Incorrect value in code",
+      "file": "resources/js/admin/components/AppLayout.vue",
+      "root_cause": "Had '/admin/comments'",
+      "fix": "Changed to '/admin/users'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T15:46:28.892Z"
     }
   ]
 }

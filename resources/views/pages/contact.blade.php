@@ -12,7 +12,7 @@
          <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
             <div class="sisf-m-inner">
                <div class="sisf-m-content sisf-content-grid ">
-                  <h1 class="sisf-m-title text-center entry-title">Liên hệ</h1>
+                  <h1 class="sisf-m-title text-center entry-title">{{ __('contact.title') }}</h1>
                </div>
             </div>
          </div>
@@ -25,8 +25,8 @@
                <div class="col-md-8 ms-auto me-auto">
                   <!-- Section-Title Start -->
                   <div class="sisf-sis-section-title section-title text-center wow wow-bounce">
-                     <h3 class="sisf-m-subtitle">Liên hệ với chúng tôi</h3>
-                     <h2 class="sisf-m-title">Dịch vụ & Hoạt động chất lượng<br> gần bạn</h2>
+                     <h3 class="sisf-m-subtitle">{{ __('contact.subtitle') }}</h3>
+                     <h2 class="sisf-m-title">{{ __('contact.heading') }}</h2>
                      <div class="sisf-m-text">
                         <p>Our Comfort Is Our Priority" expresses a commitment to providing the highest level of comfort and satisfaction for our customers. Whether you're staying with us, using our services, or purchasing our products, we prioritize your needs and ensure a relaxing and enjoyable experience.</p>
                      </div>
@@ -43,9 +43,9 @@
                         </div>
                         <div class="sisf-m-content border-0">
                            <h5 class="sisf-m-title">
-                              <span class="sisf-m-title-text">Ngày mở cửa:</span>
+                              <span class="sisf-m-title-text">{{ __('contact.opening_days') }}</span>
                            </h5>
-                           <div class="sisf-m-text">Thứ Hai - Thứ Bảy</div>
+                           <div class="sisf-m-text">{{ __('contact.opening_days_val') }}</div>
                         </div>
                      </div>
                   </div>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="sisf-m-content border-0">
                            <h5 class="sisf-m-title">
-                              <span class="sisf-m-title-text">Giờ mở cửa:</span>
+                              <span class="sisf-m-title-text">{{ __('contact.opening_hours') }}</span>
                            </h5>
                            <div class="sisf-m-text">06:00 am – 22:00 pm</div>
                         </div>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="sisf-m-content border-0">
                            <h5 class="sisf-m-title">
-                              <span class="sisf-m-title-text">Đặt phòng qua điện thoại:</span>
+                              <span class="sisf-m-title-text">{{ __('contact.phone_booking') }}</span>
                            </h5>
                            <div class="sisf-m-text">+1 850 6396 102</div>
                         </div>

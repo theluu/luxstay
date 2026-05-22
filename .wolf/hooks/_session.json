@@ -8,14 +8,314 @@
       "first_read": "2026-05-17T16:21:50.479Z"
     },
     "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Web/BookingController.php": {
-      "count": 1,
-      "tokens": 545,
+      "count": 3,
+      "tokens": 1420,
       "first_read": "2026-05-17T16:22:22.321Z"
     },
     "/Users/mac/Desktop/Project/luxestay/.ddev/config.yaml": {
       "count": 1,
       "tokens": 3357,
       "first_read": "2026-05-17T23:42:42.297Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/database/migrations/2026_05_22_083218_migrate_translatable_fields_to_json.php": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-22T08:32:30.639Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Web/RoomController.php": {
+      "count": 1,
+      "tokens": 200,
+      "first_read": "2026-05-22T09:01:40.626Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/app/Http/Middleware/LocaleMiddleware.php": {
+      "count": 1,
+      "tokens": 152,
+      "first_read": "2026-05-22T09:09:17.627Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/resources/views/components/locale-switcher.blade.php": {
+      "count": 1,
+      "tokens": 589,
+      "first_read": "2026-05-22T09:14:57.486Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/public/css/custom.css": {
+      "count": 3,
+      "tokens": 61488,
+      "first_read": "2026-05-22T09:17:32.716Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/AuthenticatedSessionController.php": {
+      "count": 1,
+      "tokens": 277,
+      "first_read": "2026-05-22T09:49:23.819Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/RegisteredUserController.php": {
+      "count": 1,
+      "tokens": 362,
+      "first_read": "2026-05-22T09:49:24.287Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/ConfirmablePasswordController.php": {
+      "count": 1,
+      "tokens": 274,
+      "first_read": "2026-05-22T09:49:24.783Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/EmailVerificationPromptController.php": {
+      "count": 1,
+      "tokens": 151,
+      "first_read": "2026-05-22T09:49:25.285Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/EmailVerificationNotificationController.php": {
+      "count": 1,
+      "tokens": 168,
+      "first_read": "2026-05-22T09:49:25.764Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/VerifyEmailController.php": {
+      "count": 1,
+      "tokens": 214,
+      "first_read": "2026-05-22T09:49:26.196Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/lang/vi/rooms.php": {
+      "count": 1,
+      "tokens": 136,
+      "first_read": "2026-05-22T09:49:30.094Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/lang/en/rooms.php": {
+      "count": 1,
+      "tokens": 132,
+      "first_read": "2026-05-22T09:49:30.627Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/lang/zh/rooms.php": {
+      "count": 1,
+      "tokens": 115,
+      "first_read": "2026-05-22T09:49:31.134Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/lang/vi/common.php": {
+      "count": 1,
+      "tokens": 220,
+      "first_read": "2026-05-22T09:49:31.599Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/lang/en/common.php": {
+      "count": 1,
+      "tokens": 215,
+      "first_read": "2026-05-22T09:49:32.099Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/lang/zh/common.php": {
+      "count": 1,
+      "tokens": 187,
+      "first_read": "2026-05-22T09:49:32.614Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/lang/vi/shop.php": {
+      "count": 2,
+      "tokens": 242,
+      "first_read": "2026-05-22T09:49:33.101Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/lang/en/shop.php": {
+      "count": 2,
+      "tokens": 238,
+      "first_read": "2026-05-22T09:49:33.666Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/lang/zh/shop.php": {
+      "count": 2,
+      "tokens": 195,
+      "first_read": "2026-05-22T09:49:33.842Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/resources/views/components/header.blade.php": {
+      "count": 1,
+      "tokens": 2283,
+      "first_read": "2026-05-22T09:49:51.441Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php": {
+      "count": 1,
+      "tokens": 1811,
+      "first_read": "2026-05-22T09:49:51.880Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/cart.blade.php": {
+      "count": 1,
+      "tokens": 2023,
+      "first_read": "2026-05-22T09:49:52.541Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php": {
+      "count": 1,
+      "tokens": 11626,
+      "first_read": "2026-05-22T09:49:56.449Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php": {
+      "count": 3,
+      "tokens": 3202,
+      "first_read": "2026-05-22T09:57:59.051Z"
+    },
+    "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/show.blade.php": {
+      "count": 1,
+      "tokens": 5778,
+      "first_read": "2026-05-22T10:00:21.282Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/.env": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-22T15:13:35.135Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Models/User.php": {
+      "count": 3,
+      "tokens": 360,
+      "first_read": "2026-05-22T15:36:08.724Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/database/migrations/2026_05_22_100000_add_phone_to_users_table.php": {
+      "count": 1,
+      "tokens": 139,
+      "first_read": "2026-05-22T15:36:37.875Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Providers/AppServiceProvider.php": {
+      "count": 2,
+      "tokens": 416,
+      "first_read": "2026-05-22T15:37:11.042Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/routes/api.php": {
+      "count": 2,
+      "tokens": 1351,
+      "first_read": "2026-05-22T15:37:32.420Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Api/UserController.php": {
+      "count": 2,
+      "tokens": 240,
+      "first_read": "2026-05-22T15:38:16.833Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Api/MailSettingController.php": {
+      "count": 1,
+      "tokens": 965,
+      "first_read": "2026-05-22T15:38:41.092Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/docs/superpowers/plans/2026-05-22-mail-system-users.md": {
+      "count": 2,
+      "tokens": 14731,
+      "first_read": "2026-05-22T15:39:34.048Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/views/emails/layouts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-22T15:42:32.219Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/views/emails/layouts/base.blade.php": {
+      "count": 1,
+      "tokens": 628,
+      "first_read": "2026-05-22T15:42:37.128Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/views/emails/contact-received.blade.php": {
+      "count": 1,
+      "tokens": 182,
+      "first_read": "2026-05-22T15:42:37.440Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/views/emails/contact-auto-reply.blade.php": {
+      "count": 1,
+      "tokens": 198,
+      "first_read": "2026-05-22T15:42:37.752Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/views/emails/booking-confirmation.blade.php": {
+      "count": 1,
+      "tokens": 380,
+      "first_read": "2026-05-22T15:42:37.861Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/views/emails/subscriber-welcome.blade.php": {
+      "count": 1,
+      "tokens": 213,
+      "first_read": "2026-05-22T15:42:37.995Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/views/emails/welcome.blade.php": {
+      "count": 1,
+      "tokens": 251,
+      "first_read": "2026-05-22T15:42:38.063Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Mail/ContactReceived.php": {
+      "count": 2,
+      "tokens": 178,
+      "first_read": "2026-05-22T15:42:40.180Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Mail/ContactAutoReply.php": {
+      "count": 2,
+      "tokens": 149,
+      "first_read": "2026-05-22T15:42:40.398Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Mail/BookingConfirmation.php": {
+      "count": 2,
+      "tokens": 162,
+      "first_read": "2026-05-22T15:42:40.648Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Mail/SubscriberWelcome.php": {
+      "count": 2,
+      "tokens": 116,
+      "first_read": "2026-05-22T15:42:40.844Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Mail/WelcomeEmail.php": {
+      "count": 2,
+      "tokens": 143,
+      "first_read": "2026-05-22T15:42:41.042Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/views/auth/register.blade.php": {
+      "count": 2,
+      "tokens": 696,
+      "first_read": "2026-05-22T15:43:47.433Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/lang/vi/auth.php": {
+      "count": 2,
+      "tokens": 207,
+      "first_read": "2026-05-22T15:43:47.693Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/lang/en/auth.php": {
+      "count": 2,
+      "tokens": 202,
+      "first_read": "2026-05-22T15:43:47.869Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/lang/zh/auth.php": {
+      "count": 2,
+      "tokens": 152,
+      "first_read": "2026-05-22T15:43:48.099Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Web/PageController.php": {
+      "count": 2,
+      "tokens": 922,
+      "first_read": "2026-05-22T15:44:06.406Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Auth/RegisteredUserController.php": {
+      "count": 2,
+      "tokens": 494,
+      "first_read": "2026-05-22T15:44:31.305Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/js/admin/views/Settings/SettingsView.vue": {
+      "count": 2,
+      "tokens": 3655,
+      "first_read": "2026-05-22T15:44:57.427Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/js/admin/router/index.js": {
+      "count": 2,
+      "tokens": 1155,
+      "first_read": "2026-05-22T15:45:33.546Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/js/admin/components/AppLayout.vue": {
+      "count": 2,
+      "tokens": 3960,
+      "first_read": "2026-05-22T15:45:33.945Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/js/admin/locales/vi.json": {
+      "count": 2,
+      "tokens": 488,
+      "first_read": "2026-05-22T15:45:36.991Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/js/admin/locales/en.json": {
+      "count": 2,
+      "tokens": 482,
+      "first_read": "2026-05-22T15:45:37.499Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/js/admin/locales/zh.json": {
+      "count": 2,
+      "tokens": 392,
+      "first_read": "2026-05-22T15:45:37.826Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/js/admin/components/SaveBar.vue": {
+      "count": 1,
+      "tokens": 163,
+      "first_read": "2026-05-22T15:46:40.380Z"
+    },
+    "/Users/mac/Desktop/Project/luxestay/resources/js/admin/views/Users/UsersView.vue": {
+      "count": 1,
+      "tokens": 1826,
+      "first_read": "2026-05-22T15:46:40.686Z"
     }
   },
   "files_written": [
@@ -24,14 +324,890 @@
       "action": "edit",
       "tokens": 47,
       "at": "2026-05-17T16:22:19.092Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/database/migrations/2026_05_22_083218_migrate_translatable_fields_to_json.php",
+      "action": "edit",
+      "tokens": 598,
+      "at": "2026-05-22T08:32:39.996Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Web/RoomController.php",
+      "action": "edit",
+      "tokens": 76,
+      "at": "2026-05-22T09:01:44.731Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Web/RoomController.php",
+      "action": "edit",
+      "tokens": 74,
+      "at": "2026-05-22T09:02:35.398Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/app/Http/Middleware/LocaleMiddleware.php",
+      "action": "edit",
+      "tokens": 97,
+      "at": "2026-05-22T09:09:25.769Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Web/RoomController.php",
+      "action": "edit",
+      "tokens": 26,
+      "at": "2026-05-22T09:09:32.073Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/components/locale-switcher.blade.php",
+      "action": "edit",
+      "tokens": 1557,
+      "at": "2026-05-22T09:15:33.749Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/public/css/custom.css",
+      "action": "edit",
+      "tokens": 20,
+      "at": "2026-05-22T09:17:36.668Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/public/css/custom.css",
+      "action": "edit",
+      "tokens": 96,
+      "at": "2026-05-22T09:17:46.290Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/public/css/custom.css",
+      "action": "edit",
+      "tokens": 21,
+      "at": "2026-05-22T09:32:12.517Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/public/css/custom.css",
+      "action": "edit",
+      "tokens": 1,
+      "at": "2026-05-22T09:32:16.939Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/public/css/custom.css",
+      "action": "edit",
+      "tokens": 96,
+      "at": "2026-05-22T09:32:27.105Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/AuthenticatedSessionController.php",
+      "action": "edit",
+      "tokens": 20,
+      "at": "2026-05-22T09:49:38.072Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/RegisteredUserController.php",
+      "action": "edit",
+      "tokens": 16,
+      "at": "2026-05-22T09:49:39.084Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/ConfirmablePasswordController.php",
+      "action": "edit",
+      "tokens": 20,
+      "at": "2026-05-22T09:49:40.571Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/EmailVerificationPromptController.php",
+      "action": "edit",
+      "tokens": 50,
+      "at": "2026-05-22T09:49:41.995Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/EmailVerificationNotificationController.php",
+      "action": "edit",
+      "tokens": 39,
+      "at": "2026-05-22T09:49:43.474Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/app/Http/Controllers/Auth/VerifyEmailController.php",
+      "action": "edit",
+      "tokens": 100,
+      "at": "2026-05-22T09:49:46.017Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/vi/rooms.php",
+      "action": "edit",
+      "tokens": 214,
+      "at": "2026-05-22T09:49:58.327Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/en/rooms.php",
+      "action": "edit",
+      "tokens": 209,
+      "at": "2026-05-22T09:50:01.762Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/components/header.blade.php",
+      "action": "edit",
+      "tokens": 83,
+      "at": "2026-05-22T09:50:04.932Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/zh/rooms.php",
+      "action": "edit",
+      "tokens": 172,
+      "at": "2026-05-22T09:50:05.202Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 60,
+      "at": "2026-05-22T09:50:10.314Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/vi/common.php",
+      "action": "edit",
+      "tokens": 90,
+      "at": "2026-05-22T09:50:11.106Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/en/common.php",
+      "action": "edit",
+      "tokens": 86,
+      "at": "2026-05-22T09:50:13.086Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 28,
+      "at": "2026-05-22T09:50:13.671Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/zh/common.php",
+      "action": "edit",
+      "tokens": 70,
+      "at": "2026-05-22T09:50:15.125Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 73,
+      "at": "2026-05-22T09:50:17.815Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 41,
+      "at": "2026-05-22T09:50:21.540Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/vi/search.php",
+      "action": "create",
+      "tokens": 181,
+      "at": "2026-05-22T09:50:21.596Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/en/search.php",
+      "action": "create",
+      "tokens": 185,
+      "at": "2026-05-22T09:50:24.034Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 34,
+      "at": "2026-05-22T09:50:25.982Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/zh/search.php",
+      "action": "create",
+      "tokens": 143,
+      "at": "2026-05-22T09:50:26.478Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 34,
+      "at": "2026-05-22T09:50:29.836Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/vi/shop.php",
+      "action": "edit",
+      "tokens": 149,
+      "at": "2026-05-22T09:50:32.688Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 34,
+      "at": "2026-05-22T09:50:32.847Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/en/shop.php",
+      "action": "edit",
+      "tokens": 145,
+      "at": "2026-05-22T09:50:34.979Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 55,
+      "at": "2026-05-22T09:50:36.926Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/zh/shop.php",
+      "action": "edit",
+      "tokens": 118,
+      "at": "2026-05-22T09:50:37.531Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 33,
+      "at": "2026-05-22T09:50:40.274Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 33,
+      "at": "2026-05-22T09:50:43.251Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 13,
+      "at": "2026-05-22T09:50:47.877Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 24,
+      "at": "2026-05-22T09:50:51.565Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 22,
+      "at": "2026-05-22T09:50:54.730Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 24,
+      "at": "2026-05-22T09:51:00.212Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 20,
+      "at": "2026-05-22T09:51:07.280Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 24,
+      "at": "2026-05-22T09:51:12.226Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 22,
+      "at": "2026-05-22T09:51:15.923Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/rooms/show.blade.php",
+      "action": "edit",
+      "tokens": 19,
+      "at": "2026-05-22T09:51:19.671Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 26,
+      "at": "2026-05-22T09:51:23.770Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 27,
+      "at": "2026-05-22T09:51:27.950Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 22,
+      "at": "2026-05-22T09:51:31.372Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 36,
+      "at": "2026-05-22T09:51:38.730Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 25,
+      "at": "2026-05-22T09:51:42.654Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 26,
+      "at": "2026-05-22T09:51:45.698Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 26,
+      "at": "2026-05-22T09:51:49.881Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 28,
+      "at": "2026-05-22T09:51:53.131Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 23,
+      "at": "2026-05-22T09:51:56.868Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 26,
+      "at": "2026-05-22T09:52:00.230Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 25,
+      "at": "2026-05-22T09:52:03.305Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 22,
+      "at": "2026-05-22T09:52:06.371Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/search.blade.php",
+      "action": "edit",
+      "tokens": 24,
+      "at": "2026-05-22T09:52:09.337Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/cart.blade.php",
+      "action": "edit",
+      "tokens": 29,
+      "at": "2026-05-22T09:52:13.766Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/cart.blade.php",
+      "action": "edit",
+      "tokens": 26,
+      "at": "2026-05-22T09:52:18.210Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/cart.blade.php",
+      "action": "edit",
+      "tokens": 28,
+      "at": "2026-05-22T09:52:22.018Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/cart.blade.php",
+      "action": "edit",
+      "tokens": 32,
+      "at": "2026-05-22T09:52:26.302Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/cart.blade.php",
+      "action": "edit",
+      "tokens": 18,
+      "at": "2026-05-22T09:52:29.486Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/cart.blade.php",
+      "action": "edit",
+      "tokens": 50,
+      "at": "2026-05-22T09:52:34.229Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/cart.blade.php",
+      "action": "edit",
+      "tokens": 47,
+      "at": "2026-05-22T09:52:38.029Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/vi/shop.php",
+      "action": "edit",
+      "tokens": 178,
+      "at": "2026-05-22T09:57:40.757Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/en/shop.php",
+      "action": "edit",
+      "tokens": 171,
+      "at": "2026-05-22T09:57:49.594Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/zh/shop.php",
+      "action": "edit",
+      "tokens": 130,
+      "at": "2026-05-22T09:57:55.182Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/vi/shop.php",
+      "action": "edit",
+      "tokens": 221,
+      "at": "2026-05-22T09:58:19.872Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/en/shop.php",
+      "action": "edit",
+      "tokens": 214,
+      "at": "2026-05-22T09:58:26.584Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/lang/zh/shop.php",
+      "action": "edit",
+      "tokens": 172,
+      "at": "2026-05-22T09:58:32.573Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 30,
+      "at": "2026-05-22T09:58:37.823Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 28,
+      "at": "2026-05-22T09:58:41.882Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 12,
+      "at": "2026-05-22T09:58:46.578Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 12,
+      "at": "2026-05-22T09:58:53.428Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 11,
+      "at": "2026-05-22T09:58:57.738Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 12,
+      "at": "2026-05-22T09:59:03.035Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 12,
+      "at": "2026-05-22T09:59:07.139Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 10,
+      "at": "2026-05-22T09:59:10.870Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 12,
+      "at": "2026-05-22T09:59:15.125Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 12,
+      "at": "2026-05-22T09:59:19.451Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 12,
+      "at": "2026-05-22T09:59:23.849Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 29,
+      "at": "2026-05-22T09:59:29.169Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 29,
+      "at": "2026-05-22T09:59:33.777Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 53,
+      "at": "2026-05-22T09:59:39.259Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 54,
+      "at": "2026-05-22T09:59:44.455Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 99,
+      "at": "2026-05-22T09:59:52.274Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 26,
+      "at": "2026-05-22T09:59:56.374Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 26,
+      "at": "2026-05-22T10:00:01.393Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 21,
+      "at": "2026-05-22T10:00:06.043Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 176,
+      "at": "2026-05-22T10:00:12.382Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/checkout.blade.php",
+      "action": "edit",
+      "tokens": 20,
+      "at": "2026-05-22T10:00:17.421Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/show.blade.php",
+      "action": "edit",
+      "tokens": 64,
+      "at": "2026-05-22T10:00:25.974Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/show.blade.php",
+      "action": "edit",
+      "tokens": 22,
+      "at": "2026-05-22T10:00:32.947Z"
+    },
+    {
+      "file": "/home/theluu/Desktop/Projects/luxstay/resources/views/pages/shop/show.blade.php",
+      "action": "edit",
+      "tokens": 18,
+      "at": "2026-05-22T10:00:36.712Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/docs/superpowers/plans/2026-05-22-mail-system-users.md",
+      "action": "create",
+      "tokens": 16888,
+      "at": "2026-05-22T15:34:11.753Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/docs/superpowers/plans/2026-05-22-mail-system-users.md",
+      "action": "edit",
+      "tokens": 97,
+      "at": "2026-05-22T15:34:50.803Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/database/migrations/2026_05_22_100000_add_phone_to_users_table.php",
+      "action": "create",
+      "tokens": 149,
+      "at": "2026-05-22T15:36:11.893Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Models/User.php",
+      "action": "edit",
+      "tokens": 17,
+      "at": "2026-05-22T15:36:14.628Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Providers/AppServiceProvider.php",
+      "action": "edit",
+      "tokens": 445,
+      "at": "2026-05-22T15:37:17.387Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Api/UserController.php",
+      "action": "create",
+      "tokens": 257,
+      "at": "2026-05-22T15:37:44.483Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Api/MailSettingController.php",
+      "action": "create",
+      "tokens": 1034,
+      "at": "2026-05-22T15:37:55.300Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/routes/api.php",
+      "action": "edit",
+      "tokens": 50,
+      "at": "2026-05-22T15:37:59.488Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/routes/api.php",
+      "action": "edit",
+      "tokens": 145,
+      "at": "2026-05-22T15:38:04.259Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Mail/ContactReceived.php",
+      "action": "create",
+      "tokens": 191,
+      "at": "2026-05-22T15:41:21.323Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/views/emails/layouts/base.blade.php",
+      "action": "create",
+      "tokens": 673,
+      "at": "2026-05-22T15:41:22.591Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Mail/ContactAutoReply.php",
+      "action": "create",
+      "tokens": 160,
+      "at": "2026-05-22T15:41:23.570Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Mail/BookingConfirmation.php",
+      "action": "create",
+      "tokens": 174,
+      "at": "2026-05-22T15:41:26.017Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/views/emails/contact-received.blade.php",
+      "action": "create",
+      "tokens": 195,
+      "at": "2026-05-22T15:41:26.965Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Mail/SubscriberWelcome.php",
+      "action": "create",
+      "tokens": 125,
+      "at": "2026-05-22T15:41:28.422Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Mail/WelcomeEmail.php",
+      "action": "create",
+      "tokens": 153,
+      "at": "2026-05-22T15:41:30.514Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/views/emails/contact-auto-reply.blade.php",
+      "action": "create",
+      "tokens": 212,
+      "at": "2026-05-22T15:41:31.084Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/views/emails/booking-confirmation.blade.php",
+      "action": "create",
+      "tokens": 408,
+      "at": "2026-05-22T15:41:37.124Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/views/emails/subscriber-welcome.blade.php",
+      "action": "create",
+      "tokens": 228,
+      "at": "2026-05-22T15:41:41.425Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/views/emails/welcome.blade.php",
+      "action": "create",
+      "tokens": 269,
+      "at": "2026-05-22T15:41:45.747Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Web/PageController.php",
+      "action": "create",
+      "tokens": 987,
+      "at": "2026-05-22T15:44:16.564Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Web/BookingController.php",
+      "action": "edit",
+      "tokens": 102,
+      "at": "2026-05-22T15:44:21.631Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Web/BookingController.php",
+      "action": "edit",
+      "tokens": 290,
+      "at": "2026-05-22T15:44:28.775Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/app/Http/Controllers/Auth/RegisteredUserController.php",
+      "action": "create",
+      "tokens": 530,
+      "at": "2026-05-22T15:44:38.139Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/views/auth/register.blade.php",
+      "action": "edit",
+      "tokens": 134,
+      "at": "2026-05-22T15:44:43.083Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/lang/vi/auth.php",
+      "action": "edit",
+      "tokens": 27,
+      "at": "2026-05-22T15:44:46.639Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/lang/en/auth.php",
+      "action": "edit",
+      "tokens": 27,
+      "at": "2026-05-22T15:44:50.111Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/lang/zh/auth.php",
+      "action": "edit",
+      "tokens": 22,
+      "at": "2026-05-22T15:44:53.717Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/js/admin/components/SaveBar.vue",
+      "action": "create",
+      "tokens": 174,
+      "at": "2026-05-22T15:44:55.040Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/js/admin/views/Settings/SettingsView.vue",
+      "action": "create",
+      "tokens": 3916,
+      "at": "2026-05-22T15:45:47.910Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/js/admin/views/Users/UsersView.vue",
+      "action": "create",
+      "tokens": 1956,
+      "at": "2026-05-22T15:46:09.607Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/js/admin/router/index.js",
+      "action": "edit",
+      "tokens": 36,
+      "at": "2026-05-22T15:46:12.847Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/js/admin/router/index.js",
+      "action": "edit",
+      "tokens": 34,
+      "at": "2026-05-22T15:46:15.739Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/js/admin/components/AppLayout.vue",
+      "action": "edit",
+      "tokens": 189,
+      "at": "2026-05-22T15:46:24.659Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/js/admin/components/AppLayout.vue",
+      "action": "edit",
+      "tokens": 65,
+      "at": "2026-05-22T15:46:28.887Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/js/admin/locales/vi.json",
+      "action": "edit",
+      "tokens": 18,
+      "at": "2026-05-22T15:46:32.768Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/js/admin/locales/en.json",
+      "action": "edit",
+      "tokens": 18,
+      "at": "2026-05-22T15:46:37.228Z"
+    },
+    {
+      "file": "/Users/mac/Desktop/Project/luxestay/resources/js/admin/locales/zh.json",
+      "action": "edit",
+      "tokens": 15,
+      "at": "2026-05-22T15:46:40.082Z"
     }
   ],
   "edit_counts": {
-    "resources/views/components/header.blade.php": 1
+    "resources/views/components/header.blade.php": 2,
+    "database/migrations/2026_05_22_083218_migrate_translatable_fields_to_json.php": 1,
+    "app/Http/Controllers/Web/RoomController.php": 3,
+    "app/Http/Middleware/LocaleMiddleware.php": 1,
+    "resources/views/components/locale-switcher.blade.php": 1,
+    "public/css/custom.css": 5,
+    "app/Http/Controllers/Auth/AuthenticatedSessionController.php": 1,
+    "app/Http/Controllers/Auth/RegisteredUserController.php": 2,
+    "app/Http/Controllers/Auth/ConfirmablePasswordController.php": 1,
+    "app/Http/Controllers/Auth/EmailVerificationPromptController.php": 1,
+    "app/Http/Controllers/Auth/EmailVerificationNotificationController.php": 1,
+    "app/Http/Controllers/Auth/VerifyEmailController.php": 1,
+    "lang/vi/rooms.php": 1,
+    "lang/en/rooms.php": 1,
+    "lang/zh/rooms.php": 1,
+    "resources/views/pages/rooms/show.blade.php": 18,
+    "lang/vi/common.php": 1,
+    "lang/en/common.php": 1,
+    "lang/zh/common.php": 1,
+    "lang/vi/search.php": 1,
+    "lang/en/search.php": 1,
+    "lang/zh/search.php": 1,
+    "lang/vi/shop.php": 3,
+    "lang/en/shop.php": 3,
+    "lang/zh/shop.php": 3,
+    "resources/views/pages/search.blade.php": 13,
+    "resources/views/pages/shop/cart.blade.php": 7,
+    "resources/views/pages/shop/checkout.blade.php": 21,
+    "resources/views/pages/shop/show.blade.php": 3,
+    "docs/superpowers/plans/2026-05-22-mail-system-users.md": 2,
+    "database/migrations/2026_05_22_100000_add_phone_to_users_table.php": 1,
+    "app/Models/User.php": 1,
+    "app/Providers/AppServiceProvider.php": 1,
+    "app/Http/Controllers/Api/UserController.php": 1,
+    "app/Http/Controllers/Api/MailSettingController.php": 1,
+    "routes/api.php": 2,
+    "app/Mail/ContactReceived.php": 1,
+    "resources/views/emails/layouts/base.blade.php": 1,
+    "app/Mail/ContactAutoReply.php": 1,
+    "app/Mail/BookingConfirmation.php": 1,
+    "resources/views/emails/contact-received.blade.php": 1,
+    "app/Mail/SubscriberWelcome.php": 1,
+    "app/Mail/WelcomeEmail.php": 1,
+    "resources/views/emails/contact-auto-reply.blade.php": 1,
+    "resources/views/emails/booking-confirmation.blade.php": 1,
+    "resources/views/emails/subscriber-welcome.blade.php": 1,
+    "resources/views/emails/welcome.blade.php": 1,
+    "app/Http/Controllers/Web/PageController.php": 1,
+    "app/Http/Controllers/Web/BookingController.php": 2,
+    "resources/views/auth/register.blade.php": 1,
+    "lang/vi/auth.php": 1,
+    "lang/en/auth.php": 1,
+    "lang/zh/auth.php": 1,
+    "resources/js/admin/components/SaveBar.vue": 1,
+    "resources/js/admin/views/Settings/SettingsView.vue": 1,
+    "resources/js/admin/views/Users/UsersView.vue": 1,
+    "resources/js/admin/router/index.js": 2,
+    "resources/js/admin/components/AppLayout.vue": 2,
+    "resources/js/admin/locales/vi.json": 1,
+    "resources/js/admin/locales/en.json": 1,
+    "resources/js/admin/locales/zh.json": 1
   },
-  "anatomy_hits": 3,
-  "anatomy_misses": 0,
-  "repeated_reads_warned": 0,
+  "anatomy_hits": 60,
+  "anatomy_misses": 3,
+  "repeated_reads_warned": 32,
   "cerebrum_warnings": 0,
-  "stop_count": 4
+  "stop_count": 21
 }

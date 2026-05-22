@@ -202,12 +202,12 @@
                               <table class="product-information">
                                  <tbody>
                                     <tr>
-                                       <th>Tồn kho:</th>
-                                       <td>{{ $product->stock > 0 ? 'Còn hàng (' . $product->stock . ' sản phẩm)' : 'Hết hàng' }}</td>
+                                       <th>{{ __('shop.stock') }}:</th>
+                                       <td>{{ $product->stock > 0 ? __('shop.in_stock', ['count' => $product->stock]) : __('shop.out_of_stock') }}</td>
                                     </tr>
                                     @if($product->category)
                                     <tr>
-                                       <th>Category:</th>
+                                       <th>{{ __('shop.category') }}:</th>
                                        <td>{{ $product->category->name }}</td>
                                     </tr>
                                     @endif
@@ -273,7 +273,7 @@
                   <!-- Product Tab Box End -->
                </div>
                <div class="related_products">
-                  <h2>Sản phẩm liên quan</h2>
+                  <h2>{{ __('shop.related_products') }}</h2>
                   <div class="sisf-product-list">
                      <div class="row">
                         @foreach($related as $relatedProduct)

@@ -26,6 +26,21 @@
    <link rel="stylesheet" href="{{ asset('css/select2.css') }}">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+   @php
+      $hreflangRoute  = request()->route()?->getName() ?? 'home';
+      $hreflangParams = request()->route()?->parameters() ?? [];
+   @endphp
+   @foreach(config('app.supported_locales') as $hreflangLocale)
+      @php
+         try {
+            $hreflangUrl = route($hreflangRoute, array_merge($hreflangParams, ['locale' => $hreflangLocale]));
+         } catch (\Throwable $e) {
+            $hreflangUrl = url('/' . $hreflangLocale);
+         }
+      @endphp
+      <link rel="alternate" hreflang="{{ $hreflangLocale }}" href="{{ $hreflangUrl }}">
+   @endforeach
+   <link rel="alternate" hreflang="x-default" href="{{ url('/vi') }}">
    @stack('styles')
 </head>
 <body>
@@ -56,10 +71,10 @@
                <i class="fa-solid fa-magnifying-glass search-overlay-icon"></i>
                <input type="text" name="q" id="search-overlay-input"
                   value="{{ request('q') }}"
-                  placeholder="Tìm kiếm phòng, blog, cửa hàng…"
+                  placeholder="{{ __('common.search_placeholder') }}"
                   autocomplete="off">
             </div>
-            <p class="search-overlay-hint">Nhấn Enter để tìm kiếm</p>
+            <p class="search-overlay-hint">{{ __('common.search_hint') }}</p>
          </form>
       </div>
    </div>

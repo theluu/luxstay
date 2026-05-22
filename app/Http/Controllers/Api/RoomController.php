@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Api\Concerns\SavesTranslations;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\RoomResource;
 use App\Models\Room;
@@ -11,6 +12,8 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class RoomController extends Controller
 {
+    use SavesTranslations;
+
     public function index(): AnonymousResourceCollection
     {
         return RoomResource::collection(Room::with('roomType', 'amenities')->latest()->paginate(20));
@@ -30,15 +33,24 @@ class RoomController extends Controller
             'is_available'    => 'boolean',
         ]);
         $room = Room::create($data);
+        if ($request->has('translations')) {
+            $this->applyTranslations($room, $request->input('translations', []));
+            $room->save();
+        }
         return (new RoomResource($room->load('roomType', 'amenities')))->response()->setStatusCode(201);
     }
 
-    public function show(Room $room): RoomResource
+    public function show(Room $room): JsonResponse
     {
-        return new RoomResource($room->load('roomType', 'amenities'));
+        $room->load('roomType', 'amenities');
+        return response()->json([
+            'data' => array_merge((new RoomResource($room))->resolve(), [
+                'all_translations' => $this->allTranslations($room),
+            ]),
+        ]);
     }
 
-    public function update(Request $request, Room $room): RoomResource
+    public function update(Request $request, Room $room): JsonResponse
     {
         $data = $request->validate([
             'room_type_id'    => 'sometimes|exists:room_types,id',
@@ -52,7 +64,16 @@ class RoomController extends Controller
             'is_available'    => 'boolean',
         ]);
         $room->update($data);
-        return new RoomResource($room->load('roomType', 'amenities'));
+        if ($request->has('translations')) {
+            $this->applyTranslations($room, $request->input('translations', []));
+            $room->save();
+        }
+        $room->load('roomType', 'amenities');
+        return response()->json([
+            'data' => array_merge((new RoomResource($room))->resolve(), [
+                'all_translations' => $this->allTranslations($room),
+            ]),
+        ]);
     }
 
     public function destroy(Room $room): JsonResponse

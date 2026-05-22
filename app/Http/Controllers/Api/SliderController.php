@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Api\Concerns\SavesTranslations;
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use Illuminate\Http\JsonResponse;
@@ -9,6 +10,8 @@ use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
+    use SavesTranslations;
+
     public function index(): JsonResponse
     {
         return response()->json(['data' => Slider::orderBy('sort_order')->get()]);
@@ -23,13 +26,21 @@ class SliderController extends Controller
             'sort_order' => 'integer|min:0',
             'is_active'  => 'boolean',
         ]);
-
-        return response()->json(['data' => Slider::create($data)], 201);
+        $slider = Slider::create($data);
+        if ($request->has('translations')) {
+            $this->applyTranslations($slider, $request->input('translations', []));
+            $slider->save();
+        }
+        return response()->json(['data' => $slider], 201);
     }
 
     public function show(Slider $slider): JsonResponse
     {
-        return response()->json(['data' => $slider]);
+        return response()->json([
+            'data' => array_merge($slider->toArray(), [
+                'all_translations' => $this->allTranslations($slider),
+            ]),
+        ]);
     }
 
     public function update(Request $request, Slider $slider): JsonResponse
@@ -41,10 +52,16 @@ class SliderController extends Controller
             'sort_order' => 'integer|min:0',
             'is_active'  => 'boolean',
         ]);
-
         $slider->update($data);
-
-        return response()->json(['data' => $slider]);
+        if ($request->has('translations')) {
+            $this->applyTranslations($slider, $request->input('translations', []));
+            $slider->save();
+        }
+        return response()->json([
+            'data' => array_merge($slider->toArray(), [
+                'all_translations' => $this->allTranslations($slider),
+            ]),
+        ]);
     }
 
     public function destroy(Slider $slider): JsonResponse

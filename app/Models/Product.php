@@ -3,9 +3,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\Translatable\HasTranslations;
 
 class Product extends Model
 {
+    use HasTranslations;
+
+    public $translatable = ['name', 'description'];
     protected $fillable = [
         'product_category_id', 'name', 'slug', 'description',
         'price', 'stock', 'thumbnail', 'gallery', 'is_active',

@@ -5,7 +5,7 @@
             <div class="row align-items-center">
                <div class="col-md-7">
                   <div class="footer-top-heading">
-                     <h3>HÃY BẮT ĐẦU HÀNH TRÌNH CỦA BẠN VỚI<br> LUXESTAY</h3>
+                     <h3>{{ __('footer.cta_heading') }}</h3>
                   </div>
                </div>
                <div class="col-md-3">
@@ -23,7 +23,7 @@
                <div class="col-md-2 d-flex justify-content-end">
                   <div class="contact-button">
                      <a href="{{ route('contact') }}" class="sisf-m footer-btn">
-                     <span class="text-uppercase">Liên hệ</span>
+                     <span class="text-uppercase">{{ __('footer.contact_us') }}</span>
                      </a>
                   </div>
                </div>
@@ -34,12 +34,12 @@
          <div class="container">
             <div class="row">
                <div class="col-md-7 ms-auto me-auto">
-                  <h5 class="subscription text-center">Đăng ký nhận tin tức và ưu đãi độc quyền!</h5>
+                  <h5 class="subscription text-center">{{ __('footer.newsletter_title') }}</h5>
                   <div class="subscription-container text-center wow fadeInUp">
                      <form id="newsletterForm" class="d-flex justify-content-center align-items-center">
                         @csrf
-                        <input type="email" id="newsletterEmail" class="form-control" placeholder="Email của bạn" required>
-                        <button type="submit" id="newsletterBtn" class="btn btn-link ms-2">ĐĂNG KÝ</button>
+                        <input type="email" id="newsletterEmail" class="form-control" placeholder="{{ __('footer.newsletter_email') }}" required>
+                        <button type="submit" id="newsletterBtn" class="btn btn-link ms-2">{{ __('footer.newsletter_btn') }}</button>
                      </form>
                      <div id="newsletterMsg" style="display:none;margin-top:12px;font-size:14px"></div>
                   </div>
@@ -55,12 +55,12 @@
                @php
                   $footerMenuRaw   = json_decode($siteSettings['footer_menu'] ?? '[]', true);
                   $footerMenuItems = (is_array($footerMenuRaw) && $footerMenuRaw) ? $footerMenuRaw : [
-                     ['label' => 'Trang chủ',    'url' => '/',        'children' => []],
-                     ['label' => 'Về chúng tôi', 'url' => '/about',   'children' => []],
-                     ['label' => 'Phòng',        'url' => '/rooms',   'children' => []],
-                     ['label' => 'Cửa hàng',     'url' => '/shop',    'children' => []],
-                     ['label' => 'Blog',         'url' => '/blog',    'children' => []],
-                     ['label' => 'Liên hệ',      'url' => '/contact', 'children' => []],
+                     ['label' => __('nav.home'),    'url' => '/',        'children' => []],
+                     ['label' => __('nav.about'),   'url' => '/about',   'children' => []],
+                     ['label' => __('nav.rooms'),   'url' => '/rooms',   'children' => []],
+                     ['label' => __('nav.shop'),    'url' => '/shop',    'children' => []],
+                     ['label' => __('nav.blog'),    'url' => '/blog',    'children' => []],
+                     ['label' => __('nav.contact'), 'url' => '/contact', 'children' => []],
                   ];
                @endphp
                <div class="menu-footer-menu-container d-flex align-items-center justify-content-center wow fadeInUp">
@@ -68,14 +68,14 @@
                      @foreach($footerMenuItems as $footerItem)
                         @if(empty($footerItem['children']))
                            <li class="menu-item text-uppercase">
-                              <a href="{{ $footerItem['url'] }}">{{ $footerItem['label'] }}</a>
+                              <a href="{{ localizedUrl($footerItem['url']) }}">{{ $footerItem['label'] }}</a>
                            </li>
                         @else
                            <li class="menu-item text-uppercase submenu">
-                              <a href="{{ $footerItem['url'] }}">{{ $footerItem['label'] }} <i class="fas fa-chevron-down" style="font-size:10px;margin-left:4px"></i></a>
+                              <a href="{{ localizedUrl($footerItem['url']) }}">{{ $footerItem['label'] }} <i class="fas fa-chevron-down" style="font-size:10px;margin-left:4px"></i></a>
                               <ul class="sub-menu">
                                  @foreach($footerItem['children'] as $footerChild)
-                                    <li class="menu-item"><a href="{{ $footerChild['url'] }}">{{ $footerChild['label'] }}</a></li>
+                                    <li class="menu-item"><a href="{{ localizedUrl($footerChild['url']) }}">{{ $footerChild['label'] }}</a></li>
                                  @endforeach
                               </ul>
                            </li>
@@ -114,7 +114,7 @@
                <div class="row align-items-center">
                   <div class="col-lg-6 col-md-6">
                      <div class="footer-copyright-text wow fadeInUp">
-                        <p class="text-black">&copy; {{ date('Y') }} Luxestay. Bản quyền đã được bảo lưu.</p>
+                        <p class="text-black">&copy; {{ __('footer.copyright', ['year' => date('Y')]) }}</p>
                      </div>
                   </div>
                   <div class="col-lg-6 col-md-6">

@@ -9,7 +9,7 @@
    <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
       <div class="sisf-m-inner">
          <div class="sisf-m-content sisf-content-grid">
-            <h1 class="sisf-m-title text-center entry-title">Search Results</h1>
+            <h1 class="sisf-m-title text-center entry-title">{{ __('search.title') }}</h1>
          </div>
       </div>
    </div>
@@ -23,20 +23,20 @@
          <div class="input-group" style="max-width:560px;margin:0 auto">
             <input type="text" name="q" value="{{ $q }}" class="form-control form-control-lg"
                placeholder="Search rooms, blog, products…" autofocus>
-            <button type="submit" class="btn-default px-4">Search</button>
+            <button type="submit" class="btn-default px-4">{{ __('search.button') }}</button>
          </div>
       </form>
 
       @if($q && strlen($q) < 2)
-         <p class="text-center text-muted">Please enter at least 2 characters.</p>
+         <p class="text-center text-muted">{{ __('search.min_chars') }}</p>
       @elseif($q && $total === 0)
-         <p class="text-center text-muted">No results found for "<strong>{{ $q }}</strong>".</p>
+         <p class="text-center text-muted">{!! __('search.no_results', ['query' => '<strong>' . e($q) . '</strong>']) !!}</p>
       @elseif($q)
          <p class="text-center text-muted mb-5">{{ $total }} result{{ $total !== 1 ? 's' : '' }} for "<strong>{{ $q }}</strong>"</p>
 
          {{-- Rooms --}}
          @if($rooms->count())
-         <h3 class="mb-4">Rooms ({{ $rooms->count() }})</h3>
+         <h3 class="mb-4">{{ __('search.rooms', ['count' => $rooms->count()]) }}</h3>
          <div class="row mb-5">
             @foreach($rooms as $room)
             <div class="col-lg-4 col-md-6 mb-4">
@@ -59,7 +59,7 @@
                         </h4>
                         <p class="sisf-e-excerpt mb-2">{{ Str::limit($room->description, 90) }}</p>
                         <a class="sisf-shortcode sisf-text-underline sisf-underline--left" href="{{ route('rooms.show', $room->slug) }}">
-                           <span class="sisf-m-text">Explore More</span>
+                           <span class="sisf-m-text">{{ __('search.explore_more') }}</span>
                         </a>
                      </div>
                   </div>
@@ -71,7 +71,7 @@
 
          {{-- Blog Posts --}}
          @if($posts->count())
-         <h3 class="mb-4">Blog Posts ({{ $posts->count() }})</h3>
+         <h3 class="mb-4">{{ __('search.blog_posts', ['count' => $posts->count()]) }}</h3>
          <div class="row mb-5">
             @foreach($posts as $post)
             <div class="col-lg-4 col-md-6 mb-4">
@@ -83,7 +83,7 @@
                      <h5 class="card-title"><a href="{{ route('blog.show', $post->slug) }}" class="text-dark">{{ $post->title }}</a></h5>
                      <p class="card-text text-muted small">{{ Str::limit($post->excerpt, 100) }}</p>
                      <a href="{{ route('blog.show', $post->slug) }}" class="sisf-shortcode sisf-text-underline sisf-underline--left">
-                        <span class="sisf-m-text">Read More</span>
+                        <span class="sisf-m-text">{{ __('search.read_more') }}</span>
                      </a>
                   </div>
                </div>
@@ -94,7 +94,7 @@
 
          {{-- Products --}}
          @if($products->count())
-         <h3 class="mb-4">Shop Products ({{ $products->count() }})</h3>
+         <h3 class="mb-4">{{ __('search.products', ['count' => $products->count()]) }}</h3>
          <div class="row mb-5">
             @foreach($products as $product)
             <div class="col-lg-3 col-md-6 mb-4">
@@ -104,7 +104,7 @@
                   <h6><a href="{{ route('shop.show', $product->slug) }}" class="text-dark">{{ $product->name }}</a></h6>
                   <p class="text-muted mb-2">${{ number_format($product->price, 2) }}</p>
                   <a href="{{ route('shop.show', $product->slug) }}" class="sisf-shortcode sisf-text-underline sisf-underline--left d-inline-block">
-                     <span class="sisf-m-text">View</span>
+                     <span class="sisf-m-text">{{ __('search.view') }}</span>
                   </a>
                </div>
             </div>
@@ -114,7 +114,7 @@
 
          {{-- Activities --}}
          @if($activities->count())
-         <h3 class="mb-4">Activities ({{ $activities->count() }})</h3>
+         <h3 class="mb-4">{{ __('search.activities', ['count' => $activities->count()]) }}</h3>
          <div class="row mb-5">
             @foreach($activities as $activity)
             <div class="col-lg-4 col-md-6 mb-4">
@@ -125,7 +125,7 @@
                   <div class="card-body">
                      <h5 class="card-title"><a href="{{ route('activity.show', $activity->slug) }}" class="text-dark">{{ $activity->title }}</a></h5>
                      <a href="{{ route('activity.show', $activity->slug) }}" class="sisf-shortcode sisf-text-underline sisf-underline--left">
-                        <span class="sisf-m-text">Explore</span>
+                        <span class="sisf-m-text">{{ __('common.explore') }}</span>
                      </a>
                   </div>
                </div>
@@ -134,7 +134,7 @@
          </div>
          @endif
       @else
-         <p class="text-center text-muted">Enter a keyword above to search across rooms, blog, shop and activities.</p>
+         <p class="text-center text-muted">{{ __('search.enter_keyword') }}</p>
       @endif
    </div>
 </div>
