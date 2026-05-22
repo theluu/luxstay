@@ -7,9 +7,11 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\PaymentTransaction;
 use App\Models\Product;
+use App\Mail\OrderConfirmation;
 use App\Services\Payments\VnpayService;
 use App\Services\RecaptchaService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -124,6 +126,18 @@ class CheckoutController extends Controller
         });
 
         session()->forget('cart');
+
+        // Send order confirmation for COD orders immediately
+        if ($request->payment_method !== 'vnpay') {
+            $customerEmail = $request->billing_email;
+            $customerName  = trim($request->billing_first_name . ' ' . $request->billing_last_name);
+            try {
+                $order->load('items.product');
+                Mail::to($customerEmail)->send(new OrderConfirmation($order, $customerName));
+            } catch (\Exception) {
+                // Mail failure must not break checkout
+            }
+        }
 
         if ($request->payment_method === 'vnpay') {
             $txnRef = 'ORD-' . $order->id . '-' . now()->format('YmdHis');

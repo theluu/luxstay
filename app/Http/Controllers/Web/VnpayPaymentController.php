@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderConfirmation;
+use App\Mail\PaymentSuccessEmail;
 use App\Models\Booking;
 use App\Models\Order;
 use App\Models\PaymentTransaction;
 use App\Services\Payments\VnpayService;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -102,6 +105,9 @@ class VnpayPaymentController extends Controller
                 }
 
                 $payable->update($updates);
+
+                // Send payment confirmation emails outside transaction to avoid lock contention
+                $this->sendPaymentSuccessEmail($payable);
             }
         });
     }
@@ -133,5 +139,43 @@ class VnpayPaymentController extends Controller
         return $this->vnpay->successResponse($payload)
             ? 'Thanh toán VNPAY thành công.'
             : 'Thanh toán VNPAY chưa thành công hoặc đã bị hủy.';
+    }
+
+    private function sendPaymentSuccessEmail(Model $payable): void
+    {
+        try {
+            if ($payable instanceof Booking) {
+                $payable->load('room');
+                $email = $payable->user?->email;
+                $name  = $payable->user?->name ?? 'Quý khách';
+                // Extract guest info from special_requests if guest booking
+                if (!$email) {
+                    $lines = explode("\n", $payable->special_requests ?? '');
+                    foreach ($lines as $line) {
+                        if (str_starts_with($line, 'Email: ')) {
+                            $email = trim(substr($line, 7));
+                        }
+                        if (str_starts_with($line, 'Khách: ')) {
+                            $name = trim(substr($line, 7));
+                        }
+                    }
+                }
+                if ($email) {
+                    Mail::to($email)->send(new PaymentSuccessEmail($payable, $name, 'booking'));
+                }
+            } elseif ($payable instanceof Order) {
+                $payable->load('items.product');
+                $address = $payable->shipping_address ?? [];
+                $email   = $address['email'] ?? $payable->user?->email;
+                $name    = trim(($address['first_name'] ?? '') . ' ' . ($address['last_name'] ?? ''))
+                         ?: ($payable->user?->name ?? 'Quý khách');
+                if ($email) {
+                    Mail::to($email)->send(new OrderConfirmation($payable, $name));
+                    Mail::to($email)->send(new PaymentSuccessEmail($payable, $name, 'order'));
+                }
+            }
+        } catch (\Exception) {
+            // Mail failure must not break payment processing
+        }
     }
 }
