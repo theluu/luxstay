@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Mail\BookingConfirmation;
 use App\Models\Booking;
 use App\Models\PaymentTransaction;
 use App\Models\Room;
@@ -11,6 +12,7 @@ use App\Services\RecaptchaService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class BookingController extends Controller
@@ -62,6 +64,17 @@ class BookingController extends Controller
             'total_price'      => $total,
             'special_requests' => $this->buildSpecialRequests($data),
         ]);
+
+        $guestEmail = Auth::check() ? Auth::user()->email : ($data['guest_email'] ?? null);
+        $guestName  = Auth::check() ? Auth::user()->name  : ($data['guest_name']  ?? 'Quý khách');
+        if ($guestEmail) {
+            try {
+                $booking->load('room');
+                Mail::to($guestEmail)->send(new BookingConfirmation($booking, $guestName));
+            } catch (\Exception) {
+                // Mail failure must not break booking
+            }
+        }
 
         if (!Auth::check()) {
             session(['guest_booking_id' => $booking->id]);

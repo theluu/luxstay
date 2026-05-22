@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\AboutPageController;
+use App\Mail\ContactAutoReply;
+use App\Mail\ContactReceived;
+use App\Mail\SubscriberWelcome;
 use App\Models\ContactMessage;
+use App\Models\SiteSetting;
 use App\Models\Subscriber;
 use App\Services\RecaptchaService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class PageController extends Controller
@@ -21,7 +26,6 @@ class PageController extends Controller
     public function contact(): View { return view('pages.contact'); }
     public function offers(): View  { return view('pages.offers'); }
     public function landing(): View { return view('pages.landing'); }
-
     public function privacyPolicy(): View { return view('pages.privacy-policy'); }
 
     public function subscribe(Request $request): JsonResponse
@@ -37,6 +41,12 @@ class PageController extends Controller
         }
 
         Subscriber::create(['email' => $request->email]);
+
+        try {
+            Mail::to($request->email)->send(new SubscriberWelcome());
+        } catch (\Exception) {
+            // Mail failure must not break the subscription
+        }
 
         return response()->json(['message' => 'Đăng ký thành công! Cảm ơn bạn.']);
     }
@@ -60,6 +70,22 @@ class PageController extends Controller
             'message' => $request->msg,
             'source'  => $request->input('source', 'contact_page'),
         ]);
+
+        try {
+            $adminEmail = SiteSetting::get('email', config('mail.from.address'));
+            Mail::to($adminEmail)->send(new ContactReceived(
+                senderName:  $request->name,
+                senderEmail: $request->email,
+                messageText: $request->msg,
+                source:      $request->input('source', 'contact_page'),
+            ));
+            Mail::to($request->email)->send(new ContactAutoReply(
+                senderName:  $request->name,
+                messageText: $request->msg,
+            ));
+        } catch (\Exception) {
+            // Mail failure must not break contact submission
+        }
 
         return back()
             ->withInput($request->only('source'))
