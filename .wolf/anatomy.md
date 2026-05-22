@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-22T15:46:40.067Z
-> Files: 577 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-22T16:31:14.660Z
+> Files: 593 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -272,6 +272,7 @@
 - `CommentController.php` — index, approve, reject, reply (~441 tok)
 - `ContactMessageController.php` — index, markRead (~147 tok)
 - `DashboardController.php` — stats (~238 tok)
+- `EmailTemplateController.php` — index, show, update (~271 tok)
 - `MailSettingController.php` — show, update, testEmail (~965 tok)
 - `MailSettingController.php` — show, update, testEmail; reads/writes SiteSetting; never returns mail_password, uses mail_has_password flag (~450 tok)
 - `OrderController.php` — index, store, show, update, destroy (~347 tok)
@@ -310,13 +311,14 @@
 - `BlogController.php` — index, show, storeComment (~535 tok)
 - `BookingController.php` — store, confirmation, index (~1420 tok)
 - `CartController.php` — index, add, remove, update (~503 tok)
-- `CheckoutController.php` — index, store, guestConfirmation (~1260 tok)
+- `CheckoutController.php` — index, store, guestConfirmation (~1827 tok)
 - `HomeController.php` — index (~164 tok)
 - `OrderController.php` — index, show (~169 tok)
 - `PageController.php` — about, contact, offers, landing, privacyPolicy + 2 more (~922 tok)
 - `RoomController.php` — index, suites, show (~200 tok)
 - `SearchController.php` — index (~455 tok)
 - `ShopController.php` — index, show (~520 tok)
+- `VnpayPaymentController.php` — return, ipn (~1697 tok)
 
 ## app/Http/Middleware/
 
@@ -342,11 +344,14 @@
 
 ## app/Mail/
 
-- `BookingConfirmation.php` — BookingConfirmation: envelope, content (~162 tok)
-- `ContactAutoReply.php` — ContactAutoReply: envelope, content (~149 tok)
-- `ContactReceived.php` — ContactReceived: envelope, content (~178 tok)
-- `SubscriberWelcome.php` — SubscriberWelcome: envelope, content (~116 tok)
-- `WelcomeEmail.php` — WelcomeEmail: envelope, content (~143 tok)
+- `BookingConfirmation.php` — BookingConfirmation: envelope, content (~384 tok)
+- `ContactAutoReply.php` — ContactAutoReply: envelope, content (~263 tok)
+- `ContactReceived.php` — ContactReceived: envelope, content (~318 tok)
+- `OrderConfirmation.php` — OrderConfirmation: envelope, content (~335 tok)
+- `PaymentSuccessEmail.php` — PaymentSuccessEmail: envelope, content (~410 tok)
+- `ResetPasswordEmail.php` — ResetPasswordEmail: envelope, content (~257 tok)
+- `SubscriberWelcome.php` — SubscriberWelcome: envelope, content (~202 tok)
+- `WelcomeEmail.php` — WelcomeEmail: envelope, content (~264 tok)
 
 ## app/Models/
 
@@ -355,6 +360,7 @@
 - `Booking.php` — Model — 10 fields, 8 casts, 4 rels (~285 tok)
 - `BookingService.php` — Model — 4 fields, 2 casts, 1 rels (~103 tok)
 - `ContactMessage.php` — Model — 4 fields, 2 casts (~62 tok)
+- `EmailTemplate.php` — Model — 5 fields (~94 tok)
 - `Order.php` — Model — 8 fields, 8 casts, 3 rels (~242 tok)
 - `OrderItem.php` — Model — 4 fields, 2 casts, 2 rels (~123 tok)
 - `PaymentTransaction.php` — Model — 7 fields, 4 casts, 1 rels (~132 tok)
@@ -368,11 +374,15 @@
 - `SiteSetting.php` — Model — 2 fields (~198 tok)
 - `Slider.php` — Model — 5 fields (~99 tok)
 - `Subscriber.php` — Model — 1 fields (~39 tok)
-- `User.php` — use Illuminate\Contracts\Auth\MustVerifyEmail; (~360 tok)
+- `User.php` — use Illuminate\Contracts\Auth\MustVerifyEmail; (~500 tok)
 
 ## app/Providers/
 
 - `AppServiceProvider.php` — AppServiceProvider: register, boot (~416 tok)
+
+## app/Services/
+
+- `EmailTemplateRenderer.php` — EmailTemplateRenderer: resolve, replace (~203 tok)
 
 ## app/View/Components/
 
@@ -456,12 +466,14 @@
 - `2026_05_22_072134_widen_translatable_columns.php` — Migration: alter rooms table (~550 tok)
 - `2026_05_22_083218_migrate_translatable_fields_to_json.php` — Convert plain-string values to {"vi": "original"} JSON so spatie/laravel-translatable (~558 tok)
 - `2026_05_22_100000_add_phone_to_users_table.php` — Migration: alter users table (~139 tok)
+- `2026_05_22_200000_create_email_templates_table.php` — Migration: create email_templates table (~170 tok)
 
 ## database/seeders/
 
 - `ActivitySeeder.php` — Database seeder: ActivitySeeder (~3206 tok)
 - `AmenitySeeder.php` — Database seeder: AmenitySeeder (~315 tok)
 - `DatabaseSeeder.php` — Database seeder: DatabaseSeeder (~284 tok)
+- `EmailTemplateSeeder.php` — EmailTemplateSeeder: run (~2040 tok)
 - `PostCategorySeeder.php` — Database seeder: PostCategorySeeder (~181 tok)
 - `PostSeeder.php` — Database seeder: PostSeeder (~2478 tok)
 - `ProductCategorySeeder.php` — Database seeder: ProductCategorySeeder (~183 tok)
@@ -575,7 +587,7 @@
 
 ## resources/js/admin/components/
 
-- `AppLayout.vue` — Vue: setup (~3960 tok)
+- `AppLayout.vue` — Vue: setup (~3993 tok)
 - `ImageUpload.vue` — Vue: setup, emits (~850 tok)
 - `SaveBar.vue` — Vue: setup (~163 tok)
 
@@ -585,13 +597,13 @@
 
 ## resources/js/admin/locales/
 
-- `en.json` (~482 tok)
-- `vi.json` (~488 tok)
-- `zh.json` (~392 tok)
+- `en.json` (~494 tok)
+- `vi.json` (~500 tok)
+- `zh.json` (~401 tok)
 
 ## resources/js/admin/router/
 
-- `index.js` — Declares routes (~1155 tok)
+- `index.js` — Declares routes (~1252 tok)
 
 ## resources/js/admin/stores/
 
@@ -615,6 +627,11 @@
 ## resources/js/admin/views/Comments/
 
 - `CommentsView.vue` — Vue: setup (~1834 tok)
+
+## resources/js/admin/views/EmailTemplates/
+
+- `EmailTemplateEditView.vue` — Vue: setup (~1528 tok)
+- `EmailTemplatesView.vue` — Vue: setup (~2824 tok)
 
 ## resources/js/admin/views/Menu/
 
@@ -645,7 +662,7 @@
 
 ## resources/js/admin/views/Settings/
 
-- `SettingsView.vue` — Vue: setup (~3655 tok)
+- `SettingsView.vue` — Vue: setup (~1765 tok)
 
 ## resources/js/admin/views/Sliders/
 
@@ -656,16 +673,13 @@
 
 - `SubscribersView.vue` — Vue: setup (~1304 tok)
 
-## resources/js/admin/views/Users/
-
-- `UsersView.vue` — Vue: setup; paginated user list with search and role filter; calls GET /api/v1/users (~1400 tok)
-
 ## resources/js/admin/views/Translations/
 
 - `TranslationModal.vue` — Modal for editing translations; supports 3 locales (vi, en, zh); emits save/clear/close; uses FIELD_LABELS, LONG_FIELDS from composables (~1591 tok)
 
 ## resources/js/admin/views/Users/
 
+- `UsersView.vue` — Vue: setup; paginated user list with search and role filter; calls GET /api/v1/users (~1400 tok)
 - `UsersView.vue` — Vue: setup (~1826 tok)
 
 ## resources/views/
@@ -706,6 +720,10 @@
 - `booking-confirmation.blade.php` — Blade: extends emails.layouts.base, sections: subject, content (~380 tok)
 - `contact-auto-reply.blade.php` — Blade: extends emails.layouts.base, sections: subject, content (~198 tok)
 - `contact-received.blade.php` — Blade: extends emails.layouts.base, sections: subject, content (~182 tok)
+- `dynamic.blade.php` — Blade: extends emails.layouts.base, sections: content (~21 tok)
+- `order-confirmation.blade.php` — Blade: extends emails.layouts.base, sections: subject, content (~452 tok)
+- `payment-success.blade.php` — Blade: extends emails.layouts.base, sections: subject, content (~407 tok)
+- `reset-password.blade.php` — Blade: extends emails.layouts.base, sections: subject, content (~232 tok)
 - `subscriber-welcome.blade.php` — Blade: extends emails.layouts.base, sections: subject, content (~213 tok)
 - `welcome.blade.php` — Blade: extends emails.layouts.base, sections: subject, content (~251 tok)
 
@@ -779,7 +797,7 @@
 
 ## routes/
 
-- `api.php` (~1351 tok)
+- `api.php` (~1440 tok)
 - `auth.php` (~630 tok)
 - `console.php` (~56 tok)
 - `web.php` (~1404 tok)

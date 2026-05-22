@@ -2080,6 +2080,70 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-22T15:46:28.892Z"
+    },
+    {
+      "id": "bug-131",
+      "timestamp": "2026-05-22T15:58:16.891Z",
+      "error_message": "Missing error handling in posts",
+      "file": "app/Models/User.php",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T15:58:16.891Z"
+    },
+    {
+      "id": "bug-132",
+      "timestamp": "2026-05-22T15:58:27.831Z",
+      "error_message": "Missing error handling in unknown",
+      "file": "app/Http/Controllers/Web/CheckoutController.php",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T15:58:27.831Z"
+    },
+    {
+      "id": "bug-133",
+      "timestamp": "2026-05-22T15:58:52.902Z",
+      "error_message": "Missing error handling in messageFor",
+      "file": "app/Http/Controllers/Web/VnpayPaymentController.php",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "php"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T15:58:52.902Z"
+    },
+    {
+      "id": "bug-134",
+      "timestamp": "2026-05-22T16:10:08.995Z",
+      "error_message": "CSS fix: to",
+      "file": "resources/js/admin/components/AppLayout.vue",
+      "root_cause": "to: '/admin/settings', label: t('nav.settings'), icon: icons.cog → '/admin/settings',         label: t('nav.settings'),         icon: icons.cog",
+      "fix": "Changed to: '/admin/settings', label: t('nav.settings'), icon: icons.cog → '/admin/settings',         label: t('nav.settings'),         icon: icons.cog",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "vue"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-22T16:10:08.995Z"
     }
   ]
 }

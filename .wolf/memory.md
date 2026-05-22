@@ -3,6 +3,8 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 | 22:49 | Edited tailwind.config.js | 5→6 lines | ~71 |
+| 2026-05-22 | Updated 8 Mailable classes to use EmailTemplateRenderer with Blade fallback | app/Mail/*.php | committed d9f4656 | ~900 |
+| 23:10 | Created Email Templates admin UI (list + edit views), added routes, nav link, and locale keys | resources/js/admin/views/EmailTemplates/, router/index.js, AppLayout.vue, locales/*.json | committed 65f4039 | ~2500 |
 | 15:50 | Task 9: Created UsersView.vue, added route /admin/users, users icon+nav link in AppLayout, users i18n key in all 3 locales | resources/js/admin/views/Users/UsersView.vue, router/index.js, AppLayout.vue, locales/*.json | committed 62120b7 | ~800 |
 | 15:45 | Task 7: wired Mailable classes into PageController (contact+subscribe), BookingController (booking confirmation), RegisteredUserController (welcome+phone); added phone field to register.blade.php and all 3 auth.php i18n files | 7 files | committed f633f28 | ~800 |
 | session | Task 3: created MailSettingController + added mail-settings routes + UserController route stub | app/Http/Controllers/Api/MailSettingController.php, routes/api.php | committed 05bf628 | ~800 |
@@ -13,10 +15,9 @@
 | 22:49 | Edited resources/js/admin/main.js | added 1 import(s) | ~18 |
 | 22:49 | Edited vite.config.js | 5→6 lines | ~59 |
 
-## Session: 2026-05-12 22:54
+## Session: 2026-05-22 (Final Spec Review & Build)
 
-| Time | Action | File(s) | Outcome | ~Tokens |
-|------|--------|---------|---------|--------|
+| 16:15 | Final spec review: verified all mail classes, blade templates, controller integrations; ran artisan optimize:clear, npm run build, site health check | OrderConfirmation.php, PaymentSuccessEmail.php, ResetPasswordEmail.php, 3 email blade templates, CheckoutController.php, VnpayPaymentController.php, User.php | ✅ ALL VERIFIED | ~2100 |
 
 ## Session: 2026-05-12 22:55
 
@@ -859,3 +860,60 @@
 | 22:46 | Edited resources/js/admin/locales/vi.json | 2→3 lines | ~18 |
 | 22:46 | Edited resources/js/admin/locales/en.json | 2→3 lines | ~18 |
 | 22:46 | Edited resources/js/admin/locales/zh.json | 2→3 lines | ~15 |
+| 16:10 | Final build smoke tests + commit | all | DONE — build fixed (rolldown native binding reinstall), all routes present, title correct, phone field present | ~800 |
+| 22:49 | Mail system + user management: SMTP settings UI, 5 Mailable classes, 5 email templates, wired into controllers, phone on register, UsersView admin | 20+ files | build OK, all routes verified | ~8000 |
+| 22:49 | Session end: 137 writes across 50 files (header.blade.php, 2026_05_22_083218_migrate_translatable_fields_to_json.php, RoomController.php, LocaleMiddleware.php, locale-switcher.blade.php) | 63 reads | ~172847 tok |
+| 22:57 | Created app/Mail/OrderConfirmation.php | — | ~160 |
+| 22:57 | Created app/Mail/PaymentSuccessEmail.php | — | ~210 |
+| 22:57 | Session end: 139 writes across 52 files (header.blade.php, 2026_05_22_083218_migrate_translatable_fields_to_json.php, RoomController.php, LocaleMiddleware.php, locale-switcher.blade.php) | 65 reads | ~174503 tok |
+| 22:58 | Created app/Mail/ResetPasswordEmail.php | — | ~147 |
+| 22:58 | Created resources/views/emails/order-confirmation.blade.php | — | ~452 |
+| 22:58 | Created resources/views/emails/reset-password.blade.php | — | ~232 |
+| 22:58 | Edited app/Models/User.php | added 2 import(s) | ~140 |
+| 22:58 | Edited app/Models/User.php | added error handling | ~150 |
+| 22:58 | Created resources/views/emails/payment-success.blade.php | — | ~407 |
+| 22:58 | Edited app/Http/Controllers/Web/CheckoutController.php | added 2 import(s) | ~49 |
+| 22:58 | Edited app/Http/Controllers/Web/CheckoutController.php | added error handling | ~169 |
+| 22:58 | Edited app/Http/Controllers/Web/VnpayPaymentController.php | added 3 import(s) | ~80 |
+| 22:58 | Edited app/Http/Controllers/Web/VnpayPaymentController.php | 4→7 lines | ~62 |
+
+| 21:34 | Implement custom forgot-password email with ResetPasswordEmail Mailable | app/Mail/ResetPasswordEmail.php, resources/views/emails/reset-password.blade.php, app/Models/User.php | DONE | ~180 |
+| 22:58 | Edited app/Http/Controllers/Web/VnpayPaymentController.php | added error handling | ~533 |
+| 22:59 | Session end: 150 writes across 58 files (header.blade.php, 2026_05_22_083218_migrate_translatable_fields_to_json.php, RoomController.php, LocaleMiddleware.php, locale-switcher.blade.php) | 65 reads | ~177235 tok |
+| 10:30 | Created OrderConfirmation + PaymentSuccessEmail Mailables and Blade templates; wired into CheckoutController (COD) and VnpayPaymentController (VNPAY); committed feat: order confirmation + VNPAY payment success emails | app/Mail/OrderConfirmation.php, app/Mail/PaymentSuccessEmail.php, resources/views/emails/order-confirmation.blade.php, resources/views/emails/payment-success.blade.php, app/Http/Controllers/Web/CheckoutController.php, app/Http/Controllers/Web/VnpayPaymentController.php | success | ~3500 |
+| 23:00 | Added 3 missing email templates: OrderConfirmation, PaymentSuccessEmail (VNPay), ResetPasswordEmail | app/Mail/*.php, resources/views/emails/*, CheckoutController, VnpayPaymentController, User model | build OK | ~1500 |
+| 23:00 | Session end: 150 writes across 58 files (header.blade.php, 2026_05_22_083218_migrate_translatable_fields_to_json.php, RoomController.php, LocaleMiddleware.php, locale-switcher.blade.php) | 71 reads | ~181107 tok |
+| 23:08 | Created database/migrations/2026_05_22_200000_create_email_templates_table.php | — | ~170 |
+| 23:08 | Created app/Models/EmailTemplate.php | — | ~94 |
+| 23:08 | Created app/Services/EmailTemplateRenderer.php | — | ~203 |
+| 23:09 | Session end: 153 writes across 61 files (header.blade.php, 2026_05_22_083218_migrate_translatable_fields_to_json.php, RoomController.php, LocaleMiddleware.php, locale-switcher.blade.php) | 71 reads | ~181607 tok |
+| 23:09 | Created database/seeders/EmailTemplateSeeder.php | — | ~2040 |
+| 23:09 | Created app/Http/Controllers/Api/EmailTemplateController.php | — | ~271 |
+| 23:09 | Edited routes/api.php | added 1 import(s) | ~43 |
+| 23:09 | Edited routes/api.php | 3→7 lines | ~147 |
+| 23:09 | Created resources/views/emails/dynamic.blade.php | — | ~21 |
+| 23:09 | Created resources/js/admin/views/EmailTemplates/EmailTemplatesView.vue | — | ~740 |
+| 23:09 | Created resources/js/admin/views/EmailTemplates/EmailTemplateEditView.vue | — | ~1528 |
+| 23:09 | Edited resources/js/admin/router/index.js | added 2 import(s) | ~85 |
+| 23:10 | Edited resources/js/admin/router/index.js | 3→5 lines | ~83 |
+| 23:10 | Edited resources/js/admin/components/AppLayout.vue | 4→5 lines | ~90 |
+| 20:00 | Created email_templates migration, model, seeder (8 templates), EmailTemplateRenderer service, EmailTemplateController, dynamic.blade.php; added email-template routes to api.php | 7 files | committed 3b53ae8 | ~800 |
+| 23:10 | Edited resources/js/admin/locales/vi.json | 3→4 lines | ~30 |
+| 23:10 | Edited resources/js/admin/locales/en.json | 3→4 lines | ~30 |
+| 23:10 | Edited resources/js/admin/locales/zh.json | 3→4 lines | ~24 |
+| 23:11 | Session end: 166 writes across 66 files (header.blade.php, 2026_05_22_083218_migrate_translatable_fields_to_json.php, RoomController.php, LocaleMiddleware.php, locale-switcher.blade.php) | 71 reads | ~187088 tok |
+| 23:11 | Created app/Mail/ContactReceived.php | — | ~318 |
+| 23:11 | Created app/Mail/ContactAutoReply.php | — | ~263 |
+| 23:11 | Created app/Mail/BookingConfirmation.php | — | ~384 |
+| 23:11 | Created app/Mail/OrderConfirmation.php | — | ~335 |
+| 23:11 | Created app/Mail/PaymentSuccessEmail.php | — | ~410 |
+| 23:12 | Created app/Mail/SubscriberWelcome.php | — | ~202 |
+| 23:12 | Created app/Mail/WelcomeEmail.php | — | ~264 |
+| 23:12 | Created app/Mail/ResetPasswordEmail.php | — | ~257 |
+| 23:15 | Email Templates system: DB table, seeder 8 templates, renderer service, API, admin UI list+edit, updated all 8 Mailables | email_templates table, app/Mail/*, resources/js/admin/views/EmailTemplates/* | build OK | ~3000 |
+| 23:15 | Session end: 174 writes across 66 files (header.blade.php, 2026_05_22_083218_migrate_translatable_fields_to_json.php, RoomController.php, LocaleMiddleware.php, locale-switcher.blade.php) | 71 reads | ~189695 tok |
+| 23:23 | Session end: 174 writes across 66 files (header.blade.php, 2026_05_22_083218_migrate_translatable_fields_to_json.php, RoomController.php, LocaleMiddleware.php, locale-switcher.blade.php) | 71 reads | ~189695 tok |
+| 23:26 | Session end: 174 writes across 66 files (header.blade.php, 2026_05_22_083218_migrate_translatable_fields_to_json.php, RoomController.php, LocaleMiddleware.php, locale-switcher.blade.php) | 71 reads | ~189695 tok |
+| 23:30 | Created resources/js/admin/views/Settings/SettingsView.vue | — | ~1765 |
+| 23:31 | Created resources/js/admin/views/EmailTemplates/EmailTemplatesView.vue | — | ~2824 |
+| 23:31 | Session end: 176 writes across 66 files (header.blade.php, 2026_05_22_083218_migrate_translatable_fields_to_json.php, RoomController.php, LocaleMiddleware.php, locale-switcher.blade.php) | 72 reads | ~195352 tok |
