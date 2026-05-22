@@ -50,7 +50,8 @@
     "welcome_back": "欢迎回来",
     "admin_panel": "管理面板",
     "translations": "翻译",
-    "users": "用户管理"
+    "users": "用户管理",
+    "email_templates": "邮件模板"
   },
   "translations": {
     "tab_label": "翻译",

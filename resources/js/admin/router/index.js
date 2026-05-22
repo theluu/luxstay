@@ -25,6 +25,8 @@ import FooterView       from '../views/Footer/FooterView.vue'
 import PaymentTransactionsView from '../views/Payments/PaymentTransactionsView.vue'
 import TranslationsView from '../views/Translations/TranslationsView.vue'
 import UsersView from '../views/Users/UsersView.vue'
+import EmailTemplatesView    from '../views/EmailTemplates/EmailTemplatesView.vue'
+import EmailTemplateEditView from '../views/EmailTemplates/EmailTemplateEditView.vue'
 
 const routes = [
     { path: '/admin/login',                  component: LoginView,       meta: { public: true } },
@@ -55,6 +57,8 @@ const routes = [
     { path: '/admin/payment-transactions',    component: PaymentTransactionsView },
     { path: '/admin/translations', component: TranslationsView },
     { path: '/admin/users', component: UsersView },
+    { path: '/admin/email-templates',            component: EmailTemplatesView    },
+    { path: '/admin/email-templates/:key/edit',  component: EmailTemplateEditView },
 ]
 
 const router = createRouter({

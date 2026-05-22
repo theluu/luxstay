@@ -190,8 +190,9 @@ const navGroups = computed(() => [
     { to: '/admin/subscribers', label: t('nav.subscribers'), icon: icons.bell },
   ] },
   { key: 'system', label: t('nav.group_system'), links: [
-    { to: '/admin/menu',     label: t('nav.menu'),     icon: icons.menu },
-    { to: '/admin/settings', label: t('nav.settings'), icon: icons.cog },
+    { to: '/admin/menu',             label: t('nav.menu'),             icon: icons.menu },
+    { to: '/admin/email-templates',  label: t('nav.email_templates'),  icon: icons.mail },
+    { to: '/admin/settings',         label: t('nav.settings'),         icon: icons.cog },
   ] },
 ])
 

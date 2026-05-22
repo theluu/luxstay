@@ -50,7 +50,8 @@
     "welcome_back": "Welcome back",
     "admin_panel": "Admin panel",
     "translations": "Translations",
-    "users": "Users"
+    "users": "Users",
+    "email_templates": "Email Templates"
   },
   "translations": {
     "tab_label": "Translations",
